@@ -2134,6 +2134,82 @@ func (x *InteractionCreateEvent) GetPayload() *InteractionCreateEvent_Payload {
 	return nil
 }
 
+type EventResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+}
+
+func (x *EventResponse) Reset() {
+	*x = EventResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_discord_v1_event_proto_msgTypes[37]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *EventResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EventResponse) ProtoMessage() {}
+
+func (x *EventResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_discord_v1_event_proto_msgTypes[37]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EventResponse.ProtoReflect.Descriptor instead.
+func (*EventResponse) Descriptor() ([]byte, []int) {
+	return file_discord_v1_event_proto_rawDescGZIP(), []int{37}
+}
+
+type InteractionResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+}
+
+func (x *InteractionResponse) Reset() {
+	*x = InteractionResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_discord_v1_event_proto_msgTypes[38]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *InteractionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*InteractionResponse) ProtoMessage() {}
+
+func (x *InteractionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_discord_v1_event_proto_msgTypes[38]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use InteractionResponse.ProtoReflect.Descriptor instead.
+func (*InteractionResponse) Descriptor() ([]byte, []int) {
+	return file_discord_v1_event_proto_rawDescGZIP(), []int{38}
+}
+
 type ChannelPinsUpdateEvent_Payload struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -2147,7 +2223,7 @@ type ChannelPinsUpdateEvent_Payload struct {
 func (x *ChannelPinsUpdateEvent_Payload) Reset() {
 	*x = ChannelPinsUpdateEvent_Payload{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_discord_v1_event_proto_msgTypes[37]
+		mi := &file_discord_v1_event_proto_msgTypes[39]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2160,7 +2236,7 @@ func (x *ChannelPinsUpdateEvent_Payload) String() string {
 func (*ChannelPinsUpdateEvent_Payload) ProtoMessage() {}
 
 func (x *ChannelPinsUpdateEvent_Payload) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_event_proto_msgTypes[37]
+	mi := &file_discord_v1_event_proto_msgTypes[39]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2210,7 +2286,7 @@ type MessageDeleteEvent_Payload struct {
 func (x *MessageDeleteEvent_Payload) Reset() {
 	*x = MessageDeleteEvent_Payload{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_discord_v1_event_proto_msgTypes[38]
+		mi := &file_discord_v1_event_proto_msgTypes[40]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2223,7 +2299,7 @@ func (x *MessageDeleteEvent_Payload) String() string {
 func (*MessageDeleteEvent_Payload) ProtoMessage() {}
 
 func (x *MessageDeleteEvent_Payload) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_event_proto_msgTypes[38]
+	mi := &file_discord_v1_event_proto_msgTypes[40]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2273,7 +2349,7 @@ type MessageDeleteBulkEvent_Payload struct {
 func (x *MessageDeleteBulkEvent_Payload) Reset() {
 	*x = MessageDeleteBulkEvent_Payload{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_discord_v1_event_proto_msgTypes[39]
+		mi := &file_discord_v1_event_proto_msgTypes[41]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2286,7 +2362,7 @@ func (x *MessageDeleteBulkEvent_Payload) String() string {
 func (*MessageDeleteBulkEvent_Payload) ProtoMessage() {}
 
 func (x *MessageDeleteBulkEvent_Payload) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_event_proto_msgTypes[39]
+	mi := &file_discord_v1_event_proto_msgTypes[41]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2338,7 +2414,7 @@ type MessageReactionAddEvent_Payload struct {
 func (x *MessageReactionAddEvent_Payload) Reset() {
 	*x = MessageReactionAddEvent_Payload{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_discord_v1_event_proto_msgTypes[40]
+		mi := &file_discord_v1_event_proto_msgTypes[42]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2351,7 +2427,7 @@ func (x *MessageReactionAddEvent_Payload) String() string {
 func (*MessageReactionAddEvent_Payload) ProtoMessage() {}
 
 func (x *MessageReactionAddEvent_Payload) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_event_proto_msgTypes[40]
+	mi := &file_discord_v1_event_proto_msgTypes[42]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2417,7 +2493,7 @@ type MessageReactionRemoveEvent_Payload struct {
 func (x *MessageReactionRemoveEvent_Payload) Reset() {
 	*x = MessageReactionRemoveEvent_Payload{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_discord_v1_event_proto_msgTypes[41]
+		mi := &file_discord_v1_event_proto_msgTypes[43]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2430,7 +2506,7 @@ func (x *MessageReactionRemoveEvent_Payload) String() string {
 func (*MessageReactionRemoveEvent_Payload) ProtoMessage() {}
 
 func (x *MessageReactionRemoveEvent_Payload) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_event_proto_msgTypes[41]
+	mi := &file_discord_v1_event_proto_msgTypes[43]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2494,7 +2570,7 @@ type MessageReactionRemoveAllEvent_Payload struct {
 func (x *MessageReactionRemoveAllEvent_Payload) Reset() {
 	*x = MessageReactionRemoveAllEvent_Payload{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_discord_v1_event_proto_msgTypes[42]
+		mi := &file_discord_v1_event_proto_msgTypes[44]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2507,7 +2583,7 @@ func (x *MessageReactionRemoveAllEvent_Payload) String() string {
 func (*MessageReactionRemoveAllEvent_Payload) ProtoMessage() {}
 
 func (x *MessageReactionRemoveAllEvent_Payload) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_event_proto_msgTypes[42]
+	mi := &file_discord_v1_event_proto_msgTypes[44]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2558,7 +2634,7 @@ type MessageReactionRemoveEmojiEvent_Payload struct {
 func (x *MessageReactionRemoveEmojiEvent_Payload) Reset() {
 	*x = MessageReactionRemoveEmojiEvent_Payload{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_discord_v1_event_proto_msgTypes[43]
+		mi := &file_discord_v1_event_proto_msgTypes[45]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2571,7 +2647,7 @@ func (x *MessageReactionRemoveEmojiEvent_Payload) String() string {
 func (*MessageReactionRemoveEmojiEvent_Payload) ProtoMessage() {}
 
 func (x *MessageReactionRemoveEmojiEvent_Payload) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_event_proto_msgTypes[43]
+	mi := &file_discord_v1_event_proto_msgTypes[45]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2629,7 +2705,7 @@ type TypingStartEvent_Payload struct {
 func (x *TypingStartEvent_Payload) Reset() {
 	*x = TypingStartEvent_Payload{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_discord_v1_event_proto_msgTypes[44]
+		mi := &file_discord_v1_event_proto_msgTypes[46]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2642,7 +2718,7 @@ func (x *TypingStartEvent_Payload) String() string {
 func (*TypingStartEvent_Payload) ProtoMessage() {}
 
 func (x *TypingStartEvent_Payload) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_event_proto_msgTypes[44]
+	mi := &file_discord_v1_event_proto_msgTypes[46]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2699,7 +2775,7 @@ type VoiceServerUpdateEvent_Payload struct {
 func (x *VoiceServerUpdateEvent_Payload) Reset() {
 	*x = VoiceServerUpdateEvent_Payload{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_discord_v1_event_proto_msgTypes[45]
+		mi := &file_discord_v1_event_proto_msgTypes[47]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2712,7 +2788,7 @@ func (x *VoiceServerUpdateEvent_Payload) String() string {
 func (*VoiceServerUpdateEvent_Payload) ProtoMessage() {}
 
 func (x *VoiceServerUpdateEvent_Payload) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_event_proto_msgTypes[45]
+	mi := &file_discord_v1_event_proto_msgTypes[47]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2762,7 +2838,7 @@ type InviteDeleteEvent_Payload struct {
 func (x *InviteDeleteEvent_Payload) Reset() {
 	*x = InviteDeleteEvent_Payload{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_discord_v1_event_proto_msgTypes[46]
+		mi := &file_discord_v1_event_proto_msgTypes[48]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2775,7 +2851,7 @@ func (x *InviteDeleteEvent_Payload) String() string {
 func (*InviteDeleteEvent_Payload) ProtoMessage() {}
 
 func (x *InviteDeleteEvent_Payload) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_event_proto_msgTypes[46]
+	mi := &file_discord_v1_event_proto_msgTypes[48]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2824,7 +2900,7 @@ type GuildBanAddEvent_Payload struct {
 func (x *GuildBanAddEvent_Payload) Reset() {
 	*x = GuildBanAddEvent_Payload{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_discord_v1_event_proto_msgTypes[47]
+		mi := &file_discord_v1_event_proto_msgTypes[49]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2837,7 +2913,7 @@ func (x *GuildBanAddEvent_Payload) String() string {
 func (*GuildBanAddEvent_Payload) ProtoMessage() {}
 
 func (x *GuildBanAddEvent_Payload) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_event_proto_msgTypes[47]
+	mi := &file_discord_v1_event_proto_msgTypes[49]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2879,7 +2955,7 @@ type GuildBanRemoveEvent_Payload struct {
 func (x *GuildBanRemoveEvent_Payload) Reset() {
 	*x = GuildBanRemoveEvent_Payload{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_discord_v1_event_proto_msgTypes[48]
+		mi := &file_discord_v1_event_proto_msgTypes[50]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2892,7 +2968,7 @@ func (x *GuildBanRemoveEvent_Payload) String() string {
 func (*GuildBanRemoveEvent_Payload) ProtoMessage() {}
 
 func (x *GuildBanRemoveEvent_Payload) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_event_proto_msgTypes[48]
+	mi := &file_discord_v1_event_proto_msgTypes[50]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2934,7 +3010,7 @@ type GuildEmojisUpdateEvent_Payload struct {
 func (x *GuildEmojisUpdateEvent_Payload) Reset() {
 	*x = GuildEmojisUpdateEvent_Payload{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_discord_v1_event_proto_msgTypes[49]
+		mi := &file_discord_v1_event_proto_msgTypes[51]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2947,7 +3023,7 @@ func (x *GuildEmojisUpdateEvent_Payload) String() string {
 func (*GuildEmojisUpdateEvent_Payload) ProtoMessage() {}
 
 func (x *GuildEmojisUpdateEvent_Payload) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_event_proto_msgTypes[49]
+	mi := &file_discord_v1_event_proto_msgTypes[51]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2988,7 +3064,7 @@ type GuildIntegrationsUpdateEvent_Payload struct {
 func (x *GuildIntegrationsUpdateEvent_Payload) Reset() {
 	*x = GuildIntegrationsUpdateEvent_Payload{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_discord_v1_event_proto_msgTypes[50]
+		mi := &file_discord_v1_event_proto_msgTypes[52]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3001,7 +3077,7 @@ func (x *GuildIntegrationsUpdateEvent_Payload) String() string {
 func (*GuildIntegrationsUpdateEvent_Payload) ProtoMessage() {}
 
 func (x *GuildIntegrationsUpdateEvent_Payload) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_event_proto_msgTypes[50]
+	mi := &file_discord_v1_event_proto_msgTypes[52]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3035,7 +3111,7 @@ type WebhooksUpdateEvent_Payload struct {
 func (x *WebhooksUpdateEvent_Payload) Reset() {
 	*x = WebhooksUpdateEvent_Payload{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_discord_v1_event_proto_msgTypes[51]
+		mi := &file_discord_v1_event_proto_msgTypes[53]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3048,7 +3124,7 @@ func (x *WebhooksUpdateEvent_Payload) String() string {
 func (*WebhooksUpdateEvent_Payload) ProtoMessage() {}
 
 func (x *WebhooksUpdateEvent_Payload) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_event_proto_msgTypes[51]
+	mi := &file_discord_v1_event_proto_msgTypes[53]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3082,7 +3158,7 @@ type IntegrationCreateEvent_Payload struct {
 func (x *IntegrationCreateEvent_Payload) Reset() {
 	*x = IntegrationCreateEvent_Payload{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_discord_v1_event_proto_msgTypes[52]
+		mi := &file_discord_v1_event_proto_msgTypes[54]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3095,7 +3171,7 @@ func (x *IntegrationCreateEvent_Payload) String() string {
 func (*IntegrationCreateEvent_Payload) ProtoMessage() {}
 
 func (x *IntegrationCreateEvent_Payload) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_event_proto_msgTypes[52]
+	mi := &file_discord_v1_event_proto_msgTypes[54]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3129,7 +3205,7 @@ type IntegrationUpdateEvent_Payload struct {
 func (x *IntegrationUpdateEvent_Payload) Reset() {
 	*x = IntegrationUpdateEvent_Payload{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_discord_v1_event_proto_msgTypes[53]
+		mi := &file_discord_v1_event_proto_msgTypes[55]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3142,7 +3218,7 @@ func (x *IntegrationUpdateEvent_Payload) String() string {
 func (*IntegrationUpdateEvent_Payload) ProtoMessage() {}
 
 func (x *IntegrationUpdateEvent_Payload) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_event_proto_msgTypes[53]
+	mi := &file_discord_v1_event_proto_msgTypes[55]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3176,7 +3252,7 @@ type IntegrationDeleteEvent_Payload struct {
 func (x *IntegrationDeleteEvent_Payload) Reset() {
 	*x = IntegrationDeleteEvent_Payload{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_discord_v1_event_proto_msgTypes[54]
+		mi := &file_discord_v1_event_proto_msgTypes[56]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3189,7 +3265,7 @@ func (x *IntegrationDeleteEvent_Payload) String() string {
 func (*IntegrationDeleteEvent_Payload) ProtoMessage() {}
 
 func (x *IntegrationDeleteEvent_Payload) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_event_proto_msgTypes[54]
+	mi := &file_discord_v1_event_proto_msgTypes[56]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3223,7 +3299,7 @@ type InteractionCreateEvent_Payload struct {
 func (x *InteractionCreateEvent_Payload) Reset() {
 	*x = InteractionCreateEvent_Payload{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_discord_v1_event_proto_msgTypes[55]
+		mi := &file_discord_v1_event_proto_msgTypes[57]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3236,7 +3312,7 @@ func (x *InteractionCreateEvent_Payload) String() string {
 func (*InteractionCreateEvent_Payload) ProtoMessage() {}
 
 func (x *InteractionCreateEvent_Payload) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_event_proto_msgTypes[55]
+	mi := &file_discord_v1_event_proto_msgTypes[57]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3798,14 +3874,16 @@ var file_discord_v1_event_proto_rawDesc = []byte{
 	0x52, 0x07, 0x70, 0x61, 0x79, 0x6c, 0x6f, 0x61, 0x64, 0x1a, 0x28, 0x0a, 0x07, 0x50, 0x61, 0x79,
 	0x6c, 0x6f, 0x61, 0x64, 0x12, 0x1d, 0x0a, 0x08, 0x67, 0x75, 0x69, 0x6c, 0x64, 0x5f, 0x69, 0x64,
 	0x18, 0x01, 0x20, 0x01, 0x28, 0x10, 0x42, 0x02, 0x30, 0x01, 0x52, 0x07, 0x67, 0x75, 0x69, 0x6c,
-	0x64, 0x49, 0x64, 0x42, 0x64, 0x0a, 0x20, 0x62, 0x6f, 0x74, 0x2e, 0x70, 0x79, 0x6c, 0x6f, 0x6e,
-	0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x64, 0x69, 0x73, 0x63, 0x6f, 0x72, 0x64, 0x2e, 0x76,
-	0x31, 0x2e, 0x65, 0x76, 0x65, 0x6e, 0x74, 0x50, 0x01, 0x5a, 0x3e, 0x67, 0x69, 0x74, 0x68, 0x75,
-	0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x70, 0x79, 0x6c, 0x6f, 0x6e, 0x62, 0x6f, 0x74, 0x2f, 0x70,
-	0x79, 0x6c, 0x6f, 0x6e, 0x2d, 0x67, 0x61, 0x74, 0x65, 0x77, 0x61, 0x79, 0x2d, 0x70, 0x72, 0x6f,
-	0x74, 0x6f, 0x62, 0x75, 0x66, 0x2d, 0x67, 0x6f, 0x2f, 0x64, 0x69, 0x73, 0x63, 0x6f, 0x72, 0x64,
-	0x2f, 0x76, 0x31, 0x2f, 0x65, 0x76, 0x65, 0x6e, 0x74, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f,
-	0x33,
+	0x64, 0x49, 0x64, 0x22, 0x0f, 0x0a, 0x0d, 0x45, 0x76, 0x65, 0x6e, 0x74, 0x52, 0x65, 0x73, 0x70,
+	0x6f, 0x6e, 0x73, 0x65, 0x22, 0x15, 0x0a, 0x13, 0x49, 0x6e, 0x74, 0x65, 0x72, 0x61, 0x63, 0x74,
+	0x69, 0x6f, 0x6e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x42, 0x64, 0x0a, 0x20, 0x62,
+	0x6f, 0x74, 0x2e, 0x70, 0x79, 0x6c, 0x6f, 0x6e, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x64,
+	0x69, 0x73, 0x63, 0x6f, 0x72, 0x64, 0x2e, 0x76, 0x31, 0x2e, 0x65, 0x76, 0x65, 0x6e, 0x74, 0x50,
+	0x01, 0x5a, 0x3e, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x70, 0x79,
+	0x6c, 0x6f, 0x6e, 0x62, 0x6f, 0x74, 0x2f, 0x70, 0x79, 0x6c, 0x6f, 0x6e, 0x2d, 0x67, 0x61, 0x74,
+	0x65, 0x77, 0x61, 0x79, 0x2d, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x2d, 0x67, 0x6f,
+	0x2f, 0x64, 0x69, 0x73, 0x63, 0x6f, 0x72, 0x64, 0x2f, 0x76, 0x31, 0x2f, 0x65, 0x76, 0x65, 0x6e,
+	0x74, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -3820,7 +3898,7 @@ func file_discord_v1_event_proto_rawDescGZIP() []byte {
 	return file_discord_v1_event_proto_rawDescData
 }
 
-var file_discord_v1_event_proto_msgTypes = make([]protoimpl.MessageInfo, 56)
+var file_discord_v1_event_proto_msgTypes = make([]protoimpl.MessageInfo, 58)
 var file_discord_v1_event_proto_goTypes = []interface{}{
 	(*EventScope)(nil),                                 // 0: pylon.discord.v1.event.EventScope
 	(*GuildCreateEvent)(nil),                           // 1: pylon.discord.v1.event.GuildCreateEvent
@@ -3859,129 +3937,131 @@ var file_discord_v1_event_proto_goTypes = []interface{}{
 	(*IntegrationUpdateEvent)(nil),                     // 34: pylon.discord.v1.event.IntegrationUpdateEvent
 	(*IntegrationDeleteEvent)(nil),                     // 35: pylon.discord.v1.event.IntegrationDeleteEvent
 	(*InteractionCreateEvent)(nil),                     // 36: pylon.discord.v1.event.InteractionCreateEvent
-	(*ChannelPinsUpdateEvent_Payload)(nil),             // 37: pylon.discord.v1.event.ChannelPinsUpdateEvent.Payload
-	(*MessageDeleteEvent_Payload)(nil),                 // 38: pylon.discord.v1.event.MessageDeleteEvent.Payload
-	(*MessageDeleteBulkEvent_Payload)(nil),             // 39: pylon.discord.v1.event.MessageDeleteBulkEvent.Payload
-	(*MessageReactionAddEvent_Payload)(nil),            // 40: pylon.discord.v1.event.MessageReactionAddEvent.Payload
-	(*MessageReactionRemoveEvent_Payload)(nil),         // 41: pylon.discord.v1.event.MessageReactionRemoveEvent.Payload
-	(*MessageReactionRemoveAllEvent_Payload)(nil),      // 42: pylon.discord.v1.event.MessageReactionRemoveAllEvent.Payload
-	(*MessageReactionRemoveEmojiEvent_Payload)(nil),    // 43: pylon.discord.v1.event.MessageReactionRemoveEmojiEvent.Payload
-	(*TypingStartEvent_Payload)(nil),                   // 44: pylon.discord.v1.event.TypingStartEvent.Payload
-	(*VoiceServerUpdateEvent_Payload)(nil),             // 45: pylon.discord.v1.event.VoiceServerUpdateEvent.Payload
-	(*InviteDeleteEvent_Payload)(nil),                  // 46: pylon.discord.v1.event.InviteDeleteEvent.Payload
-	(*GuildBanAddEvent_Payload)(nil),                   // 47: pylon.discord.v1.event.GuildBanAddEvent.Payload
-	(*GuildBanRemoveEvent_Payload)(nil),                // 48: pylon.discord.v1.event.GuildBanRemoveEvent.Payload
-	(*GuildEmojisUpdateEvent_Payload)(nil),             // 49: pylon.discord.v1.event.GuildEmojisUpdateEvent.Payload
-	(*GuildIntegrationsUpdateEvent_Payload)(nil),       // 50: pylon.discord.v1.event.GuildIntegrationsUpdateEvent.Payload
-	(*WebhooksUpdateEvent_Payload)(nil),                // 51: pylon.discord.v1.event.WebhooksUpdateEvent.Payload
-	(*IntegrationCreateEvent_Payload)(nil),             // 52: pylon.discord.v1.event.IntegrationCreateEvent.Payload
-	(*IntegrationUpdateEvent_Payload)(nil),             // 53: pylon.discord.v1.event.IntegrationUpdateEvent.Payload
-	(*IntegrationDeleteEvent_Payload)(nil),             // 54: pylon.discord.v1.event.IntegrationDeleteEvent.Payload
-	(*InteractionCreateEvent_Payload)(nil),             // 55: pylon.discord.v1.event.InteractionCreateEvent.Payload
-	(*model.GuildData)(nil),                            // 56: pylon.discord.v1.model.GuildData
-	(*model.PresenceData)(nil),                         // 57: pylon.discord.v1.model.PresenceData
-	(*model.MemberData)(nil),                           // 58: pylon.discord.v1.model.MemberData
-	(*model.ChannelData)(nil),                          // 59: pylon.discord.v1.model.ChannelData
-	(*model.RoleData)(nil),                             // 60: pylon.discord.v1.model.RoleData
-	(*model.MessageData)(nil),                          // 61: pylon.discord.v1.model.MessageData
-	(*model.VoiceStateData)(nil),                       // 62: pylon.discord.v1.model.VoiceStateData
-	(*model.InviteData)(nil),                           // 63: pylon.discord.v1.model.InviteData
-	(*timestamp.Timestamp)(nil),                        // 64: google.protobuf.Timestamp
-	(*model.MessageData_MessageReactionEmojiData)(nil), // 65: pylon.discord.v1.model.MessageData.MessageReactionEmojiData
-	(*model.UserData)(nil),                             // 66: pylon.discord.v1.model.UserData
-	(*model.EmojiData)(nil),                            // 67: pylon.discord.v1.model.EmojiData
+	(*EventResponse)(nil),                              // 37: pylon.discord.v1.event.EventResponse
+	(*InteractionResponse)(nil),                        // 38: pylon.discord.v1.event.InteractionResponse
+	(*ChannelPinsUpdateEvent_Payload)(nil),             // 39: pylon.discord.v1.event.ChannelPinsUpdateEvent.Payload
+	(*MessageDeleteEvent_Payload)(nil),                 // 40: pylon.discord.v1.event.MessageDeleteEvent.Payload
+	(*MessageDeleteBulkEvent_Payload)(nil),             // 41: pylon.discord.v1.event.MessageDeleteBulkEvent.Payload
+	(*MessageReactionAddEvent_Payload)(nil),            // 42: pylon.discord.v1.event.MessageReactionAddEvent.Payload
+	(*MessageReactionRemoveEvent_Payload)(nil),         // 43: pylon.discord.v1.event.MessageReactionRemoveEvent.Payload
+	(*MessageReactionRemoveAllEvent_Payload)(nil),      // 44: pylon.discord.v1.event.MessageReactionRemoveAllEvent.Payload
+	(*MessageReactionRemoveEmojiEvent_Payload)(nil),    // 45: pylon.discord.v1.event.MessageReactionRemoveEmojiEvent.Payload
+	(*TypingStartEvent_Payload)(nil),                   // 46: pylon.discord.v1.event.TypingStartEvent.Payload
+	(*VoiceServerUpdateEvent_Payload)(nil),             // 47: pylon.discord.v1.event.VoiceServerUpdateEvent.Payload
+	(*InviteDeleteEvent_Payload)(nil),                  // 48: pylon.discord.v1.event.InviteDeleteEvent.Payload
+	(*GuildBanAddEvent_Payload)(nil),                   // 49: pylon.discord.v1.event.GuildBanAddEvent.Payload
+	(*GuildBanRemoveEvent_Payload)(nil),                // 50: pylon.discord.v1.event.GuildBanRemoveEvent.Payload
+	(*GuildEmojisUpdateEvent_Payload)(nil),             // 51: pylon.discord.v1.event.GuildEmojisUpdateEvent.Payload
+	(*GuildIntegrationsUpdateEvent_Payload)(nil),       // 52: pylon.discord.v1.event.GuildIntegrationsUpdateEvent.Payload
+	(*WebhooksUpdateEvent_Payload)(nil),                // 53: pylon.discord.v1.event.WebhooksUpdateEvent.Payload
+	(*IntegrationCreateEvent_Payload)(nil),             // 54: pylon.discord.v1.event.IntegrationCreateEvent.Payload
+	(*IntegrationUpdateEvent_Payload)(nil),             // 55: pylon.discord.v1.event.IntegrationUpdateEvent.Payload
+	(*IntegrationDeleteEvent_Payload)(nil),             // 56: pylon.discord.v1.event.IntegrationDeleteEvent.Payload
+	(*InteractionCreateEvent_Payload)(nil),             // 57: pylon.discord.v1.event.InteractionCreateEvent.Payload
+	(*model.GuildData)(nil),                            // 58: pylon.discord.v1.model.GuildData
+	(*model.PresenceData)(nil),                         // 59: pylon.discord.v1.model.PresenceData
+	(*model.MemberData)(nil),                           // 60: pylon.discord.v1.model.MemberData
+	(*model.ChannelData)(nil),                          // 61: pylon.discord.v1.model.ChannelData
+	(*model.RoleData)(nil),                             // 62: pylon.discord.v1.model.RoleData
+	(*model.MessageData)(nil),                          // 63: pylon.discord.v1.model.MessageData
+	(*model.VoiceStateData)(nil),                       // 64: pylon.discord.v1.model.VoiceStateData
+	(*model.InviteData)(nil),                           // 65: pylon.discord.v1.model.InviteData
+	(*timestamp.Timestamp)(nil),                        // 66: google.protobuf.Timestamp
+	(*model.MessageData_MessageReactionEmojiData)(nil), // 67: pylon.discord.v1.model.MessageData.MessageReactionEmojiData
+	(*model.UserData)(nil),                             // 68: pylon.discord.v1.model.UserData
+	(*model.EmojiData)(nil),                            // 69: pylon.discord.v1.model.EmojiData
 }
 var file_discord_v1_event_proto_depIdxs = []int32{
 	0,  // 0: pylon.discord.v1.event.GuildCreateEvent.scope:type_name -> pylon.discord.v1.event.EventScope
-	56, // 1: pylon.discord.v1.event.GuildCreateEvent.payload:type_name -> pylon.discord.v1.model.GuildData
+	58, // 1: pylon.discord.v1.event.GuildCreateEvent.payload:type_name -> pylon.discord.v1.model.GuildData
 	0,  // 2: pylon.discord.v1.event.GuildUpdateEvent.scope:type_name -> pylon.discord.v1.event.EventScope
-	56, // 3: pylon.discord.v1.event.GuildUpdateEvent.payload:type_name -> pylon.discord.v1.model.GuildData
-	56, // 4: pylon.discord.v1.event.GuildUpdateEvent.previously_cached:type_name -> pylon.discord.v1.model.GuildData
+	58, // 3: pylon.discord.v1.event.GuildUpdateEvent.payload:type_name -> pylon.discord.v1.model.GuildData
+	58, // 4: pylon.discord.v1.event.GuildUpdateEvent.previously_cached:type_name -> pylon.discord.v1.model.GuildData
 	0,  // 5: pylon.discord.v1.event.GuildDeleteEvent.scope:type_name -> pylon.discord.v1.event.EventScope
-	56, // 6: pylon.discord.v1.event.GuildDeleteEvent.payload:type_name -> pylon.discord.v1.model.GuildData
+	58, // 6: pylon.discord.v1.event.GuildDeleteEvent.payload:type_name -> pylon.discord.v1.model.GuildData
 	0,  // 7: pylon.discord.v1.event.PresenceUpdateEvent.scope:type_name -> pylon.discord.v1.event.EventScope
-	57, // 8: pylon.discord.v1.event.PresenceUpdateEvent.payload:type_name -> pylon.discord.v1.model.PresenceData
-	57, // 9: pylon.discord.v1.event.PresenceUpdateEvent.previously_cached:type_name -> pylon.discord.v1.model.PresenceData
+	59, // 8: pylon.discord.v1.event.PresenceUpdateEvent.payload:type_name -> pylon.discord.v1.model.PresenceData
+	59, // 9: pylon.discord.v1.event.PresenceUpdateEvent.previously_cached:type_name -> pylon.discord.v1.model.PresenceData
 	0,  // 10: pylon.discord.v1.event.GuildMemberAddEvent.scope:type_name -> pylon.discord.v1.event.EventScope
-	58, // 11: pylon.discord.v1.event.GuildMemberAddEvent.payload:type_name -> pylon.discord.v1.model.MemberData
+	60, // 11: pylon.discord.v1.event.GuildMemberAddEvent.payload:type_name -> pylon.discord.v1.model.MemberData
 	0,  // 12: pylon.discord.v1.event.GuildMemberUpdateEvent.scope:type_name -> pylon.discord.v1.event.EventScope
-	58, // 13: pylon.discord.v1.event.GuildMemberUpdateEvent.payload:type_name -> pylon.discord.v1.model.MemberData
-	58, // 14: pylon.discord.v1.event.GuildMemberUpdateEvent.previously_cached:type_name -> pylon.discord.v1.model.MemberData
+	60, // 13: pylon.discord.v1.event.GuildMemberUpdateEvent.payload:type_name -> pylon.discord.v1.model.MemberData
+	60, // 14: pylon.discord.v1.event.GuildMemberUpdateEvent.previously_cached:type_name -> pylon.discord.v1.model.MemberData
 	0,  // 15: pylon.discord.v1.event.GuildMemberRemoveEvent.scope:type_name -> pylon.discord.v1.event.EventScope
-	58, // 16: pylon.discord.v1.event.GuildMemberRemoveEvent.payload:type_name -> pylon.discord.v1.model.MemberData
+	60, // 16: pylon.discord.v1.event.GuildMemberRemoveEvent.payload:type_name -> pylon.discord.v1.model.MemberData
 	0,  // 17: pylon.discord.v1.event.ChannelCreateEvent.scope:type_name -> pylon.discord.v1.event.EventScope
-	59, // 18: pylon.discord.v1.event.ChannelCreateEvent.payload:type_name -> pylon.discord.v1.model.ChannelData
+	61, // 18: pylon.discord.v1.event.ChannelCreateEvent.payload:type_name -> pylon.discord.v1.model.ChannelData
 	0,  // 19: pylon.discord.v1.event.ChannelUpdateEvent.scope:type_name -> pylon.discord.v1.event.EventScope
-	59, // 20: pylon.discord.v1.event.ChannelUpdateEvent.payload:type_name -> pylon.discord.v1.model.ChannelData
-	59, // 21: pylon.discord.v1.event.ChannelUpdateEvent.previously_cached:type_name -> pylon.discord.v1.model.ChannelData
+	61, // 20: pylon.discord.v1.event.ChannelUpdateEvent.payload:type_name -> pylon.discord.v1.model.ChannelData
+	61, // 21: pylon.discord.v1.event.ChannelUpdateEvent.previously_cached:type_name -> pylon.discord.v1.model.ChannelData
 	0,  // 22: pylon.discord.v1.event.ChannelDeleteEvent.scope:type_name -> pylon.discord.v1.event.EventScope
-	59, // 23: pylon.discord.v1.event.ChannelDeleteEvent.payload:type_name -> pylon.discord.v1.model.ChannelData
+	61, // 23: pylon.discord.v1.event.ChannelDeleteEvent.payload:type_name -> pylon.discord.v1.model.ChannelData
 	0,  // 24: pylon.discord.v1.event.ChannelPinsUpdateEvent.scope:type_name -> pylon.discord.v1.event.EventScope
-	37, // 25: pylon.discord.v1.event.ChannelPinsUpdateEvent.payload:type_name -> pylon.discord.v1.event.ChannelPinsUpdateEvent.Payload
+	39, // 25: pylon.discord.v1.event.ChannelPinsUpdateEvent.payload:type_name -> pylon.discord.v1.event.ChannelPinsUpdateEvent.Payload
 	0,  // 26: pylon.discord.v1.event.GuildRoleCreateEvent.scope:type_name -> pylon.discord.v1.event.EventScope
-	60, // 27: pylon.discord.v1.event.GuildRoleCreateEvent.payload:type_name -> pylon.discord.v1.model.RoleData
+	62, // 27: pylon.discord.v1.event.GuildRoleCreateEvent.payload:type_name -> pylon.discord.v1.model.RoleData
 	0,  // 28: pylon.discord.v1.event.GuildRoleUpdateEvent.scope:type_name -> pylon.discord.v1.event.EventScope
-	60, // 29: pylon.discord.v1.event.GuildRoleUpdateEvent.payload:type_name -> pylon.discord.v1.model.RoleData
-	60, // 30: pylon.discord.v1.event.GuildRoleUpdateEvent.previously_cached:type_name -> pylon.discord.v1.model.RoleData
+	62, // 29: pylon.discord.v1.event.GuildRoleUpdateEvent.payload:type_name -> pylon.discord.v1.model.RoleData
+	62, // 30: pylon.discord.v1.event.GuildRoleUpdateEvent.previously_cached:type_name -> pylon.discord.v1.model.RoleData
 	0,  // 31: pylon.discord.v1.event.GuildRoleDeleteEvent.scope:type_name -> pylon.discord.v1.event.EventScope
-	60, // 32: pylon.discord.v1.event.GuildRoleDeleteEvent.payload:type_name -> pylon.discord.v1.model.RoleData
+	62, // 32: pylon.discord.v1.event.GuildRoleDeleteEvent.payload:type_name -> pylon.discord.v1.model.RoleData
 	0,  // 33: pylon.discord.v1.event.MessageCreateEvent.scope:type_name -> pylon.discord.v1.event.EventScope
-	61, // 34: pylon.discord.v1.event.MessageCreateEvent.message:type_name -> pylon.discord.v1.model.MessageData
+	63, // 34: pylon.discord.v1.event.MessageCreateEvent.message:type_name -> pylon.discord.v1.model.MessageData
 	0,  // 35: pylon.discord.v1.event.MessageUpdateEvent.scope:type_name -> pylon.discord.v1.event.EventScope
-	61, // 36: pylon.discord.v1.event.MessageUpdateEvent.payload:type_name -> pylon.discord.v1.model.MessageData
-	61, // 37: pylon.discord.v1.event.MessageUpdateEvent.previously_cached:type_name -> pylon.discord.v1.model.MessageData
+	63, // 36: pylon.discord.v1.event.MessageUpdateEvent.payload:type_name -> pylon.discord.v1.model.MessageData
+	63, // 37: pylon.discord.v1.event.MessageUpdateEvent.previously_cached:type_name -> pylon.discord.v1.model.MessageData
 	0,  // 38: pylon.discord.v1.event.MessageDeleteEvent.scope:type_name -> pylon.discord.v1.event.EventScope
-	38, // 39: pylon.discord.v1.event.MessageDeleteEvent.payload:type_name -> pylon.discord.v1.event.MessageDeleteEvent.Payload
-	61, // 40: pylon.discord.v1.event.MessageDeleteEvent.previously_cached:type_name -> pylon.discord.v1.model.MessageData
+	40, // 39: pylon.discord.v1.event.MessageDeleteEvent.payload:type_name -> pylon.discord.v1.event.MessageDeleteEvent.Payload
+	63, // 40: pylon.discord.v1.event.MessageDeleteEvent.previously_cached:type_name -> pylon.discord.v1.model.MessageData
 	0,  // 41: pylon.discord.v1.event.MessageDeleteBulkEvent.scope:type_name -> pylon.discord.v1.event.EventScope
-	39, // 42: pylon.discord.v1.event.MessageDeleteBulkEvent.payload:type_name -> pylon.discord.v1.event.MessageDeleteBulkEvent.Payload
+	41, // 42: pylon.discord.v1.event.MessageDeleteBulkEvent.payload:type_name -> pylon.discord.v1.event.MessageDeleteBulkEvent.Payload
 	0,  // 43: pylon.discord.v1.event.MessageReactionAddEvent.scope:type_name -> pylon.discord.v1.event.EventScope
-	40, // 44: pylon.discord.v1.event.MessageReactionAddEvent.payload:type_name -> pylon.discord.v1.event.MessageReactionAddEvent.Payload
+	42, // 44: pylon.discord.v1.event.MessageReactionAddEvent.payload:type_name -> pylon.discord.v1.event.MessageReactionAddEvent.Payload
 	0,  // 45: pylon.discord.v1.event.MessageReactionRemoveEvent.scope:type_name -> pylon.discord.v1.event.EventScope
-	41, // 46: pylon.discord.v1.event.MessageReactionRemoveEvent.payload:type_name -> pylon.discord.v1.event.MessageReactionRemoveEvent.Payload
+	43, // 46: pylon.discord.v1.event.MessageReactionRemoveEvent.payload:type_name -> pylon.discord.v1.event.MessageReactionRemoveEvent.Payload
 	0,  // 47: pylon.discord.v1.event.MessageReactionRemoveAllEvent.scope:type_name -> pylon.discord.v1.event.EventScope
-	42, // 48: pylon.discord.v1.event.MessageReactionRemoveAllEvent.payload:type_name -> pylon.discord.v1.event.MessageReactionRemoveAllEvent.Payload
+	44, // 48: pylon.discord.v1.event.MessageReactionRemoveAllEvent.payload:type_name -> pylon.discord.v1.event.MessageReactionRemoveAllEvent.Payload
 	0,  // 49: pylon.discord.v1.event.MessageReactionRemoveEmojiEvent.scope:type_name -> pylon.discord.v1.event.EventScope
-	43, // 50: pylon.discord.v1.event.MessageReactionRemoveEmojiEvent.payload:type_name -> pylon.discord.v1.event.MessageReactionRemoveEmojiEvent.Payload
+	45, // 50: pylon.discord.v1.event.MessageReactionRemoveEmojiEvent.payload:type_name -> pylon.discord.v1.event.MessageReactionRemoveEmojiEvent.Payload
 	0,  // 51: pylon.discord.v1.event.TypingStartEvent.scope:type_name -> pylon.discord.v1.event.EventScope
-	44, // 52: pylon.discord.v1.event.TypingStartEvent.payload:type_name -> pylon.discord.v1.event.TypingStartEvent.Payload
+	46, // 52: pylon.discord.v1.event.TypingStartEvent.payload:type_name -> pylon.discord.v1.event.TypingStartEvent.Payload
 	0,  // 53: pylon.discord.v1.event.VoiceStateUpdateEvent.scope:type_name -> pylon.discord.v1.event.EventScope
-	62, // 54: pylon.discord.v1.event.VoiceStateUpdateEvent.payload:type_name -> pylon.discord.v1.model.VoiceStateData
-	62, // 55: pylon.discord.v1.event.VoiceStateUpdateEvent.previously_cached:type_name -> pylon.discord.v1.model.VoiceStateData
+	64, // 54: pylon.discord.v1.event.VoiceStateUpdateEvent.payload:type_name -> pylon.discord.v1.model.VoiceStateData
+	64, // 55: pylon.discord.v1.event.VoiceStateUpdateEvent.previously_cached:type_name -> pylon.discord.v1.model.VoiceStateData
 	0,  // 56: pylon.discord.v1.event.VoiceServerUpdateEvent.scope:type_name -> pylon.discord.v1.event.EventScope
-	45, // 57: pylon.discord.v1.event.VoiceServerUpdateEvent.payload:type_name -> pylon.discord.v1.event.VoiceServerUpdateEvent.Payload
+	47, // 57: pylon.discord.v1.event.VoiceServerUpdateEvent.payload:type_name -> pylon.discord.v1.event.VoiceServerUpdateEvent.Payload
 	0,  // 58: pylon.discord.v1.event.InviteCreateEvent.scope:type_name -> pylon.discord.v1.event.EventScope
-	63, // 59: pylon.discord.v1.event.InviteCreateEvent.payload:type_name -> pylon.discord.v1.model.InviteData
+	65, // 59: pylon.discord.v1.event.InviteCreateEvent.payload:type_name -> pylon.discord.v1.model.InviteData
 	0,  // 60: pylon.discord.v1.event.InviteDeleteEvent.scope:type_name -> pylon.discord.v1.event.EventScope
-	46, // 61: pylon.discord.v1.event.InviteDeleteEvent.payload:type_name -> pylon.discord.v1.event.InviteDeleteEvent.Payload
+	48, // 61: pylon.discord.v1.event.InviteDeleteEvent.payload:type_name -> pylon.discord.v1.event.InviteDeleteEvent.Payload
 	0,  // 62: pylon.discord.v1.event.GuildBanAddEvent.scope:type_name -> pylon.discord.v1.event.EventScope
-	47, // 63: pylon.discord.v1.event.GuildBanAddEvent.payload:type_name -> pylon.discord.v1.event.GuildBanAddEvent.Payload
+	49, // 63: pylon.discord.v1.event.GuildBanAddEvent.payload:type_name -> pylon.discord.v1.event.GuildBanAddEvent.Payload
 	0,  // 64: pylon.discord.v1.event.GuildBanRemoveEvent.scope:type_name -> pylon.discord.v1.event.EventScope
-	48, // 65: pylon.discord.v1.event.GuildBanRemoveEvent.payload:type_name -> pylon.discord.v1.event.GuildBanRemoveEvent.Payload
+	50, // 65: pylon.discord.v1.event.GuildBanRemoveEvent.payload:type_name -> pylon.discord.v1.event.GuildBanRemoveEvent.Payload
 	0,  // 66: pylon.discord.v1.event.GuildEmojisUpdateEvent.scope:type_name -> pylon.discord.v1.event.EventScope
-	49, // 67: pylon.discord.v1.event.GuildEmojisUpdateEvent.payload:type_name -> pylon.discord.v1.event.GuildEmojisUpdateEvent.Payload
-	49, // 68: pylon.discord.v1.event.GuildEmojisUpdateEvent.previously_cached:type_name -> pylon.discord.v1.event.GuildEmojisUpdateEvent.Payload
+	51, // 67: pylon.discord.v1.event.GuildEmojisUpdateEvent.payload:type_name -> pylon.discord.v1.event.GuildEmojisUpdateEvent.Payload
+	51, // 68: pylon.discord.v1.event.GuildEmojisUpdateEvent.previously_cached:type_name -> pylon.discord.v1.event.GuildEmojisUpdateEvent.Payload
 	0,  // 69: pylon.discord.v1.event.GuildIntegrationsUpdateEvent.scope:type_name -> pylon.discord.v1.event.EventScope
-	50, // 70: pylon.discord.v1.event.GuildIntegrationsUpdateEvent.payload:type_name -> pylon.discord.v1.event.GuildIntegrationsUpdateEvent.Payload
+	52, // 70: pylon.discord.v1.event.GuildIntegrationsUpdateEvent.payload:type_name -> pylon.discord.v1.event.GuildIntegrationsUpdateEvent.Payload
 	0,  // 71: pylon.discord.v1.event.WebhooksUpdateEvent.scope:type_name -> pylon.discord.v1.event.EventScope
-	51, // 72: pylon.discord.v1.event.WebhooksUpdateEvent.payload:type_name -> pylon.discord.v1.event.WebhooksUpdateEvent.Payload
+	53, // 72: pylon.discord.v1.event.WebhooksUpdateEvent.payload:type_name -> pylon.discord.v1.event.WebhooksUpdateEvent.Payload
 	0,  // 73: pylon.discord.v1.event.IntegrationCreateEvent.scope:type_name -> pylon.discord.v1.event.EventScope
-	52, // 74: pylon.discord.v1.event.IntegrationCreateEvent.payload:type_name -> pylon.discord.v1.event.IntegrationCreateEvent.Payload
+	54, // 74: pylon.discord.v1.event.IntegrationCreateEvent.payload:type_name -> pylon.discord.v1.event.IntegrationCreateEvent.Payload
 	0,  // 75: pylon.discord.v1.event.IntegrationUpdateEvent.scope:type_name -> pylon.discord.v1.event.EventScope
-	53, // 76: pylon.discord.v1.event.IntegrationUpdateEvent.payload:type_name -> pylon.discord.v1.event.IntegrationUpdateEvent.Payload
+	55, // 76: pylon.discord.v1.event.IntegrationUpdateEvent.payload:type_name -> pylon.discord.v1.event.IntegrationUpdateEvent.Payload
 	0,  // 77: pylon.discord.v1.event.IntegrationDeleteEvent.scope:type_name -> pylon.discord.v1.event.EventScope
-	54, // 78: pylon.discord.v1.event.IntegrationDeleteEvent.payload:type_name -> pylon.discord.v1.event.IntegrationDeleteEvent.Payload
+	56, // 78: pylon.discord.v1.event.IntegrationDeleteEvent.payload:type_name -> pylon.discord.v1.event.IntegrationDeleteEvent.Payload
 	0,  // 79: pylon.discord.v1.event.InteractionCreateEvent.scope:type_name -> pylon.discord.v1.event.EventScope
-	55, // 80: pylon.discord.v1.event.InteractionCreateEvent.payload:type_name -> pylon.discord.v1.event.InteractionCreateEvent.Payload
-	64, // 81: pylon.discord.v1.event.ChannelPinsUpdateEvent.Payload.last_pin_timestamp:type_name -> google.protobuf.Timestamp
-	65, // 82: pylon.discord.v1.event.MessageReactionAddEvent.Payload.emoji:type_name -> pylon.discord.v1.model.MessageData.MessageReactionEmojiData
-	65, // 83: pylon.discord.v1.event.MessageReactionRemoveEvent.Payload.emoji:type_name -> pylon.discord.v1.model.MessageData.MessageReactionEmojiData
-	65, // 84: pylon.discord.v1.event.MessageReactionRemoveEmojiEvent.Payload.emoji:type_name -> pylon.discord.v1.model.MessageData.MessageReactionEmojiData
-	64, // 85: pylon.discord.v1.event.TypingStartEvent.Payload.timestamp:type_name -> google.protobuf.Timestamp
-	58, // 86: pylon.discord.v1.event.TypingStartEvent.Payload.member:type_name -> pylon.discord.v1.model.MemberData
-	66, // 87: pylon.discord.v1.event.GuildBanAddEvent.Payload.user:type_name -> pylon.discord.v1.model.UserData
-	66, // 88: pylon.discord.v1.event.GuildBanRemoveEvent.Payload.user:type_name -> pylon.discord.v1.model.UserData
-	67, // 89: pylon.discord.v1.event.GuildEmojisUpdateEvent.Payload.emojis:type_name -> pylon.discord.v1.model.EmojiData
+	57, // 80: pylon.discord.v1.event.InteractionCreateEvent.payload:type_name -> pylon.discord.v1.event.InteractionCreateEvent.Payload
+	66, // 81: pylon.discord.v1.event.ChannelPinsUpdateEvent.Payload.last_pin_timestamp:type_name -> google.protobuf.Timestamp
+	67, // 82: pylon.discord.v1.event.MessageReactionAddEvent.Payload.emoji:type_name -> pylon.discord.v1.model.MessageData.MessageReactionEmojiData
+	67, // 83: pylon.discord.v1.event.MessageReactionRemoveEvent.Payload.emoji:type_name -> pylon.discord.v1.model.MessageData.MessageReactionEmojiData
+	67, // 84: pylon.discord.v1.event.MessageReactionRemoveEmojiEvent.Payload.emoji:type_name -> pylon.discord.v1.model.MessageData.MessageReactionEmojiData
+	66, // 85: pylon.discord.v1.event.TypingStartEvent.Payload.timestamp:type_name -> google.protobuf.Timestamp
+	60, // 86: pylon.discord.v1.event.TypingStartEvent.Payload.member:type_name -> pylon.discord.v1.model.MemberData
+	68, // 87: pylon.discord.v1.event.GuildBanAddEvent.Payload.user:type_name -> pylon.discord.v1.model.UserData
+	68, // 88: pylon.discord.v1.event.GuildBanRemoveEvent.Payload.user:type_name -> pylon.discord.v1.model.UserData
+	69, // 89: pylon.discord.v1.event.GuildEmojisUpdateEvent.Payload.emojis:type_name -> pylon.discord.v1.model.EmojiData
 	90, // [90:90] is the sub-list for method output_type
 	90, // [90:90] is the sub-list for method input_type
 	90, // [90:90] is the sub-list for extension type_name
@@ -4440,7 +4520,7 @@ func file_discord_v1_event_proto_init() {
 			}
 		}
 		file_discord_v1_event_proto_msgTypes[37].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*ChannelPinsUpdateEvent_Payload); i {
+			switch v := v.(*EventResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -4452,7 +4532,7 @@ func file_discord_v1_event_proto_init() {
 			}
 		}
 		file_discord_v1_event_proto_msgTypes[38].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MessageDeleteEvent_Payload); i {
+			switch v := v.(*InteractionResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -4464,7 +4544,7 @@ func file_discord_v1_event_proto_init() {
 			}
 		}
 		file_discord_v1_event_proto_msgTypes[39].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MessageDeleteBulkEvent_Payload); i {
+			switch v := v.(*ChannelPinsUpdateEvent_Payload); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -4476,7 +4556,7 @@ func file_discord_v1_event_proto_init() {
 			}
 		}
 		file_discord_v1_event_proto_msgTypes[40].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MessageReactionAddEvent_Payload); i {
+			switch v := v.(*MessageDeleteEvent_Payload); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -4488,7 +4568,7 @@ func file_discord_v1_event_proto_init() {
 			}
 		}
 		file_discord_v1_event_proto_msgTypes[41].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MessageReactionRemoveEvent_Payload); i {
+			switch v := v.(*MessageDeleteBulkEvent_Payload); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -4500,7 +4580,7 @@ func file_discord_v1_event_proto_init() {
 			}
 		}
 		file_discord_v1_event_proto_msgTypes[42].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MessageReactionRemoveAllEvent_Payload); i {
+			switch v := v.(*MessageReactionAddEvent_Payload); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -4512,7 +4592,7 @@ func file_discord_v1_event_proto_init() {
 			}
 		}
 		file_discord_v1_event_proto_msgTypes[43].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MessageReactionRemoveEmojiEvent_Payload); i {
+			switch v := v.(*MessageReactionRemoveEvent_Payload); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -4524,7 +4604,7 @@ func file_discord_v1_event_proto_init() {
 			}
 		}
 		file_discord_v1_event_proto_msgTypes[44].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*TypingStartEvent_Payload); i {
+			switch v := v.(*MessageReactionRemoveAllEvent_Payload); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -4536,7 +4616,7 @@ func file_discord_v1_event_proto_init() {
 			}
 		}
 		file_discord_v1_event_proto_msgTypes[45].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VoiceServerUpdateEvent_Payload); i {
+			switch v := v.(*MessageReactionRemoveEmojiEvent_Payload); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -4548,7 +4628,7 @@ func file_discord_v1_event_proto_init() {
 			}
 		}
 		file_discord_v1_event_proto_msgTypes[46].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*InviteDeleteEvent_Payload); i {
+			switch v := v.(*TypingStartEvent_Payload); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -4560,7 +4640,7 @@ func file_discord_v1_event_proto_init() {
 			}
 		}
 		file_discord_v1_event_proto_msgTypes[47].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*GuildBanAddEvent_Payload); i {
+			switch v := v.(*VoiceServerUpdateEvent_Payload); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -4572,7 +4652,7 @@ func file_discord_v1_event_proto_init() {
 			}
 		}
 		file_discord_v1_event_proto_msgTypes[48].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*GuildBanRemoveEvent_Payload); i {
+			switch v := v.(*InviteDeleteEvent_Payload); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -4584,7 +4664,7 @@ func file_discord_v1_event_proto_init() {
 			}
 		}
 		file_discord_v1_event_proto_msgTypes[49].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*GuildEmojisUpdateEvent_Payload); i {
+			switch v := v.(*GuildBanAddEvent_Payload); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -4596,7 +4676,7 @@ func file_discord_v1_event_proto_init() {
 			}
 		}
 		file_discord_v1_event_proto_msgTypes[50].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*GuildIntegrationsUpdateEvent_Payload); i {
+			switch v := v.(*GuildBanRemoveEvent_Payload); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -4608,7 +4688,7 @@ func file_discord_v1_event_proto_init() {
 			}
 		}
 		file_discord_v1_event_proto_msgTypes[51].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*WebhooksUpdateEvent_Payload); i {
+			switch v := v.(*GuildEmojisUpdateEvent_Payload); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -4620,7 +4700,7 @@ func file_discord_v1_event_proto_init() {
 			}
 		}
 		file_discord_v1_event_proto_msgTypes[52].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*IntegrationCreateEvent_Payload); i {
+			switch v := v.(*GuildIntegrationsUpdateEvent_Payload); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -4632,7 +4712,7 @@ func file_discord_v1_event_proto_init() {
 			}
 		}
 		file_discord_v1_event_proto_msgTypes[53].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*IntegrationUpdateEvent_Payload); i {
+			switch v := v.(*WebhooksUpdateEvent_Payload); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -4644,7 +4724,7 @@ func file_discord_v1_event_proto_init() {
 			}
 		}
 		file_discord_v1_event_proto_msgTypes[54].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*IntegrationDeleteEvent_Payload); i {
+			switch v := v.(*IntegrationCreateEvent_Payload); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -4656,6 +4736,30 @@ func file_discord_v1_event_proto_init() {
 			}
 		}
 		file_discord_v1_event_proto_msgTypes[55].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*IntegrationUpdateEvent_Payload); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_discord_v1_event_proto_msgTypes[56].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*IntegrationDeleteEvent_Payload); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_discord_v1_event_proto_msgTypes[57].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*InteractionCreateEvent_Payload); i {
 			case 0:
 				return &v.state
@@ -4674,7 +4778,7 @@ func file_discord_v1_event_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_discord_v1_event_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   56,
+			NumMessages:   58,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
