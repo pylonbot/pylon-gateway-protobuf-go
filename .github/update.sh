@@ -1,8 +1,9 @@
 #!/bin/bash
 
 echo "> installing protoc"
-go get github.com/golang/protobuf/protoc-gen-go
-go get google.golang.org/protobuf/cmd/protoc-gen-go
+export GO111MODULE=on
+go get google.golang.org/protobuf/cmd/protoc-gen-go \
+    google.golang.org/grpc/cmd/protoc-gen-go-grpc
 
 echo "> removing old directories"
 rm -rf discord

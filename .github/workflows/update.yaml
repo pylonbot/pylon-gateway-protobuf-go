@@ -29,6 +29,8 @@ jobs:
           body: |
             A new release has been generated, please review and merge.
 
+            Action Run: https://github.com/${{github.repository}}/actions/runs/${{github.run_id}}
+
             Version: `${{ github.event.inputs.version }}`
           labels: |
             update
