@@ -1,0 +1,35 @@
+name: Update Code
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version (example: v0.1.0)'
+        required: true
+jobs:
+  update:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+      - name: Setup Golang
+        uses: actions/setup-go@v2
+        with:
+          go-version: '1.15.5'
+      - name: Run Update Script
+        run: ./.github/update.sh
+      - name: Write Version File
+        run: |
+          echo "${{ github.event.inputs.version }}" >| ./VERSION
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          commit-message: Update Generated Code
+          branch: update/${{ github.event.inputs.version }}
+          title: '[update] Update module to ${{ github.event.inputs.version }}'
+          body: |
+            A new release has been generated, please review and merge.
+
+            Version: `${{ github.event.inputs.version }}`
+          labels: |
+            update
+          reviewers: spencersharkey
