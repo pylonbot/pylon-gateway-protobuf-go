@@ -11,7 +11,7 @@ rm -rf gateway
 
 echo "> cloning fresh protos..."
 rm -rf proto
-git clone git@github.com:pylonbot/pylon-gateway-protobuf proto
+git clone https://github.com/pylonbot/pylon-gateway-protobuf.git proto
 
 echo "> generating code"
 protoc -Iproto --go_out=. --go_opt=paths=source_relative \
