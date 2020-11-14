@@ -14,9 +14,12 @@ rm -rf proto
 git clone https://github.com/pylonbot/pylon-gateway-protobuf.git proto
 
 echo "> generating code"
-protoc -Iproto --go_out=. --go_opt=paths=source_relative \
-    --go-grpc_out=. --go-grpc_opt=paths=source_relative \
+protoc -Iproto --go_out=. \
+    --go-grpc_out=. \
     $(find ./ -type f -name "*.proto" | grep -v google)
+
+echo "> re-organizing directories..."
+mv ./github.com/pylonbot/pylon-gateway-protobuf-go/* ./
 
 echo "> go mod tidy"
 go mod tidy
