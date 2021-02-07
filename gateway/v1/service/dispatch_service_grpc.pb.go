@@ -12,7 +12,127 @@ import (
 
 // This is a compile-time assertion to ensure that this generated file
 // is compatible with the grpc package it is being compiled against.
+// Requires gRPC-Go v1.32.0 or later.
 const _ = grpc.SupportPackageIsVersion7
+
+// GatewayDispatchStreamingClient is the client API for GatewayDispatchStreaming service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type GatewayDispatchStreamingClient interface {
+	Event(ctx context.Context, opts ...grpc.CallOption) (GatewayDispatchStreaming_EventClient, error)
+}
+
+type gatewayDispatchStreamingClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewGatewayDispatchStreamingClient(cc grpc.ClientConnInterface) GatewayDispatchStreamingClient {
+	return &gatewayDispatchStreamingClient{cc}
+}
+
+func (c *gatewayDispatchStreamingClient) Event(ctx context.Context, opts ...grpc.CallOption) (GatewayDispatchStreaming_EventClient, error) {
+	stream, err := c.cc.NewStream(ctx, &GatewayDispatchStreaming_ServiceDesc.Streams[0], "/pylon.gateway.v1.service.GatewayDispatchStreaming/Event", opts...)
+	if err != nil {
+		return nil, err
+	}
+	x := &gatewayDispatchStreamingEventClient{stream}
+	return x, nil
+}
+
+type GatewayDispatchStreaming_EventClient interface {
+	Send(*event.EventEnvelope) error
+	Recv() (*event.EventEnvelopeAck, error)
+	grpc.ClientStream
+}
+
+type gatewayDispatchStreamingEventClient struct {
+	grpc.ClientStream
+}
+
+func (x *gatewayDispatchStreamingEventClient) Send(m *event.EventEnvelope) error {
+	return x.ClientStream.SendMsg(m)
+}
+
+func (x *gatewayDispatchStreamingEventClient) Recv() (*event.EventEnvelopeAck, error) {
+	m := new(event.EventEnvelopeAck)
+	if err := x.ClientStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
+}
+
+// GatewayDispatchStreamingServer is the server API for GatewayDispatchStreaming service.
+// All implementations must embed UnimplementedGatewayDispatchStreamingServer
+// for forward compatibility
+type GatewayDispatchStreamingServer interface {
+	Event(GatewayDispatchStreaming_EventServer) error
+	mustEmbedUnimplementedGatewayDispatchStreamingServer()
+}
+
+// UnimplementedGatewayDispatchStreamingServer must be embedded to have forward compatible implementations.
+type UnimplementedGatewayDispatchStreamingServer struct {
+}
+
+func (UnimplementedGatewayDispatchStreamingServer) Event(GatewayDispatchStreaming_EventServer) error {
+	return status.Errorf(codes.Unimplemented, "method Event not implemented")
+}
+func (UnimplementedGatewayDispatchStreamingServer) mustEmbedUnimplementedGatewayDispatchStreamingServer() {
+}
+
+// UnsafeGatewayDispatchStreamingServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to GatewayDispatchStreamingServer will
+// result in compilation errors.
+type UnsafeGatewayDispatchStreamingServer interface {
+	mustEmbedUnimplementedGatewayDispatchStreamingServer()
+}
+
+func RegisterGatewayDispatchStreamingServer(s grpc.ServiceRegistrar, srv GatewayDispatchStreamingServer) {
+	s.RegisterService(&GatewayDispatchStreaming_ServiceDesc, srv)
+}
+
+func _GatewayDispatchStreaming_Event_Handler(srv interface{}, stream grpc.ServerStream) error {
+	return srv.(GatewayDispatchStreamingServer).Event(&gatewayDispatchStreamingEventServer{stream})
+}
+
+type GatewayDispatchStreaming_EventServer interface {
+	Send(*event.EventEnvelopeAck) error
+	Recv() (*event.EventEnvelope, error)
+	grpc.ServerStream
+}
+
+type gatewayDispatchStreamingEventServer struct {
+	grpc.ServerStream
+}
+
+func (x *gatewayDispatchStreamingEventServer) Send(m *event.EventEnvelopeAck) error {
+	return x.ServerStream.SendMsg(m)
+}
+
+func (x *gatewayDispatchStreamingEventServer) Recv() (*event.EventEnvelope, error) {
+	m := new(event.EventEnvelope)
+	if err := x.ServerStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
+}
+
+// GatewayDispatchStreaming_ServiceDesc is the grpc.ServiceDesc for GatewayDispatchStreaming service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var GatewayDispatchStreaming_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "pylon.gateway.v1.service.GatewayDispatchStreaming",
+	HandlerType: (*GatewayDispatchStreamingServer)(nil),
+	Methods:     []grpc.MethodDesc{},
+	Streams: []grpc.StreamDesc{
+		{
+			StreamName:    "Event",
+			Handler:       _GatewayDispatchStreaming_Event_Handler,
+			ServerStreams: true,
+			ClientStreams: true,
+		},
+	},
+	Metadata: "gateway/v1/dispatch_service.proto",
+}
 
 // GatewayDispatchClient is the client API for GatewayDispatch service.
 //
@@ -553,7 +673,7 @@ type UnsafeGatewayDispatchServer interface {
 }
 
 func RegisterGatewayDispatchServer(s grpc.ServiceRegistrar, srv GatewayDispatchServer) {
-	s.RegisterService(&_GatewayDispatch_serviceDesc, srv)
+	s.RegisterService(&GatewayDispatch_ServiceDesc, srv)
 }
 
 func _GatewayDispatch_GuildCreate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
@@ -1204,7 +1324,10 @@ func _GatewayDispatch_InteractionCreate_Handler(srv interface{}, ctx context.Con
 	return interceptor(ctx, in, info, handler)
 }
 
-var _GatewayDispatch_serviceDesc = grpc.ServiceDesc{
+// GatewayDispatch_ServiceDesc is the grpc.ServiceDesc for GatewayDispatch service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var GatewayDispatch_ServiceDesc = grpc.ServiceDesc{
 	ServiceName: "pylon.gateway.v1.service.GatewayDispatch",
 	HandlerType: (*GatewayDispatchServer)(nil),
 	Methods: []grpc.MethodDesc{
