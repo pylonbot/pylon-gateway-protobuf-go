@@ -486,6 +486,100 @@ func (x *GetGuildMemberResponse) GetMember() *model.MemberData {
 	return nil
 }
 
+type GetGuildMemberPresenceRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	UserId uint64 `protobuf:"fixed64,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+}
+
+func (x *GetGuildMemberPresenceRequest) Reset() {
+	*x = GetGuildMemberPresenceRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_discord_v1_cache_proto_msgTypes[10]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GetGuildMemberPresenceRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetGuildMemberPresenceRequest) ProtoMessage() {}
+
+func (x *GetGuildMemberPresenceRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_discord_v1_cache_proto_msgTypes[10]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetGuildMemberPresenceRequest.ProtoReflect.Descriptor instead.
+func (*GetGuildMemberPresenceRequest) Descriptor() ([]byte, []int) {
+	return file_discord_v1_cache_proto_rawDescGZIP(), []int{10}
+}
+
+func (x *GetGuildMemberPresenceRequest) GetUserId() uint64 {
+	if x != nil {
+		return x.UserId
+	}
+	return 0
+}
+
+type GetGuildMemberPresenceResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Presence *model.PresenceData `protobuf:"bytes,1,opt,name=presence,proto3" json:"presence,omitempty"`
+}
+
+func (x *GetGuildMemberPresenceResponse) Reset() {
+	*x = GetGuildMemberPresenceResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_discord_v1_cache_proto_msgTypes[11]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GetGuildMemberPresenceResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetGuildMemberPresenceResponse) ProtoMessage() {}
+
+func (x *GetGuildMemberPresenceResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_discord_v1_cache_proto_msgTypes[11]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetGuildMemberPresenceResponse.ProtoReflect.Descriptor instead.
+func (*GetGuildMemberPresenceResponse) Descriptor() ([]byte, []int) {
+	return file_discord_v1_cache_proto_rawDescGZIP(), []int{11}
+}
+
+func (x *GetGuildMemberPresenceResponse) GetPresence() *model.PresenceData {
+	if x != nil {
+		return x.Presence
+	}
+	return nil
+}
+
 type ListGuildRolesRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -495,7 +589,7 @@ type ListGuildRolesRequest struct {
 func (x *ListGuildRolesRequest) Reset() {
 	*x = ListGuildRolesRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_discord_v1_cache_proto_msgTypes[10]
+		mi := &file_discord_v1_cache_proto_msgTypes[12]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -508,7 +602,7 @@ func (x *ListGuildRolesRequest) String() string {
 func (*ListGuildRolesRequest) ProtoMessage() {}
 
 func (x *ListGuildRolesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_cache_proto_msgTypes[10]
+	mi := &file_discord_v1_cache_proto_msgTypes[12]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -521,7 +615,7 @@ func (x *ListGuildRolesRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListGuildRolesRequest.ProtoReflect.Descriptor instead.
 func (*ListGuildRolesRequest) Descriptor() ([]byte, []int) {
-	return file_discord_v1_cache_proto_rawDescGZIP(), []int{10}
+	return file_discord_v1_cache_proto_rawDescGZIP(), []int{12}
 }
 
 type ListGuildRolesResponse struct {
@@ -535,7 +629,7 @@ type ListGuildRolesResponse struct {
 func (x *ListGuildRolesResponse) Reset() {
 	*x = ListGuildRolesResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_discord_v1_cache_proto_msgTypes[11]
+		mi := &file_discord_v1_cache_proto_msgTypes[13]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -548,7 +642,7 @@ func (x *ListGuildRolesResponse) String() string {
 func (*ListGuildRolesResponse) ProtoMessage() {}
 
 func (x *ListGuildRolesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_cache_proto_msgTypes[11]
+	mi := &file_discord_v1_cache_proto_msgTypes[13]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -561,7 +655,7 @@ func (x *ListGuildRolesResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListGuildRolesResponse.ProtoReflect.Descriptor instead.
 func (*ListGuildRolesResponse) Descriptor() ([]byte, []int) {
-	return file_discord_v1_cache_proto_rawDescGZIP(), []int{11}
+	return file_discord_v1_cache_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *ListGuildRolesResponse) GetRoles() []*model.RoleData {
@@ -582,7 +676,7 @@ type GetGuildRoleRequest struct {
 func (x *GetGuildRoleRequest) Reset() {
 	*x = GetGuildRoleRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_discord_v1_cache_proto_msgTypes[12]
+		mi := &file_discord_v1_cache_proto_msgTypes[14]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -595,7 +689,7 @@ func (x *GetGuildRoleRequest) String() string {
 func (*GetGuildRoleRequest) ProtoMessage() {}
 
 func (x *GetGuildRoleRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_cache_proto_msgTypes[12]
+	mi := &file_discord_v1_cache_proto_msgTypes[14]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -608,7 +702,7 @@ func (x *GetGuildRoleRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetGuildRoleRequest.ProtoReflect.Descriptor instead.
 func (*GetGuildRoleRequest) Descriptor() ([]byte, []int) {
-	return file_discord_v1_cache_proto_rawDescGZIP(), []int{12}
+	return file_discord_v1_cache_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *GetGuildRoleRequest) GetRoleId() uint64 {
@@ -629,7 +723,7 @@ type GetGuildRoleResponse struct {
 func (x *GetGuildRoleResponse) Reset() {
 	*x = GetGuildRoleResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_discord_v1_cache_proto_msgTypes[13]
+		mi := &file_discord_v1_cache_proto_msgTypes[15]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -642,7 +736,7 @@ func (x *GetGuildRoleResponse) String() string {
 func (*GetGuildRoleResponse) ProtoMessage() {}
 
 func (x *GetGuildRoleResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_cache_proto_msgTypes[13]
+	mi := &file_discord_v1_cache_proto_msgTypes[15]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -655,7 +749,7 @@ func (x *GetGuildRoleResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetGuildRoleResponse.ProtoReflect.Descriptor instead.
 func (*GetGuildRoleResponse) Descriptor() ([]byte, []int) {
-	return file_discord_v1_cache_proto_rawDescGZIP(), []int{13}
+	return file_discord_v1_cache_proto_rawDescGZIP(), []int{15}
 }
 
 func (x *GetGuildRoleResponse) GetRole() *model.RoleData {
@@ -674,7 +768,7 @@ type ListGuildEmojisRequest struct {
 func (x *ListGuildEmojisRequest) Reset() {
 	*x = ListGuildEmojisRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_discord_v1_cache_proto_msgTypes[14]
+		mi := &file_discord_v1_cache_proto_msgTypes[16]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -687,7 +781,7 @@ func (x *ListGuildEmojisRequest) String() string {
 func (*ListGuildEmojisRequest) ProtoMessage() {}
 
 func (x *ListGuildEmojisRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_cache_proto_msgTypes[14]
+	mi := &file_discord_v1_cache_proto_msgTypes[16]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -700,7 +794,7 @@ func (x *ListGuildEmojisRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListGuildEmojisRequest.ProtoReflect.Descriptor instead.
 func (*ListGuildEmojisRequest) Descriptor() ([]byte, []int) {
-	return file_discord_v1_cache_proto_rawDescGZIP(), []int{14}
+	return file_discord_v1_cache_proto_rawDescGZIP(), []int{16}
 }
 
 type ListGuildEmojisResponse struct {
@@ -714,7 +808,7 @@ type ListGuildEmojisResponse struct {
 func (x *ListGuildEmojisResponse) Reset() {
 	*x = ListGuildEmojisResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_discord_v1_cache_proto_msgTypes[15]
+		mi := &file_discord_v1_cache_proto_msgTypes[17]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -727,7 +821,7 @@ func (x *ListGuildEmojisResponse) String() string {
 func (*ListGuildEmojisResponse) ProtoMessage() {}
 
 func (x *ListGuildEmojisResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_cache_proto_msgTypes[15]
+	mi := &file_discord_v1_cache_proto_msgTypes[17]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -740,7 +834,7 @@ func (x *ListGuildEmojisResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListGuildEmojisResponse.ProtoReflect.Descriptor instead.
 func (*ListGuildEmojisResponse) Descriptor() ([]byte, []int) {
-	return file_discord_v1_cache_proto_rawDescGZIP(), []int{15}
+	return file_discord_v1_cache_proto_rawDescGZIP(), []int{17}
 }
 
 func (x *ListGuildEmojisResponse) GetEmojis() []*model.EmojiData {
@@ -761,7 +855,7 @@ type GetGuildEmojiRequest struct {
 func (x *GetGuildEmojiRequest) Reset() {
 	*x = GetGuildEmojiRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_discord_v1_cache_proto_msgTypes[16]
+		mi := &file_discord_v1_cache_proto_msgTypes[18]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -774,7 +868,7 @@ func (x *GetGuildEmojiRequest) String() string {
 func (*GetGuildEmojiRequest) ProtoMessage() {}
 
 func (x *GetGuildEmojiRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_cache_proto_msgTypes[16]
+	mi := &file_discord_v1_cache_proto_msgTypes[18]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -787,7 +881,7 @@ func (x *GetGuildEmojiRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetGuildEmojiRequest.ProtoReflect.Descriptor instead.
 func (*GetGuildEmojiRequest) Descriptor() ([]byte, []int) {
-	return file_discord_v1_cache_proto_rawDescGZIP(), []int{16}
+	return file_discord_v1_cache_proto_rawDescGZIP(), []int{18}
 }
 
 func (x *GetGuildEmojiRequest) GetEmojiId() uint64 {
@@ -808,7 +902,7 @@ type GetGuildEmojiResponse struct {
 func (x *GetGuildEmojiResponse) Reset() {
 	*x = GetGuildEmojiResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_discord_v1_cache_proto_msgTypes[17]
+		mi := &file_discord_v1_cache_proto_msgTypes[19]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -821,7 +915,7 @@ func (x *GetGuildEmojiResponse) String() string {
 func (*GetGuildEmojiResponse) ProtoMessage() {}
 
 func (x *GetGuildEmojiResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_cache_proto_msgTypes[17]
+	mi := &file_discord_v1_cache_proto_msgTypes[19]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -834,7 +928,7 @@ func (x *GetGuildEmojiResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetGuildEmojiResponse.ProtoReflect.Descriptor instead.
 func (*GetGuildEmojiResponse) Descriptor() ([]byte, []int) {
-	return file_discord_v1_cache_proto_rawDescGZIP(), []int{17}
+	return file_discord_v1_cache_proto_rawDescGZIP(), []int{19}
 }
 
 func (x *GetGuildEmojiResponse) GetEmoji() *model.EmojiData {
@@ -855,7 +949,7 @@ type GetUserRequest struct {
 func (x *GetUserRequest) Reset() {
 	*x = GetUserRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_discord_v1_cache_proto_msgTypes[18]
+		mi := &file_discord_v1_cache_proto_msgTypes[20]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -868,7 +962,7 @@ func (x *GetUserRequest) String() string {
 func (*GetUserRequest) ProtoMessage() {}
 
 func (x *GetUserRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_cache_proto_msgTypes[18]
+	mi := &file_discord_v1_cache_proto_msgTypes[20]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -881,7 +975,7 @@ func (x *GetUserRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetUserRequest.ProtoReflect.Descriptor instead.
 func (*GetUserRequest) Descriptor() ([]byte, []int) {
-	return file_discord_v1_cache_proto_rawDescGZIP(), []int{18}
+	return file_discord_v1_cache_proto_rawDescGZIP(), []int{20}
 }
 
 func (x *GetUserRequest) GetUserId() uint64 {
@@ -902,7 +996,7 @@ type GetUserResponse struct {
 func (x *GetUserResponse) Reset() {
 	*x = GetUserResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_discord_v1_cache_proto_msgTypes[19]
+		mi := &file_discord_v1_cache_proto_msgTypes[21]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -915,7 +1009,7 @@ func (x *GetUserResponse) String() string {
 func (*GetUserResponse) ProtoMessage() {}
 
 func (x *GetUserResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_cache_proto_msgTypes[19]
+	mi := &file_discord_v1_cache_proto_msgTypes[21]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -928,7 +1022,7 @@ func (x *GetUserResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetUserResponse.ProtoReflect.Descriptor instead.
 func (*GetUserResponse) Descriptor() ([]byte, []int) {
-	return file_discord_v1_cache_proto_rawDescGZIP(), []int{19}
+	return file_discord_v1_cache_proto_rawDescGZIP(), []int{21}
 }
 
 func (x *GetUserResponse) GetUser() *model.UserData {
@@ -949,7 +1043,7 @@ type GetGuildMemberVoiceStateRequest struct {
 func (x *GetGuildMemberVoiceStateRequest) Reset() {
 	*x = GetGuildMemberVoiceStateRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_discord_v1_cache_proto_msgTypes[20]
+		mi := &file_discord_v1_cache_proto_msgTypes[22]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -962,7 +1056,7 @@ func (x *GetGuildMemberVoiceStateRequest) String() string {
 func (*GetGuildMemberVoiceStateRequest) ProtoMessage() {}
 
 func (x *GetGuildMemberVoiceStateRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_cache_proto_msgTypes[20]
+	mi := &file_discord_v1_cache_proto_msgTypes[22]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -975,7 +1069,7 @@ func (x *GetGuildMemberVoiceStateRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetGuildMemberVoiceStateRequest.ProtoReflect.Descriptor instead.
 func (*GetGuildMemberVoiceStateRequest) Descriptor() ([]byte, []int) {
-	return file_discord_v1_cache_proto_rawDescGZIP(), []int{20}
+	return file_discord_v1_cache_proto_rawDescGZIP(), []int{22}
 }
 
 func (x *GetGuildMemberVoiceStateRequest) GetUserId() uint64 {
@@ -996,7 +1090,7 @@ type GetGuildMemberVoiceStateResponse struct {
 func (x *GetGuildMemberVoiceStateResponse) Reset() {
 	*x = GetGuildMemberVoiceStateResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_discord_v1_cache_proto_msgTypes[21]
+		mi := &file_discord_v1_cache_proto_msgTypes[23]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1009,7 +1103,7 @@ func (x *GetGuildMemberVoiceStateResponse) String() string {
 func (*GetGuildMemberVoiceStateResponse) ProtoMessage() {}
 
 func (x *GetGuildMemberVoiceStateResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_cache_proto_msgTypes[21]
+	mi := &file_discord_v1_cache_proto_msgTypes[23]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1022,7 +1116,7 @@ func (x *GetGuildMemberVoiceStateResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetGuildMemberVoiceStateResponse.ProtoReflect.Descriptor instead.
 func (*GetGuildMemberVoiceStateResponse) Descriptor() ([]byte, []int) {
-	return file_discord_v1_cache_proto_rawDescGZIP(), []int{21}
+	return file_discord_v1_cache_proto_rawDescGZIP(), []int{23}
 }
 
 func (x *GetGuildMemberVoiceStateResponse) GetVoiceStateData() *model.VoiceStateData {
@@ -1043,7 +1137,7 @@ type ListGuildChannelVoiceStatesRequest struct {
 func (x *ListGuildChannelVoiceStatesRequest) Reset() {
 	*x = ListGuildChannelVoiceStatesRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_discord_v1_cache_proto_msgTypes[22]
+		mi := &file_discord_v1_cache_proto_msgTypes[24]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1056,7 +1150,7 @@ func (x *ListGuildChannelVoiceStatesRequest) String() string {
 func (*ListGuildChannelVoiceStatesRequest) ProtoMessage() {}
 
 func (x *ListGuildChannelVoiceStatesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_cache_proto_msgTypes[22]
+	mi := &file_discord_v1_cache_proto_msgTypes[24]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1069,7 +1163,7 @@ func (x *ListGuildChannelVoiceStatesRequest) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use ListGuildChannelVoiceStatesRequest.ProtoReflect.Descriptor instead.
 func (*ListGuildChannelVoiceStatesRequest) Descriptor() ([]byte, []int) {
-	return file_discord_v1_cache_proto_rawDescGZIP(), []int{22}
+	return file_discord_v1_cache_proto_rawDescGZIP(), []int{24}
 }
 
 func (x *ListGuildChannelVoiceStatesRequest) GetChannelId() uint64 {
@@ -1090,7 +1184,7 @@ type ListGuildChannelVoiceStatesResponse struct {
 func (x *ListGuildChannelVoiceStatesResponse) Reset() {
 	*x = ListGuildChannelVoiceStatesResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_discord_v1_cache_proto_msgTypes[23]
+		mi := &file_discord_v1_cache_proto_msgTypes[25]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1103,7 +1197,7 @@ func (x *ListGuildChannelVoiceStatesResponse) String() string {
 func (*ListGuildChannelVoiceStatesResponse) ProtoMessage() {}
 
 func (x *ListGuildChannelVoiceStatesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_cache_proto_msgTypes[23]
+	mi := &file_discord_v1_cache_proto_msgTypes[25]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1116,7 +1210,7 @@ func (x *ListGuildChannelVoiceStatesResponse) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use ListGuildChannelVoiceStatesResponse.ProtoReflect.Descriptor instead.
 func (*ListGuildChannelVoiceStatesResponse) Descriptor() ([]byte, []int) {
-	return file_discord_v1_cache_proto_rawDescGZIP(), []int{23}
+	return file_discord_v1_cache_proto_rawDescGZIP(), []int{25}
 }
 
 func (x *ListGuildChannelVoiceStatesResponse) GetVoiceStatesData() []*model.VoiceStateData {
@@ -1175,75 +1269,86 @@ var file_discord_v1_cache_proto_rawDesc = []byte{
 	0x0a, 0x06, 0x6d, 0x65, 0x6d, 0x62, 0x65, 0x72, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x22,
 	0x2e, 0x70, 0x79, 0x6c, 0x6f, 0x6e, 0x2e, 0x64, 0x69, 0x73, 0x63, 0x6f, 0x72, 0x64, 0x2e, 0x76,
 	0x31, 0x2e, 0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x2e, 0x4d, 0x65, 0x6d, 0x62, 0x65, 0x72, 0x44, 0x61,
-	0x74, 0x61, 0x52, 0x06, 0x6d, 0x65, 0x6d, 0x62, 0x65, 0x72, 0x22, 0x17, 0x0a, 0x15, 0x4c, 0x69,
-	0x73, 0x74, 0x47, 0x75, 0x69, 0x6c, 0x64, 0x52, 0x6f, 0x6c, 0x65, 0x73, 0x52, 0x65, 0x71, 0x75,
-	0x65, 0x73, 0x74, 0x22, 0x50, 0x0a, 0x16, 0x4c, 0x69, 0x73, 0x74, 0x47, 0x75, 0x69, 0x6c, 0x64,
-	0x52, 0x6f, 0x6c, 0x65, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x36, 0x0a,
-	0x05, 0x72, 0x6f, 0x6c, 0x65, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x20, 0x2e, 0x70,
-	0x79, 0x6c, 0x6f, 0x6e, 0x2e, 0x64, 0x69, 0x73, 0x63, 0x6f, 0x72, 0x64, 0x2e, 0x76, 0x31, 0x2e,
-	0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x2e, 0x52, 0x6f, 0x6c, 0x65, 0x44, 0x61, 0x74, 0x61, 0x52, 0x05,
-	0x72, 0x6f, 0x6c, 0x65, 0x73, 0x22, 0x32, 0x0a, 0x13, 0x47, 0x65, 0x74, 0x47, 0x75, 0x69, 0x6c,
-	0x64, 0x52, 0x6f, 0x6c, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x1b, 0x0a, 0x07,
-	0x72, 0x6f, 0x6c, 0x65, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x06, 0x42, 0x02, 0x30,
-	0x01, 0x52, 0x06, 0x72, 0x6f, 0x6c, 0x65, 0x49, 0x64, 0x22, 0x4c, 0x0a, 0x14, 0x47, 0x65, 0x74,
-	0x47, 0x75, 0x69, 0x6c, 0x64, 0x52, 0x6f, 0x6c, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
-	0x65, 0x12, 0x34, 0x0a, 0x04, 0x72, 0x6f, 0x6c, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32,
-	0x20, 0x2e, 0x70, 0x79, 0x6c, 0x6f, 0x6e, 0x2e, 0x64, 0x69, 0x73, 0x63, 0x6f, 0x72, 0x64, 0x2e,
-	0x76, 0x31, 0x2e, 0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x2e, 0x52, 0x6f, 0x6c, 0x65, 0x44, 0x61, 0x74,
-	0x61, 0x52, 0x04, 0x72, 0x6f, 0x6c, 0x65, 0x22, 0x18, 0x0a, 0x16, 0x4c, 0x69, 0x73, 0x74, 0x47,
-	0x75, 0x69, 0x6c, 0x64, 0x45, 0x6d, 0x6f, 0x6a, 0x69, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
-	0x74, 0x22, 0x54, 0x0a, 0x17, 0x4c, 0x69, 0x73, 0x74, 0x47, 0x75, 0x69, 0x6c, 0x64, 0x45, 0x6d,
-	0x6f, 0x6a, 0x69, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x39, 0x0a, 0x06,
-	0x65, 0x6d, 0x6f, 0x6a, 0x69, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x21, 0x2e, 0x70,
-	0x79, 0x6c, 0x6f, 0x6e, 0x2e, 0x64, 0x69, 0x73, 0x63, 0x6f, 0x72, 0x64, 0x2e, 0x76, 0x31, 0x2e,
-	0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x2e, 0x45, 0x6d, 0x6f, 0x6a, 0x69, 0x44, 0x61, 0x74, 0x61, 0x52,
-	0x06, 0x65, 0x6d, 0x6f, 0x6a, 0x69, 0x73, 0x22, 0x35, 0x0a, 0x14, 0x47, 0x65, 0x74, 0x47, 0x75,
-	0x69, 0x6c, 0x64, 0x45, 0x6d, 0x6f, 0x6a, 0x69, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12,
-	0x1d, 0x0a, 0x08, 0x65, 0x6d, 0x6f, 0x6a, 0x69, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28,
-	0x06, 0x42, 0x02, 0x30, 0x01, 0x52, 0x07, 0x65, 0x6d, 0x6f, 0x6a, 0x69, 0x49, 0x64, 0x22, 0x50,
-	0x0a, 0x15, 0x47, 0x65, 0x74, 0x47, 0x75, 0x69, 0x6c, 0x64, 0x45, 0x6d, 0x6f, 0x6a, 0x69, 0x52,
-	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x37, 0x0a, 0x05, 0x65, 0x6d, 0x6f, 0x6a, 0x69,
-	0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x21, 0x2e, 0x70, 0x79, 0x6c, 0x6f, 0x6e, 0x2e, 0x64,
-	0x69, 0x73, 0x63, 0x6f, 0x72, 0x64, 0x2e, 0x76, 0x31, 0x2e, 0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x2e,
-	0x45, 0x6d, 0x6f, 0x6a, 0x69, 0x44, 0x61, 0x74, 0x61, 0x52, 0x05, 0x65, 0x6d, 0x6f, 0x6a, 0x69,
-	0x22, 0x2d, 0x0a, 0x0e, 0x47, 0x65, 0x74, 0x55, 0x73, 0x65, 0x72, 0x52, 0x65, 0x71, 0x75, 0x65,
-	0x73, 0x74, 0x12, 0x1b, 0x0a, 0x07, 0x75, 0x73, 0x65, 0x72, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20,
-	0x01, 0x28, 0x06, 0x42, 0x02, 0x30, 0x01, 0x52, 0x06, 0x75, 0x73, 0x65, 0x72, 0x49, 0x64, 0x22,
-	0x47, 0x0a, 0x0f, 0x47, 0x65, 0x74, 0x55, 0x73, 0x65, 0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
-	0x73, 0x65, 0x12, 0x34, 0x0a, 0x04, 0x75, 0x73, 0x65, 0x72, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b,
-	0x32, 0x20, 0x2e, 0x70, 0x79, 0x6c, 0x6f, 0x6e, 0x2e, 0x64, 0x69, 0x73, 0x63, 0x6f, 0x72, 0x64,
-	0x2e, 0x76, 0x31, 0x2e, 0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x2e, 0x55, 0x73, 0x65, 0x72, 0x44, 0x61,
-	0x74, 0x61, 0x52, 0x04, 0x75, 0x73, 0x65, 0x72, 0x22, 0x3e, 0x0a, 0x1f, 0x47, 0x65, 0x74, 0x47,
-	0x75, 0x69, 0x6c, 0x64, 0x4d, 0x65, 0x6d, 0x62, 0x65, 0x72, 0x56, 0x6f, 0x69, 0x63, 0x65, 0x53,
-	0x74, 0x61, 0x74, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x1b, 0x0a, 0x07, 0x75,
+	0x74, 0x61, 0x52, 0x06, 0x6d, 0x65, 0x6d, 0x62, 0x65, 0x72, 0x22, 0x3c, 0x0a, 0x1d, 0x47, 0x65,
+	0x74, 0x47, 0x75, 0x69, 0x6c, 0x64, 0x4d, 0x65, 0x6d, 0x62, 0x65, 0x72, 0x50, 0x72, 0x65, 0x73,
+	0x65, 0x6e, 0x63, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x1b, 0x0a, 0x07, 0x75,
 	0x73, 0x65, 0x72, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x06, 0x42, 0x02, 0x30, 0x01,
-	0x52, 0x06, 0x75, 0x73, 0x65, 0x72, 0x49, 0x64, 0x22, 0x74, 0x0a, 0x20, 0x47, 0x65, 0x74, 0x47,
-	0x75, 0x69, 0x6c, 0x64, 0x4d, 0x65, 0x6d, 0x62, 0x65, 0x72, 0x56, 0x6f, 0x69, 0x63, 0x65, 0x53,
-	0x74, 0x61, 0x74, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x50, 0x0a, 0x10,
-	0x76, 0x6f, 0x69, 0x63, 0x65, 0x5f, 0x73, 0x74, 0x61, 0x74, 0x65, 0x5f, 0x64, 0x61, 0x74, 0x61,
-	0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x26, 0x2e, 0x70, 0x79, 0x6c, 0x6f, 0x6e, 0x2e, 0x64,
-	0x69, 0x73, 0x63, 0x6f, 0x72, 0x64, 0x2e, 0x76, 0x31, 0x2e, 0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x2e,
-	0x56, 0x6f, 0x69, 0x63, 0x65, 0x53, 0x74, 0x61, 0x74, 0x65, 0x44, 0x61, 0x74, 0x61, 0x52, 0x0e,
-	0x76, 0x6f, 0x69, 0x63, 0x65, 0x53, 0x74, 0x61, 0x74, 0x65, 0x44, 0x61, 0x74, 0x61, 0x22, 0x47,
-	0x0a, 0x22, 0x4c, 0x69, 0x73, 0x74, 0x47, 0x75, 0x69, 0x6c, 0x64, 0x43, 0x68, 0x61, 0x6e, 0x6e,
-	0x65, 0x6c, 0x56, 0x6f, 0x69, 0x63, 0x65, 0x53, 0x74, 0x61, 0x74, 0x65, 0x73, 0x52, 0x65, 0x71,
-	0x75, 0x65, 0x73, 0x74, 0x12, 0x21, 0x0a, 0x0a, 0x63, 0x68, 0x61, 0x6e, 0x6e, 0x65, 0x6c, 0x5f,
-	0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x06, 0x42, 0x02, 0x30, 0x01, 0x52, 0x09, 0x63, 0x68,
-	0x61, 0x6e, 0x6e, 0x65, 0x6c, 0x49, 0x64, 0x22, 0x79, 0x0a, 0x23, 0x4c, 0x69, 0x73, 0x74, 0x47,
-	0x75, 0x69, 0x6c, 0x64, 0x43, 0x68, 0x61, 0x6e, 0x6e, 0x65, 0x6c, 0x56, 0x6f, 0x69, 0x63, 0x65,
-	0x53, 0x74, 0x61, 0x74, 0x65, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x52,
-	0x0a, 0x11, 0x76, 0x6f, 0x69, 0x63, 0x65, 0x5f, 0x73, 0x74, 0x61, 0x74, 0x65, 0x73, 0x5f, 0x64,
-	0x61, 0x74, 0x61, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x26, 0x2e, 0x70, 0x79, 0x6c, 0x6f,
-	0x6e, 0x2e, 0x64, 0x69, 0x73, 0x63, 0x6f, 0x72, 0x64, 0x2e, 0x76, 0x31, 0x2e, 0x6d, 0x6f, 0x64,
-	0x65, 0x6c, 0x2e, 0x56, 0x6f, 0x69, 0x63, 0x65, 0x53, 0x74, 0x61, 0x74, 0x65, 0x44, 0x61, 0x74,
-	0x61, 0x52, 0x0f, 0x76, 0x6f, 0x69, 0x63, 0x65, 0x53, 0x74, 0x61, 0x74, 0x65, 0x73, 0x44, 0x61,
-	0x74, 0x61, 0x42, 0x64, 0x0a, 0x20, 0x62, 0x6f, 0x74, 0x2e, 0x70, 0x79, 0x6c, 0x6f, 0x6e, 0x2e,
-	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x64, 0x69, 0x73, 0x63, 0x6f, 0x72, 0x64, 0x2e, 0x76, 0x31,
-	0x2e, 0x63, 0x61, 0x63, 0x68, 0x65, 0x50, 0x01, 0x5a, 0x3e, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62,
-	0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x70, 0x79, 0x6c, 0x6f, 0x6e, 0x62, 0x6f, 0x74, 0x2f, 0x70, 0x79,
-	0x6c, 0x6f, 0x6e, 0x2d, 0x67, 0x61, 0x74, 0x65, 0x77, 0x61, 0x79, 0x2d, 0x70, 0x72, 0x6f, 0x74,
-	0x6f, 0x62, 0x75, 0x66, 0x2d, 0x67, 0x6f, 0x2f, 0x64, 0x69, 0x73, 0x63, 0x6f, 0x72, 0x64, 0x2f,
-	0x76, 0x31, 0x2f, 0x63, 0x61, 0x63, 0x68, 0x65, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x52, 0x06, 0x75, 0x73, 0x65, 0x72, 0x49, 0x64, 0x22, 0x62, 0x0a, 0x1e, 0x47, 0x65, 0x74, 0x47,
+	0x75, 0x69, 0x6c, 0x64, 0x4d, 0x65, 0x6d, 0x62, 0x65, 0x72, 0x50, 0x72, 0x65, 0x73, 0x65, 0x6e,
+	0x63, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x40, 0x0a, 0x08, 0x70, 0x72,
+	0x65, 0x73, 0x65, 0x6e, 0x63, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x24, 0x2e, 0x70,
+	0x79, 0x6c, 0x6f, 0x6e, 0x2e, 0x64, 0x69, 0x73, 0x63, 0x6f, 0x72, 0x64, 0x2e, 0x76, 0x31, 0x2e,
+	0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x2e, 0x50, 0x72, 0x65, 0x73, 0x65, 0x6e, 0x63, 0x65, 0x44, 0x61,
+	0x74, 0x61, 0x52, 0x08, 0x70, 0x72, 0x65, 0x73, 0x65, 0x6e, 0x63, 0x65, 0x22, 0x17, 0x0a, 0x15,
+	0x4c, 0x69, 0x73, 0x74, 0x47, 0x75, 0x69, 0x6c, 0x64, 0x52, 0x6f, 0x6c, 0x65, 0x73, 0x52, 0x65,
+	0x71, 0x75, 0x65, 0x73, 0x74, 0x22, 0x50, 0x0a, 0x16, 0x4c, 0x69, 0x73, 0x74, 0x47, 0x75, 0x69,
+	0x6c, 0x64, 0x52, 0x6f, 0x6c, 0x65, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12,
+	0x36, 0x0a, 0x05, 0x72, 0x6f, 0x6c, 0x65, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x20,
+	0x2e, 0x70, 0x79, 0x6c, 0x6f, 0x6e, 0x2e, 0x64, 0x69, 0x73, 0x63, 0x6f, 0x72, 0x64, 0x2e, 0x76,
+	0x31, 0x2e, 0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x2e, 0x52, 0x6f, 0x6c, 0x65, 0x44, 0x61, 0x74, 0x61,
+	0x52, 0x05, 0x72, 0x6f, 0x6c, 0x65, 0x73, 0x22, 0x32, 0x0a, 0x13, 0x47, 0x65, 0x74, 0x47, 0x75,
+	0x69, 0x6c, 0x64, 0x52, 0x6f, 0x6c, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x1b,
+	0x0a, 0x07, 0x72, 0x6f, 0x6c, 0x65, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x06, 0x42,
+	0x02, 0x30, 0x01, 0x52, 0x06, 0x72, 0x6f, 0x6c, 0x65, 0x49, 0x64, 0x22, 0x4c, 0x0a, 0x14, 0x47,
+	0x65, 0x74, 0x47, 0x75, 0x69, 0x6c, 0x64, 0x52, 0x6f, 0x6c, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f,
+	0x6e, 0x73, 0x65, 0x12, 0x34, 0x0a, 0x04, 0x72, 0x6f, 0x6c, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28,
+	0x0b, 0x32, 0x20, 0x2e, 0x70, 0x79, 0x6c, 0x6f, 0x6e, 0x2e, 0x64, 0x69, 0x73, 0x63, 0x6f, 0x72,
+	0x64, 0x2e, 0x76, 0x31, 0x2e, 0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x2e, 0x52, 0x6f, 0x6c, 0x65, 0x44,
+	0x61, 0x74, 0x61, 0x52, 0x04, 0x72, 0x6f, 0x6c, 0x65, 0x22, 0x18, 0x0a, 0x16, 0x4c, 0x69, 0x73,
+	0x74, 0x47, 0x75, 0x69, 0x6c, 0x64, 0x45, 0x6d, 0x6f, 0x6a, 0x69, 0x73, 0x52, 0x65, 0x71, 0x75,
+	0x65, 0x73, 0x74, 0x22, 0x54, 0x0a, 0x17, 0x4c, 0x69, 0x73, 0x74, 0x47, 0x75, 0x69, 0x6c, 0x64,
+	0x45, 0x6d, 0x6f, 0x6a, 0x69, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x39,
+	0x0a, 0x06, 0x65, 0x6d, 0x6f, 0x6a, 0x69, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x21,
+	0x2e, 0x70, 0x79, 0x6c, 0x6f, 0x6e, 0x2e, 0x64, 0x69, 0x73, 0x63, 0x6f, 0x72, 0x64, 0x2e, 0x76,
+	0x31, 0x2e, 0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x2e, 0x45, 0x6d, 0x6f, 0x6a, 0x69, 0x44, 0x61, 0x74,
+	0x61, 0x52, 0x06, 0x65, 0x6d, 0x6f, 0x6a, 0x69, 0x73, 0x22, 0x35, 0x0a, 0x14, 0x47, 0x65, 0x74,
+	0x47, 0x75, 0x69, 0x6c, 0x64, 0x45, 0x6d, 0x6f, 0x6a, 0x69, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
+	0x74, 0x12, 0x1d, 0x0a, 0x08, 0x65, 0x6d, 0x6f, 0x6a, 0x69, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20,
+	0x01, 0x28, 0x06, 0x42, 0x02, 0x30, 0x01, 0x52, 0x07, 0x65, 0x6d, 0x6f, 0x6a, 0x69, 0x49, 0x64,
+	0x22, 0x50, 0x0a, 0x15, 0x47, 0x65, 0x74, 0x47, 0x75, 0x69, 0x6c, 0x64, 0x45, 0x6d, 0x6f, 0x6a,
+	0x69, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x37, 0x0a, 0x05, 0x65, 0x6d, 0x6f,
+	0x6a, 0x69, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x21, 0x2e, 0x70, 0x79, 0x6c, 0x6f, 0x6e,
+	0x2e, 0x64, 0x69, 0x73, 0x63, 0x6f, 0x72, 0x64, 0x2e, 0x76, 0x31, 0x2e, 0x6d, 0x6f, 0x64, 0x65,
+	0x6c, 0x2e, 0x45, 0x6d, 0x6f, 0x6a, 0x69, 0x44, 0x61, 0x74, 0x61, 0x52, 0x05, 0x65, 0x6d, 0x6f,
+	0x6a, 0x69, 0x22, 0x2d, 0x0a, 0x0e, 0x47, 0x65, 0x74, 0x55, 0x73, 0x65, 0x72, 0x52, 0x65, 0x71,
+	0x75, 0x65, 0x73, 0x74, 0x12, 0x1b, 0x0a, 0x07, 0x75, 0x73, 0x65, 0x72, 0x5f, 0x69, 0x64, 0x18,
+	0x01, 0x20, 0x01, 0x28, 0x06, 0x42, 0x02, 0x30, 0x01, 0x52, 0x06, 0x75, 0x73, 0x65, 0x72, 0x49,
+	0x64, 0x22, 0x47, 0x0a, 0x0f, 0x47, 0x65, 0x74, 0x55, 0x73, 0x65, 0x72, 0x52, 0x65, 0x73, 0x70,
+	0x6f, 0x6e, 0x73, 0x65, 0x12, 0x34, 0x0a, 0x04, 0x75, 0x73, 0x65, 0x72, 0x18, 0x01, 0x20, 0x01,
+	0x28, 0x0b, 0x32, 0x20, 0x2e, 0x70, 0x79, 0x6c, 0x6f, 0x6e, 0x2e, 0x64, 0x69, 0x73, 0x63, 0x6f,
+	0x72, 0x64, 0x2e, 0x76, 0x31, 0x2e, 0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x2e, 0x55, 0x73, 0x65, 0x72,
+	0x44, 0x61, 0x74, 0x61, 0x52, 0x04, 0x75, 0x73, 0x65, 0x72, 0x22, 0x3e, 0x0a, 0x1f, 0x47, 0x65,
+	0x74, 0x47, 0x75, 0x69, 0x6c, 0x64, 0x4d, 0x65, 0x6d, 0x62, 0x65, 0x72, 0x56, 0x6f, 0x69, 0x63,
+	0x65, 0x53, 0x74, 0x61, 0x74, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x1b, 0x0a,
+	0x07, 0x75, 0x73, 0x65, 0x72, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x06, 0x42, 0x02,
+	0x30, 0x01, 0x52, 0x06, 0x75, 0x73, 0x65, 0x72, 0x49, 0x64, 0x22, 0x74, 0x0a, 0x20, 0x47, 0x65,
+	0x74, 0x47, 0x75, 0x69, 0x6c, 0x64, 0x4d, 0x65, 0x6d, 0x62, 0x65, 0x72, 0x56, 0x6f, 0x69, 0x63,
+	0x65, 0x53, 0x74, 0x61, 0x74, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x50,
+	0x0a, 0x10, 0x76, 0x6f, 0x69, 0x63, 0x65, 0x5f, 0x73, 0x74, 0x61, 0x74, 0x65, 0x5f, 0x64, 0x61,
+	0x74, 0x61, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x26, 0x2e, 0x70, 0x79, 0x6c, 0x6f, 0x6e,
+	0x2e, 0x64, 0x69, 0x73, 0x63, 0x6f, 0x72, 0x64, 0x2e, 0x76, 0x31, 0x2e, 0x6d, 0x6f, 0x64, 0x65,
+	0x6c, 0x2e, 0x56, 0x6f, 0x69, 0x63, 0x65, 0x53, 0x74, 0x61, 0x74, 0x65, 0x44, 0x61, 0x74, 0x61,
+	0x52, 0x0e, 0x76, 0x6f, 0x69, 0x63, 0x65, 0x53, 0x74, 0x61, 0x74, 0x65, 0x44, 0x61, 0x74, 0x61,
+	0x22, 0x47, 0x0a, 0x22, 0x4c, 0x69, 0x73, 0x74, 0x47, 0x75, 0x69, 0x6c, 0x64, 0x43, 0x68, 0x61,
+	0x6e, 0x6e, 0x65, 0x6c, 0x56, 0x6f, 0x69, 0x63, 0x65, 0x53, 0x74, 0x61, 0x74, 0x65, 0x73, 0x52,
+	0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x21, 0x0a, 0x0a, 0x63, 0x68, 0x61, 0x6e, 0x6e, 0x65,
+	0x6c, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x06, 0x42, 0x02, 0x30, 0x01, 0x52, 0x09,
+	0x63, 0x68, 0x61, 0x6e, 0x6e, 0x65, 0x6c, 0x49, 0x64, 0x22, 0x79, 0x0a, 0x23, 0x4c, 0x69, 0x73,
+	0x74, 0x47, 0x75, 0x69, 0x6c, 0x64, 0x43, 0x68, 0x61, 0x6e, 0x6e, 0x65, 0x6c, 0x56, 0x6f, 0x69,
+	0x63, 0x65, 0x53, 0x74, 0x61, 0x74, 0x65, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
+	0x12, 0x52, 0x0a, 0x11, 0x76, 0x6f, 0x69, 0x63, 0x65, 0x5f, 0x73, 0x74, 0x61, 0x74, 0x65, 0x73,
+	0x5f, 0x64, 0x61, 0x74, 0x61, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x26, 0x2e, 0x70, 0x79,
+	0x6c, 0x6f, 0x6e, 0x2e, 0x64, 0x69, 0x73, 0x63, 0x6f, 0x72, 0x64, 0x2e, 0x76, 0x31, 0x2e, 0x6d,
+	0x6f, 0x64, 0x65, 0x6c, 0x2e, 0x56, 0x6f, 0x69, 0x63, 0x65, 0x53, 0x74, 0x61, 0x74, 0x65, 0x44,
+	0x61, 0x74, 0x61, 0x52, 0x0f, 0x76, 0x6f, 0x69, 0x63, 0x65, 0x53, 0x74, 0x61, 0x74, 0x65, 0x73,
+	0x44, 0x61, 0x74, 0x61, 0x42, 0x64, 0x0a, 0x20, 0x62, 0x6f, 0x74, 0x2e, 0x70, 0x79, 0x6c, 0x6f,
+	0x6e, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x64, 0x69, 0x73, 0x63, 0x6f, 0x72, 0x64, 0x2e,
+	0x76, 0x31, 0x2e, 0x63, 0x61, 0x63, 0x68, 0x65, 0x50, 0x01, 0x5a, 0x3e, 0x67, 0x69, 0x74, 0x68,
+	0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x70, 0x79, 0x6c, 0x6f, 0x6e, 0x62, 0x6f, 0x74, 0x2f,
+	0x70, 0x79, 0x6c, 0x6f, 0x6e, 0x2d, 0x67, 0x61, 0x74, 0x65, 0x77, 0x61, 0x79, 0x2d, 0x70, 0x72,
+	0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x2d, 0x67, 0x6f, 0x2f, 0x64, 0x69, 0x73, 0x63, 0x6f, 0x72,
+	0x64, 0x2f, 0x76, 0x31, 0x2f, 0x63, 0x61, 0x63, 0x68, 0x65, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74,
+	0x6f, 0x33,
 }
 
 var (
@@ -1258,7 +1363,7 @@ func file_discord_v1_cache_proto_rawDescGZIP() []byte {
 	return file_discord_v1_cache_proto_rawDescData
 }
 
-var file_discord_v1_cache_proto_msgTypes = make([]protoimpl.MessageInfo, 24)
+var file_discord_v1_cache_proto_msgTypes = make([]protoimpl.MessageInfo, 26)
 var file_discord_v1_cache_proto_goTypes = []interface{}{
 	(*GetGuildRequest)(nil),                     // 0: pylon.discord.v1.cache.GetGuildRequest
 	(*GetGuildResponse)(nil),                    // 1: pylon.discord.v1.cache.GetGuildResponse
@@ -1270,46 +1375,50 @@ var file_discord_v1_cache_proto_goTypes = []interface{}{
 	(*ListGuildMembersResponse)(nil),            // 7: pylon.discord.v1.cache.ListGuildMembersResponse
 	(*GetGuildMemberRequest)(nil),               // 8: pylon.discord.v1.cache.GetGuildMemberRequest
 	(*GetGuildMemberResponse)(nil),              // 9: pylon.discord.v1.cache.GetGuildMemberResponse
-	(*ListGuildRolesRequest)(nil),               // 10: pylon.discord.v1.cache.ListGuildRolesRequest
-	(*ListGuildRolesResponse)(nil),              // 11: pylon.discord.v1.cache.ListGuildRolesResponse
-	(*GetGuildRoleRequest)(nil),                 // 12: pylon.discord.v1.cache.GetGuildRoleRequest
-	(*GetGuildRoleResponse)(nil),                // 13: pylon.discord.v1.cache.GetGuildRoleResponse
-	(*ListGuildEmojisRequest)(nil),              // 14: pylon.discord.v1.cache.ListGuildEmojisRequest
-	(*ListGuildEmojisResponse)(nil),             // 15: pylon.discord.v1.cache.ListGuildEmojisResponse
-	(*GetGuildEmojiRequest)(nil),                // 16: pylon.discord.v1.cache.GetGuildEmojiRequest
-	(*GetGuildEmojiResponse)(nil),               // 17: pylon.discord.v1.cache.GetGuildEmojiResponse
-	(*GetUserRequest)(nil),                      // 18: pylon.discord.v1.cache.GetUserRequest
-	(*GetUserResponse)(nil),                     // 19: pylon.discord.v1.cache.GetUserResponse
-	(*GetGuildMemberVoiceStateRequest)(nil),     // 20: pylon.discord.v1.cache.GetGuildMemberVoiceStateRequest
-	(*GetGuildMemberVoiceStateResponse)(nil),    // 21: pylon.discord.v1.cache.GetGuildMemberVoiceStateResponse
-	(*ListGuildChannelVoiceStatesRequest)(nil),  // 22: pylon.discord.v1.cache.ListGuildChannelVoiceStatesRequest
-	(*ListGuildChannelVoiceStatesResponse)(nil), // 23: pylon.discord.v1.cache.ListGuildChannelVoiceStatesResponse
-	(*model.GuildData)(nil),                     // 24: pylon.discord.v1.model.GuildData
-	(*model.ChannelData)(nil),                   // 25: pylon.discord.v1.model.ChannelData
-	(*model.MemberData)(nil),                    // 26: pylon.discord.v1.model.MemberData
-	(*model.RoleData)(nil),                      // 27: pylon.discord.v1.model.RoleData
-	(*model.EmojiData)(nil),                     // 28: pylon.discord.v1.model.EmojiData
-	(*model.UserData)(nil),                      // 29: pylon.discord.v1.model.UserData
-	(*model.VoiceStateData)(nil),                // 30: pylon.discord.v1.model.VoiceStateData
+	(*GetGuildMemberPresenceRequest)(nil),       // 10: pylon.discord.v1.cache.GetGuildMemberPresenceRequest
+	(*GetGuildMemberPresenceResponse)(nil),      // 11: pylon.discord.v1.cache.GetGuildMemberPresenceResponse
+	(*ListGuildRolesRequest)(nil),               // 12: pylon.discord.v1.cache.ListGuildRolesRequest
+	(*ListGuildRolesResponse)(nil),              // 13: pylon.discord.v1.cache.ListGuildRolesResponse
+	(*GetGuildRoleRequest)(nil),                 // 14: pylon.discord.v1.cache.GetGuildRoleRequest
+	(*GetGuildRoleResponse)(nil),                // 15: pylon.discord.v1.cache.GetGuildRoleResponse
+	(*ListGuildEmojisRequest)(nil),              // 16: pylon.discord.v1.cache.ListGuildEmojisRequest
+	(*ListGuildEmojisResponse)(nil),             // 17: pylon.discord.v1.cache.ListGuildEmojisResponse
+	(*GetGuildEmojiRequest)(nil),                // 18: pylon.discord.v1.cache.GetGuildEmojiRequest
+	(*GetGuildEmojiResponse)(nil),               // 19: pylon.discord.v1.cache.GetGuildEmojiResponse
+	(*GetUserRequest)(nil),                      // 20: pylon.discord.v1.cache.GetUserRequest
+	(*GetUserResponse)(nil),                     // 21: pylon.discord.v1.cache.GetUserResponse
+	(*GetGuildMemberVoiceStateRequest)(nil),     // 22: pylon.discord.v1.cache.GetGuildMemberVoiceStateRequest
+	(*GetGuildMemberVoiceStateResponse)(nil),    // 23: pylon.discord.v1.cache.GetGuildMemberVoiceStateResponse
+	(*ListGuildChannelVoiceStatesRequest)(nil),  // 24: pylon.discord.v1.cache.ListGuildChannelVoiceStatesRequest
+	(*ListGuildChannelVoiceStatesResponse)(nil), // 25: pylon.discord.v1.cache.ListGuildChannelVoiceStatesResponse
+	(*model.GuildData)(nil),                     // 26: pylon.discord.v1.model.GuildData
+	(*model.ChannelData)(nil),                   // 27: pylon.discord.v1.model.ChannelData
+	(*model.MemberData)(nil),                    // 28: pylon.discord.v1.model.MemberData
+	(*model.PresenceData)(nil),                  // 29: pylon.discord.v1.model.PresenceData
+	(*model.RoleData)(nil),                      // 30: pylon.discord.v1.model.RoleData
+	(*model.EmojiData)(nil),                     // 31: pylon.discord.v1.model.EmojiData
+	(*model.UserData)(nil),                      // 32: pylon.discord.v1.model.UserData
+	(*model.VoiceStateData)(nil),                // 33: pylon.discord.v1.model.VoiceStateData
 }
 var file_discord_v1_cache_proto_depIdxs = []int32{
-	24, // 0: pylon.discord.v1.cache.GetGuildResponse.guild:type_name -> pylon.discord.v1.model.GuildData
-	25, // 1: pylon.discord.v1.cache.ListGuildChannelsResponse.channels:type_name -> pylon.discord.v1.model.ChannelData
-	25, // 2: pylon.discord.v1.cache.GetGuildChannelResponse.channel:type_name -> pylon.discord.v1.model.ChannelData
-	26, // 3: pylon.discord.v1.cache.ListGuildMembersResponse.members:type_name -> pylon.discord.v1.model.MemberData
-	26, // 4: pylon.discord.v1.cache.GetGuildMemberResponse.member:type_name -> pylon.discord.v1.model.MemberData
-	27, // 5: pylon.discord.v1.cache.ListGuildRolesResponse.roles:type_name -> pylon.discord.v1.model.RoleData
-	27, // 6: pylon.discord.v1.cache.GetGuildRoleResponse.role:type_name -> pylon.discord.v1.model.RoleData
-	28, // 7: pylon.discord.v1.cache.ListGuildEmojisResponse.emojis:type_name -> pylon.discord.v1.model.EmojiData
-	28, // 8: pylon.discord.v1.cache.GetGuildEmojiResponse.emoji:type_name -> pylon.discord.v1.model.EmojiData
-	29, // 9: pylon.discord.v1.cache.GetUserResponse.user:type_name -> pylon.discord.v1.model.UserData
-	30, // 10: pylon.discord.v1.cache.GetGuildMemberVoiceStateResponse.voice_state_data:type_name -> pylon.discord.v1.model.VoiceStateData
-	30, // 11: pylon.discord.v1.cache.ListGuildChannelVoiceStatesResponse.voice_states_data:type_name -> pylon.discord.v1.model.VoiceStateData
-	12, // [12:12] is the sub-list for method output_type
-	12, // [12:12] is the sub-list for method input_type
-	12, // [12:12] is the sub-list for extension type_name
-	12, // [12:12] is the sub-list for extension extendee
-	0,  // [0:12] is the sub-list for field type_name
+	26, // 0: pylon.discord.v1.cache.GetGuildResponse.guild:type_name -> pylon.discord.v1.model.GuildData
+	27, // 1: pylon.discord.v1.cache.ListGuildChannelsResponse.channels:type_name -> pylon.discord.v1.model.ChannelData
+	27, // 2: pylon.discord.v1.cache.GetGuildChannelResponse.channel:type_name -> pylon.discord.v1.model.ChannelData
+	28, // 3: pylon.discord.v1.cache.ListGuildMembersResponse.members:type_name -> pylon.discord.v1.model.MemberData
+	28, // 4: pylon.discord.v1.cache.GetGuildMemberResponse.member:type_name -> pylon.discord.v1.model.MemberData
+	29, // 5: pylon.discord.v1.cache.GetGuildMemberPresenceResponse.presence:type_name -> pylon.discord.v1.model.PresenceData
+	30, // 6: pylon.discord.v1.cache.ListGuildRolesResponse.roles:type_name -> pylon.discord.v1.model.RoleData
+	30, // 7: pylon.discord.v1.cache.GetGuildRoleResponse.role:type_name -> pylon.discord.v1.model.RoleData
+	31, // 8: pylon.discord.v1.cache.ListGuildEmojisResponse.emojis:type_name -> pylon.discord.v1.model.EmojiData
+	31, // 9: pylon.discord.v1.cache.GetGuildEmojiResponse.emoji:type_name -> pylon.discord.v1.model.EmojiData
+	32, // 10: pylon.discord.v1.cache.GetUserResponse.user:type_name -> pylon.discord.v1.model.UserData
+	33, // 11: pylon.discord.v1.cache.GetGuildMemberVoiceStateResponse.voice_state_data:type_name -> pylon.discord.v1.model.VoiceStateData
+	33, // 12: pylon.discord.v1.cache.ListGuildChannelVoiceStatesResponse.voice_states_data:type_name -> pylon.discord.v1.model.VoiceStateData
+	13, // [13:13] is the sub-list for method output_type
+	13, // [13:13] is the sub-list for method input_type
+	13, // [13:13] is the sub-list for extension type_name
+	13, // [13:13] is the sub-list for extension extendee
+	0,  // [0:13] is the sub-list for field type_name
 }
 
 func init() { file_discord_v1_cache_proto_init() }
@@ -1439,7 +1548,7 @@ func file_discord_v1_cache_proto_init() {
 			}
 		}
 		file_discord_v1_cache_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*ListGuildRolesRequest); i {
+			switch v := v.(*GetGuildMemberPresenceRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1451,7 +1560,7 @@ func file_discord_v1_cache_proto_init() {
 			}
 		}
 		file_discord_v1_cache_proto_msgTypes[11].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*ListGuildRolesResponse); i {
+			switch v := v.(*GetGuildMemberPresenceResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1463,7 +1572,7 @@ func file_discord_v1_cache_proto_init() {
 			}
 		}
 		file_discord_v1_cache_proto_msgTypes[12].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*GetGuildRoleRequest); i {
+			switch v := v.(*ListGuildRolesRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1475,7 +1584,7 @@ func file_discord_v1_cache_proto_init() {
 			}
 		}
 		file_discord_v1_cache_proto_msgTypes[13].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*GetGuildRoleResponse); i {
+			switch v := v.(*ListGuildRolesResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1487,7 +1596,7 @@ func file_discord_v1_cache_proto_init() {
 			}
 		}
 		file_discord_v1_cache_proto_msgTypes[14].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*ListGuildEmojisRequest); i {
+			switch v := v.(*GetGuildRoleRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1499,7 +1608,7 @@ func file_discord_v1_cache_proto_init() {
 			}
 		}
 		file_discord_v1_cache_proto_msgTypes[15].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*ListGuildEmojisResponse); i {
+			switch v := v.(*GetGuildRoleResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1511,7 +1620,7 @@ func file_discord_v1_cache_proto_init() {
 			}
 		}
 		file_discord_v1_cache_proto_msgTypes[16].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*GetGuildEmojiRequest); i {
+			switch v := v.(*ListGuildEmojisRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1523,7 +1632,7 @@ func file_discord_v1_cache_proto_init() {
 			}
 		}
 		file_discord_v1_cache_proto_msgTypes[17].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*GetGuildEmojiResponse); i {
+			switch v := v.(*ListGuildEmojisResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1535,7 +1644,7 @@ func file_discord_v1_cache_proto_init() {
 			}
 		}
 		file_discord_v1_cache_proto_msgTypes[18].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*GetUserRequest); i {
+			switch v := v.(*GetGuildEmojiRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1547,7 +1656,7 @@ func file_discord_v1_cache_proto_init() {
 			}
 		}
 		file_discord_v1_cache_proto_msgTypes[19].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*GetUserResponse); i {
+			switch v := v.(*GetGuildEmojiResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1559,7 +1668,7 @@ func file_discord_v1_cache_proto_init() {
 			}
 		}
 		file_discord_v1_cache_proto_msgTypes[20].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*GetGuildMemberVoiceStateRequest); i {
+			switch v := v.(*GetUserRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1571,7 +1680,7 @@ func file_discord_v1_cache_proto_init() {
 			}
 		}
 		file_discord_v1_cache_proto_msgTypes[21].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*GetGuildMemberVoiceStateResponse); i {
+			switch v := v.(*GetUserResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1583,7 +1692,7 @@ func file_discord_v1_cache_proto_init() {
 			}
 		}
 		file_discord_v1_cache_proto_msgTypes[22].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*ListGuildChannelVoiceStatesRequest); i {
+			switch v := v.(*GetGuildMemberVoiceStateRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1595,6 +1704,30 @@ func file_discord_v1_cache_proto_init() {
 			}
 		}
 		file_discord_v1_cache_proto_msgTypes[23].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*GetGuildMemberVoiceStateResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_discord_v1_cache_proto_msgTypes[24].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*ListGuildChannelVoiceStatesRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_discord_v1_cache_proto_msgTypes[25].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ListGuildChannelVoiceStatesResponse); i {
 			case 0:
 				return &v.state
@@ -1613,7 +1746,7 @@ func file_discord_v1_cache_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_discord_v1_cache_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   24,
+			NumMessages:   26,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

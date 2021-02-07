@@ -335,56 +335,50 @@ func (WebhookData_WebhookType) EnumDescriptor() ([]byte, []int) {
 	return file_discord_v1_model_proto_rawDescGZIP(), []int{12, 0}
 }
 
-type ImageData_ImageDataType int32
+type InviteData_InviteTargetUserType int32
 
 const (
-	ImageData_UNKNOWN ImageData_ImageDataType = 0
-	ImageData_JPEG    ImageData_ImageDataType = 1
-	ImageData_PNG     ImageData_ImageDataType = 2
-	ImageData_GIF     ImageData_ImageDataType = 3
+	InviteData_UNKNOWN InviteData_InviteTargetUserType = 0
+	InviteData_STREAM  InviteData_InviteTargetUserType = 1
 )
 
-// Enum value maps for ImageData_ImageDataType.
+// Enum value maps for InviteData_InviteTargetUserType.
 var (
-	ImageData_ImageDataType_name = map[int32]string{
+	InviteData_InviteTargetUserType_name = map[int32]string{
 		0: "UNKNOWN",
-		1: "JPEG",
-		2: "PNG",
-		3: "GIF",
+		1: "STREAM",
 	}
-	ImageData_ImageDataType_value = map[string]int32{
+	InviteData_InviteTargetUserType_value = map[string]int32{
 		"UNKNOWN": 0,
-		"JPEG":    1,
-		"PNG":     2,
-		"GIF":     3,
+		"STREAM":  1,
 	}
 )
 
-func (x ImageData_ImageDataType) Enum() *ImageData_ImageDataType {
-	p := new(ImageData_ImageDataType)
+func (x InviteData_InviteTargetUserType) Enum() *InviteData_InviteTargetUserType {
+	p := new(InviteData_InviteTargetUserType)
 	*p = x
 	return p
 }
 
-func (x ImageData_ImageDataType) String() string {
+func (x InviteData_InviteTargetUserType) String() string {
 	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
 }
 
-func (ImageData_ImageDataType) Descriptor() protoreflect.EnumDescriptor {
+func (InviteData_InviteTargetUserType) Descriptor() protoreflect.EnumDescriptor {
 	return file_discord_v1_model_proto_enumTypes[5].Descriptor()
 }
 
-func (ImageData_ImageDataType) Type() protoreflect.EnumType {
+func (InviteData_InviteTargetUserType) Type() protoreflect.EnumType {
 	return &file_discord_v1_model_proto_enumTypes[5]
 }
 
-func (x ImageData_ImageDataType) Number() protoreflect.EnumNumber {
+func (x InviteData_InviteTargetUserType) Number() protoreflect.EnumNumber {
 	return protoreflect.EnumNumber(x)
 }
 
-// Deprecated: Use ImageData_ImageDataType.Descriptor instead.
-func (ImageData_ImageDataType) EnumDescriptor() ([]byte, []int) {
-	return file_discord_v1_model_proto_rawDescGZIP(), []int{15, 0}
+// Deprecated: Use InviteData_InviteTargetUserType.Descriptor instead.
+func (InviteData_InviteTargetUserType) EnumDescriptor() ([]byte, []int) {
+	return file_discord_v1_model_proto_rawDescGZIP(), []int{13, 0}
 }
 
 type SnowflakeValue struct {
@@ -1868,15 +1862,14 @@ type InviteData struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	GuildId   uint64               `protobuf:"fixed64,1,opt,name=guild_id,json=guildId,proto3" json:"guild_id,omitempty"`
-	ChannelId uint64               `protobuf:"fixed64,2,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
-	Code      string               `protobuf:"bytes,3,opt,name=code,proto3" json:"code,omitempty"`
-	CreatedAt *timestamp.Timestamp `protobuf:"bytes,4,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
-	Inviter   *UserData            `protobuf:"bytes,5,opt,name=inviter,proto3" json:"inviter,omitempty"`
-	MaxAge    uint64               `protobuf:"varint,6,opt,name=max_age,json=maxAge,proto3" json:"max_age,omitempty"`
-	MaxUses   uint64               `protobuf:"varint,7,opt,name=max_uses,json=maxUses,proto3" json:"max_uses,omitempty"`
-	Temporary bool                 `protobuf:"varint,8,opt,name=temporary,proto3" json:"temporary,omitempty"`
-	Uses      uint64               `protobuf:"varint,9,opt,name=uses,proto3" json:"uses,omitempty"`
+	Code                     string                          `protobuf:"bytes,1,opt,name=code,proto3" json:"code,omitempty"`
+	Guild                    *InviteData_InviteGuildData     `protobuf:"bytes,2,opt,name=guild,proto3" json:"guild,omitempty"`
+	Channel                  *InviteData_InviteChannelData   `protobuf:"bytes,3,opt,name=channel,proto3" json:"channel,omitempty"`
+	Inviter                  *UserData                       `protobuf:"bytes,4,opt,name=inviter,proto3" json:"inviter,omitempty"`
+	TargetUser               *UserData                       `protobuf:"bytes,5,opt,name=target_user,json=targetUser,proto3" json:"target_user,omitempty"`
+	TargetUserType           InviteData_InviteTargetUserType `protobuf:"varint,6,opt,name=target_user_type,json=targetUserType,proto3,enum=pylon.discord.v1.model.InviteData_InviteTargetUserType" json:"target_user_type,omitempty"`
+	ApproximatePresenceCount *wrappers.UInt32Value           `protobuf:"bytes,7,opt,name=approximate_presence_count,json=approximatePresenceCount,proto3" json:"approximate_presence_count,omitempty"`
+	ApproximateMemberCount   *wrappers.UInt32Value           `protobuf:"bytes,8,opt,name=approximate_member_count,json=approximateMemberCount,proto3" json:"approximate_member_count,omitempty"`
 }
 
 func (x *InviteData) Reset() {
@@ -1911,20 +1904,6 @@ func (*InviteData) Descriptor() ([]byte, []int) {
 	return file_discord_v1_model_proto_rawDescGZIP(), []int{13}
 }
 
-func (x *InviteData) GetGuildId() uint64 {
-	if x != nil {
-		return x.GuildId
-	}
-	return 0
-}
-
-func (x *InviteData) GetChannelId() uint64 {
-	if x != nil {
-		return x.ChannelId
-	}
-	return 0
-}
-
 func (x *InviteData) GetCode() string {
 	if x != nil {
 		return x.Code
@@ -1932,9 +1911,16 @@ func (x *InviteData) GetCode() string {
 	return ""
 }
 
-func (x *InviteData) GetCreatedAt() *timestamp.Timestamp {
+func (x *InviteData) GetGuild() *InviteData_InviteGuildData {
 	if x != nil {
-		return x.CreatedAt
+		return x.Guild
+	}
+	return nil
+}
+
+func (x *InviteData) GetChannel() *InviteData_InviteChannelData {
+	if x != nil {
+		return x.Channel
 	}
 	return nil
 }
@@ -1946,32 +1932,32 @@ func (x *InviteData) GetInviter() *UserData {
 	return nil
 }
 
-func (x *InviteData) GetMaxAge() uint64 {
+func (x *InviteData) GetTargetUser() *UserData {
 	if x != nil {
-		return x.MaxAge
+		return x.TargetUser
 	}
-	return 0
+	return nil
 }
 
-func (x *InviteData) GetMaxUses() uint64 {
+func (x *InviteData) GetTargetUserType() InviteData_InviteTargetUserType {
 	if x != nil {
-		return x.MaxUses
+		return x.TargetUserType
 	}
-	return 0
+	return InviteData_UNKNOWN
 }
 
-func (x *InviteData) GetTemporary() bool {
+func (x *InviteData) GetApproximatePresenceCount() *wrappers.UInt32Value {
 	if x != nil {
-		return x.Temporary
+		return x.ApproximatePresenceCount
 	}
-	return false
+	return nil
 }
 
-func (x *InviteData) GetUses() uint64 {
+func (x *InviteData) GetApproximateMemberCount() *wrappers.UInt32Value {
 	if x != nil {
-		return x.Uses
+		return x.ApproximateMemberCount
 	}
-	return 0
+	return nil
 }
 
 type GuildBanData struct {
@@ -2029,94 +2015,6 @@ func (x *GuildBanData) GetUser() *UserData {
 	return nil
 }
 
-type ImageData struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	Type ImageData_ImageDataType `protobuf:"varint,1,opt,name=type,proto3,enum=pylon.discord.v1.model.ImageData_ImageDataType" json:"type,omitempty"`
-	// Types that are assignable to Data:
-	//	*ImageData_Base64
-	//	*ImageData_Bytes
-	Data isImageData_Data `protobuf_oneof:"data"`
-}
-
-func (x *ImageData) Reset() {
-	*x = ImageData{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_discord_v1_model_proto_msgTypes[15]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *ImageData) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ImageData) ProtoMessage() {}
-
-func (x *ImageData) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_model_proto_msgTypes[15]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ImageData.ProtoReflect.Descriptor instead.
-func (*ImageData) Descriptor() ([]byte, []int) {
-	return file_discord_v1_model_proto_rawDescGZIP(), []int{15}
-}
-
-func (x *ImageData) GetType() ImageData_ImageDataType {
-	if x != nil {
-		return x.Type
-	}
-	return ImageData_UNKNOWN
-}
-
-func (m *ImageData) GetData() isImageData_Data {
-	if m != nil {
-		return m.Data
-	}
-	return nil
-}
-
-func (x *ImageData) GetBase64() string {
-	if x, ok := x.GetData().(*ImageData_Base64); ok {
-		return x.Base64
-	}
-	return ""
-}
-
-func (x *ImageData) GetBytes() []byte {
-	if x, ok := x.GetData().(*ImageData_Bytes); ok {
-		return x.Bytes
-	}
-	return nil
-}
-
-type isImageData_Data interface {
-	isImageData_Data()
-}
-
-type ImageData_Base64 struct {
-	Base64 string `protobuf:"bytes,2,opt,name=base64,proto3,oneof"`
-}
-
-type ImageData_Bytes struct {
-	Bytes []byte `protobuf:"bytes,3,opt,name=bytes,proto3,oneof"`
-}
-
-func (*ImageData_Base64) isImageData_Data() {}
-
-func (*ImageData_Bytes) isImageData_Data() {}
-
 type ChannelData_ChannelPermissionOverwriteData struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -2131,7 +2029,7 @@ type ChannelData_ChannelPermissionOverwriteData struct {
 func (x *ChannelData_ChannelPermissionOverwriteData) Reset() {
 	*x = ChannelData_ChannelPermissionOverwriteData{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_discord_v1_model_proto_msgTypes[16]
+		mi := &file_discord_v1_model_proto_msgTypes[15]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2144,7 +2042,7 @@ func (x *ChannelData_ChannelPermissionOverwriteData) String() string {
 func (*ChannelData_ChannelPermissionOverwriteData) ProtoMessage() {}
 
 func (x *ChannelData_ChannelPermissionOverwriteData) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_model_proto_msgTypes[16]
+	mi := &file_discord_v1_model_proto_msgTypes[15]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2205,7 +2103,7 @@ type MessageData_MessageAttachmentData struct {
 func (x *MessageData_MessageAttachmentData) Reset() {
 	*x = MessageData_MessageAttachmentData{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_discord_v1_model_proto_msgTypes[17]
+		mi := &file_discord_v1_model_proto_msgTypes[16]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2218,7 +2116,7 @@ func (x *MessageData_MessageAttachmentData) String() string {
 func (*MessageData_MessageAttachmentData) ProtoMessage() {}
 
 func (x *MessageData_MessageAttachmentData) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_model_proto_msgTypes[17]
+	mi := &file_discord_v1_model_proto_msgTypes[16]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2297,7 +2195,7 @@ type MessageData_MessageMentionData struct {
 func (x *MessageData_MessageMentionData) Reset() {
 	*x = MessageData_MessageMentionData{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_discord_v1_model_proto_msgTypes[18]
+		mi := &file_discord_v1_model_proto_msgTypes[17]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2310,7 +2208,7 @@ func (x *MessageData_MessageMentionData) String() string {
 func (*MessageData_MessageMentionData) ProtoMessage() {}
 
 func (x *MessageData_MessageMentionData) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_model_proto_msgTypes[18]
+	mi := &file_discord_v1_model_proto_msgTypes[17]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2367,7 +2265,7 @@ type MessageData_MessageReactionData struct {
 func (x *MessageData_MessageReactionData) Reset() {
 	*x = MessageData_MessageReactionData{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_discord_v1_model_proto_msgTypes[19]
+		mi := &file_discord_v1_model_proto_msgTypes[18]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2380,7 +2278,7 @@ func (x *MessageData_MessageReactionData) String() string {
 func (*MessageData_MessageReactionData) ProtoMessage() {}
 
 func (x *MessageData_MessageReactionData) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_model_proto_msgTypes[19]
+	mi := &file_discord_v1_model_proto_msgTypes[18]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2430,7 +2328,7 @@ type MessageData_MessageReactionEmojiData struct {
 func (x *MessageData_MessageReactionEmojiData) Reset() {
 	*x = MessageData_MessageReactionEmojiData{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_discord_v1_model_proto_msgTypes[20]
+		mi := &file_discord_v1_model_proto_msgTypes[19]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2443,7 +2341,7 @@ func (x *MessageData_MessageReactionEmojiData) String() string {
 func (*MessageData_MessageReactionEmojiData) ProtoMessage() {}
 
 func (x *MessageData_MessageReactionEmojiData) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_model_proto_msgTypes[20]
+	mi := &file_discord_v1_model_proto_msgTypes[19]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2495,7 +2393,7 @@ type MessageData_MessageApplicationData struct {
 func (x *MessageData_MessageApplicationData) Reset() {
 	*x = MessageData_MessageApplicationData{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_discord_v1_model_proto_msgTypes[21]
+		mi := &file_discord_v1_model_proto_msgTypes[20]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2508,7 +2406,7 @@ func (x *MessageData_MessageApplicationData) String() string {
 func (*MessageData_MessageApplicationData) ProtoMessage() {}
 
 func (x *MessageData_MessageApplicationData) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_model_proto_msgTypes[21]
+	mi := &file_discord_v1_model_proto_msgTypes[20]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2572,7 +2470,7 @@ type MessageData_MessageReferenceData struct {
 func (x *MessageData_MessageReferenceData) Reset() {
 	*x = MessageData_MessageReferenceData{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_discord_v1_model_proto_msgTypes[22]
+		mi := &file_discord_v1_model_proto_msgTypes[21]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2585,7 +2483,7 @@ func (x *MessageData_MessageReferenceData) String() string {
 func (*MessageData_MessageReferenceData) ProtoMessage() {}
 
 func (x *MessageData_MessageReferenceData) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_model_proto_msgTypes[22]
+	mi := &file_discord_v1_model_proto_msgTypes[21]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2634,7 +2532,7 @@ type MessageData_MessageActivityData struct {
 func (x *MessageData_MessageActivityData) Reset() {
 	*x = MessageData_MessageActivityData{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_discord_v1_model_proto_msgTypes[23]
+		mi := &file_discord_v1_model_proto_msgTypes[22]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2647,7 +2545,7 @@ func (x *MessageData_MessageActivityData) String() string {
 func (*MessageData_MessageActivityData) ProtoMessage() {}
 
 func (x *MessageData_MessageActivityData) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_model_proto_msgTypes[23]
+	mi := &file_discord_v1_model_proto_msgTypes[22]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2691,7 +2589,7 @@ type MessageData_MessageMentionChannelData struct {
 func (x *MessageData_MessageMentionChannelData) Reset() {
 	*x = MessageData_MessageMentionChannelData{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_discord_v1_model_proto_msgTypes[24]
+		mi := &file_discord_v1_model_proto_msgTypes[23]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2704,7 +2602,7 @@ func (x *MessageData_MessageMentionChannelData) String() string {
 func (*MessageData_MessageMentionChannelData) ProtoMessage() {}
 
 func (x *MessageData_MessageMentionChannelData) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_model_proto_msgTypes[24]
+	mi := &file_discord_v1_model_proto_msgTypes[23]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2771,7 +2669,7 @@ type MessageData_MessageEmbedData struct {
 func (x *MessageData_MessageEmbedData) Reset() {
 	*x = MessageData_MessageEmbedData{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_discord_v1_model_proto_msgTypes[25]
+		mi := &file_discord_v1_model_proto_msgTypes[24]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2784,7 +2682,7 @@ func (x *MessageData_MessageEmbedData) String() string {
 func (*MessageData_MessageEmbedData) ProtoMessage() {}
 
 func (x *MessageData_MessageEmbedData) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_model_proto_msgTypes[25]
+	mi := &file_discord_v1_model_proto_msgTypes[24]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2904,7 +2802,7 @@ type MessageData_MessageEmbedData_MessageEmbedFooterData struct {
 func (x *MessageData_MessageEmbedData_MessageEmbedFooterData) Reset() {
 	*x = MessageData_MessageEmbedData_MessageEmbedFooterData{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_discord_v1_model_proto_msgTypes[26]
+		mi := &file_discord_v1_model_proto_msgTypes[25]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2917,7 +2815,7 @@ func (x *MessageData_MessageEmbedData_MessageEmbedFooterData) String() string {
 func (*MessageData_MessageEmbedData_MessageEmbedFooterData) ProtoMessage() {}
 
 func (x *MessageData_MessageEmbedData_MessageEmbedFooterData) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_model_proto_msgTypes[26]
+	mi := &file_discord_v1_model_proto_msgTypes[25]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2967,7 +2865,7 @@ type MessageData_MessageEmbedData_MessageEmbedImageData struct {
 func (x *MessageData_MessageEmbedData_MessageEmbedImageData) Reset() {
 	*x = MessageData_MessageEmbedData_MessageEmbedImageData{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_discord_v1_model_proto_msgTypes[27]
+		mi := &file_discord_v1_model_proto_msgTypes[26]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2980,7 +2878,7 @@ func (x *MessageData_MessageEmbedData_MessageEmbedImageData) String() string {
 func (*MessageData_MessageEmbedData_MessageEmbedImageData) ProtoMessage() {}
 
 func (x *MessageData_MessageEmbedData_MessageEmbedImageData) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_model_proto_msgTypes[27]
+	mi := &file_discord_v1_model_proto_msgTypes[26]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3031,7 +2929,7 @@ type MessageData_MessageEmbedData_MessageEmbedThumbnailData struct {
 func (x *MessageData_MessageEmbedData_MessageEmbedThumbnailData) Reset() {
 	*x = MessageData_MessageEmbedData_MessageEmbedThumbnailData{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_discord_v1_model_proto_msgTypes[28]
+		mi := &file_discord_v1_model_proto_msgTypes[27]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3044,7 +2942,7 @@ func (x *MessageData_MessageEmbedData_MessageEmbedThumbnailData) String() string
 func (*MessageData_MessageEmbedData_MessageEmbedThumbnailData) ProtoMessage() {}
 
 func (x *MessageData_MessageEmbedData_MessageEmbedThumbnailData) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_model_proto_msgTypes[28]
+	mi := &file_discord_v1_model_proto_msgTypes[27]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3101,7 +2999,7 @@ type MessageData_MessageEmbedData_MessageEmbedVideoData struct {
 func (x *MessageData_MessageEmbedData_MessageEmbedVideoData) Reset() {
 	*x = MessageData_MessageEmbedData_MessageEmbedVideoData{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_discord_v1_model_proto_msgTypes[29]
+		mi := &file_discord_v1_model_proto_msgTypes[28]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3114,7 +3012,7 @@ func (x *MessageData_MessageEmbedData_MessageEmbedVideoData) String() string {
 func (*MessageData_MessageEmbedData_MessageEmbedVideoData) ProtoMessage() {}
 
 func (x *MessageData_MessageEmbedData_MessageEmbedVideoData) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_model_proto_msgTypes[29]
+	mi := &file_discord_v1_model_proto_msgTypes[28]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3163,7 +3061,7 @@ type MessageData_MessageEmbedData_MessageEmbedProviderData struct {
 func (x *MessageData_MessageEmbedData_MessageEmbedProviderData) Reset() {
 	*x = MessageData_MessageEmbedData_MessageEmbedProviderData{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_discord_v1_model_proto_msgTypes[30]
+		mi := &file_discord_v1_model_proto_msgTypes[29]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3176,7 +3074,7 @@ func (x *MessageData_MessageEmbedData_MessageEmbedProviderData) String() string 
 func (*MessageData_MessageEmbedData_MessageEmbedProviderData) ProtoMessage() {}
 
 func (x *MessageData_MessageEmbedData_MessageEmbedProviderData) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_model_proto_msgTypes[30]
+	mi := &file_discord_v1_model_proto_msgTypes[29]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3220,7 +3118,7 @@ type MessageData_MessageEmbedData_MessageEmbedAuthorData struct {
 func (x *MessageData_MessageEmbedData_MessageEmbedAuthorData) Reset() {
 	*x = MessageData_MessageEmbedData_MessageEmbedAuthorData{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_discord_v1_model_proto_msgTypes[31]
+		mi := &file_discord_v1_model_proto_msgTypes[30]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3233,7 +3131,7 @@ func (x *MessageData_MessageEmbedData_MessageEmbedAuthorData) String() string {
 func (*MessageData_MessageEmbedData_MessageEmbedAuthorData) ProtoMessage() {}
 
 func (x *MessageData_MessageEmbedData_MessageEmbedAuthorData) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_model_proto_msgTypes[31]
+	mi := &file_discord_v1_model_proto_msgTypes[30]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3290,7 +3188,7 @@ type MessageData_MessageEmbedData_MessageEmbedFieldData struct {
 func (x *MessageData_MessageEmbedData_MessageEmbedFieldData) Reset() {
 	*x = MessageData_MessageEmbedData_MessageEmbedFieldData{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_discord_v1_model_proto_msgTypes[32]
+		mi := &file_discord_v1_model_proto_msgTypes[31]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3303,7 +3201,7 @@ func (x *MessageData_MessageEmbedData_MessageEmbedFieldData) String() string {
 func (*MessageData_MessageEmbedData_MessageEmbedFieldData) ProtoMessage() {}
 
 func (x *MessageData_MessageEmbedData_MessageEmbedFieldData) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_model_proto_msgTypes[32]
+	mi := &file_discord_v1_model_proto_msgTypes[31]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3353,7 +3251,7 @@ type PresenceData_PresenceClientStatusData struct {
 func (x *PresenceData_PresenceClientStatusData) Reset() {
 	*x = PresenceData_PresenceClientStatusData{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_discord_v1_model_proto_msgTypes[33]
+		mi := &file_discord_v1_model_proto_msgTypes[32]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3366,7 +3264,7 @@ func (x *PresenceData_PresenceClientStatusData) String() string {
 func (*PresenceData_PresenceClientStatusData) ProtoMessage() {}
 
 func (x *PresenceData_PresenceClientStatusData) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_model_proto_msgTypes[33]
+	mi := &file_discord_v1_model_proto_msgTypes[32]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3427,7 +3325,7 @@ type PresenceData_PresenceActivityData struct {
 func (x *PresenceData_PresenceActivityData) Reset() {
 	*x = PresenceData_PresenceActivityData{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_discord_v1_model_proto_msgTypes[34]
+		mi := &file_discord_v1_model_proto_msgTypes[33]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3440,7 +3338,7 @@ func (x *PresenceData_PresenceActivityData) String() string {
 func (*PresenceData_PresenceActivityData) ProtoMessage() {}
 
 func (x *PresenceData_PresenceActivityData) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_model_proto_msgTypes[34]
+	mi := &file_discord_v1_model_proto_msgTypes[33]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3566,7 +3464,7 @@ type PresenceData_PresenceActivityData_PresenceActivityTimestampsData struct {
 func (x *PresenceData_PresenceActivityData_PresenceActivityTimestampsData) Reset() {
 	*x = PresenceData_PresenceActivityData_PresenceActivityTimestampsData{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_discord_v1_model_proto_msgTypes[35]
+		mi := &file_discord_v1_model_proto_msgTypes[34]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3579,7 +3477,7 @@ func (x *PresenceData_PresenceActivityData_PresenceActivityTimestampsData) Strin
 func (*PresenceData_PresenceActivityData_PresenceActivityTimestampsData) ProtoMessage() {}
 
 func (x *PresenceData_PresenceActivityData_PresenceActivityTimestampsData) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_model_proto_msgTypes[35]
+	mi := &file_discord_v1_model_proto_msgTypes[34]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3622,7 +3520,7 @@ type PresenceData_PresenceActivityData_PresenceActivityEmojiData struct {
 func (x *PresenceData_PresenceActivityData_PresenceActivityEmojiData) Reset() {
 	*x = PresenceData_PresenceActivityData_PresenceActivityEmojiData{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_discord_v1_model_proto_msgTypes[36]
+		mi := &file_discord_v1_model_proto_msgTypes[35]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3635,7 +3533,7 @@ func (x *PresenceData_PresenceActivityData_PresenceActivityEmojiData) String() s
 func (*PresenceData_PresenceActivityData_PresenceActivityEmojiData) ProtoMessage() {}
 
 func (x *PresenceData_PresenceActivityData_PresenceActivityEmojiData) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_model_proto_msgTypes[36]
+	mi := &file_discord_v1_model_proto_msgTypes[35]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3685,7 +3583,7 @@ type PresenceData_PresenceActivityData_PresenceActivityPartyData struct {
 func (x *PresenceData_PresenceActivityData_PresenceActivityPartyData) Reset() {
 	*x = PresenceData_PresenceActivityData_PresenceActivityPartyData{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_discord_v1_model_proto_msgTypes[37]
+		mi := &file_discord_v1_model_proto_msgTypes[36]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3698,7 +3596,7 @@ func (x *PresenceData_PresenceActivityData_PresenceActivityPartyData) String() s
 func (*PresenceData_PresenceActivityData_PresenceActivityPartyData) ProtoMessage() {}
 
 func (x *PresenceData_PresenceActivityData_PresenceActivityPartyData) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_model_proto_msgTypes[37]
+	mi := &file_discord_v1_model_proto_msgTypes[36]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3749,7 +3647,7 @@ type PresenceData_PresenceActivityData_PresenceActivityAssetsData struct {
 func (x *PresenceData_PresenceActivityData_PresenceActivityAssetsData) Reset() {
 	*x = PresenceData_PresenceActivityData_PresenceActivityAssetsData{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_discord_v1_model_proto_msgTypes[38]
+		mi := &file_discord_v1_model_proto_msgTypes[37]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3762,7 +3660,7 @@ func (x *PresenceData_PresenceActivityData_PresenceActivityAssetsData) String() 
 func (*PresenceData_PresenceActivityData_PresenceActivityAssetsData) ProtoMessage() {}
 
 func (x *PresenceData_PresenceActivityData_PresenceActivityAssetsData) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_model_proto_msgTypes[38]
+	mi := &file_discord_v1_model_proto_msgTypes[37]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3819,7 +3717,7 @@ type PresenceData_PresenceActivityData_PresenceActivitySecretsData struct {
 func (x *PresenceData_PresenceActivityData_PresenceActivitySecretsData) Reset() {
 	*x = PresenceData_PresenceActivityData_PresenceActivitySecretsData{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_discord_v1_model_proto_msgTypes[39]
+		mi := &file_discord_v1_model_proto_msgTypes[38]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3832,7 +3730,7 @@ func (x *PresenceData_PresenceActivityData_PresenceActivitySecretsData) String()
 func (*PresenceData_PresenceActivityData_PresenceActivitySecretsData) ProtoMessage() {}
 
 func (x *PresenceData_PresenceActivityData_PresenceActivitySecretsData) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_model_proto_msgTypes[39]
+	mi := &file_discord_v1_model_proto_msgTypes[38]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3867,6 +3765,180 @@ func (x *PresenceData_PresenceActivityData_PresenceActivitySecretsData) GetMatch
 		return x.Match
 	}
 	return ""
+}
+
+type InviteData_InviteGuildData struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Id                uint64                `protobuf:"fixed64,1,opt,name=id,proto3" json:"id,omitempty"`
+	Name              string                `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+	Splash            *wrappers.StringValue `protobuf:"bytes,3,opt,name=splash,proto3" json:"splash,omitempty"`
+	Banner            *wrappers.StringValue `protobuf:"bytes,4,opt,name=banner,proto3" json:"banner,omitempty"`
+	Description       *wrappers.StringValue `protobuf:"bytes,5,opt,name=description,proto3" json:"description,omitempty"`
+	Icon              *wrappers.StringValue `protobuf:"bytes,6,opt,name=icon,proto3" json:"icon,omitempty"`
+	Features          []string              `protobuf:"bytes,7,rep,name=features,proto3" json:"features,omitempty"`
+	VerificationLevel uint32                `protobuf:"varint,8,opt,name=verification_level,json=verificationLevel,proto3" json:"verification_level,omitempty"`
+	VanityUrlCode     *wrappers.StringValue `protobuf:"bytes,9,opt,name=vanity_url_code,json=vanityUrlCode,proto3" json:"vanity_url_code,omitempty"`
+}
+
+func (x *InviteData_InviteGuildData) Reset() {
+	*x = InviteData_InviteGuildData{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_discord_v1_model_proto_msgTypes[39]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *InviteData_InviteGuildData) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*InviteData_InviteGuildData) ProtoMessage() {}
+
+func (x *InviteData_InviteGuildData) ProtoReflect() protoreflect.Message {
+	mi := &file_discord_v1_model_proto_msgTypes[39]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use InviteData_InviteGuildData.ProtoReflect.Descriptor instead.
+func (*InviteData_InviteGuildData) Descriptor() ([]byte, []int) {
+	return file_discord_v1_model_proto_rawDescGZIP(), []int{13, 0}
+}
+
+func (x *InviteData_InviteGuildData) GetId() uint64 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+func (x *InviteData_InviteGuildData) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+func (x *InviteData_InviteGuildData) GetSplash() *wrappers.StringValue {
+	if x != nil {
+		return x.Splash
+	}
+	return nil
+}
+
+func (x *InviteData_InviteGuildData) GetBanner() *wrappers.StringValue {
+	if x != nil {
+		return x.Banner
+	}
+	return nil
+}
+
+func (x *InviteData_InviteGuildData) GetDescription() *wrappers.StringValue {
+	if x != nil {
+		return x.Description
+	}
+	return nil
+}
+
+func (x *InviteData_InviteGuildData) GetIcon() *wrappers.StringValue {
+	if x != nil {
+		return x.Icon
+	}
+	return nil
+}
+
+func (x *InviteData_InviteGuildData) GetFeatures() []string {
+	if x != nil {
+		return x.Features
+	}
+	return nil
+}
+
+func (x *InviteData_InviteGuildData) GetVerificationLevel() uint32 {
+	if x != nil {
+		return x.VerificationLevel
+	}
+	return 0
+}
+
+func (x *InviteData_InviteGuildData) GetVanityUrlCode() *wrappers.StringValue {
+	if x != nil {
+		return x.VanityUrlCode
+	}
+	return nil
+}
+
+type InviteData_InviteChannelData struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Id   uint64                  `protobuf:"fixed64,1,opt,name=id,proto3" json:"id,omitempty"`
+	Name string                  `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+	Type ChannelData_ChannelType `protobuf:"varint,3,opt,name=type,proto3,enum=pylon.discord.v1.model.ChannelData_ChannelType" json:"type,omitempty"`
+}
+
+func (x *InviteData_InviteChannelData) Reset() {
+	*x = InviteData_InviteChannelData{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_discord_v1_model_proto_msgTypes[40]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *InviteData_InviteChannelData) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*InviteData_InviteChannelData) ProtoMessage() {}
+
+func (x *InviteData_InviteChannelData) ProtoReflect() protoreflect.Message {
+	mi := &file_discord_v1_model_proto_msgTypes[40]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use InviteData_InviteChannelData.ProtoReflect.Descriptor instead.
+func (*InviteData_InviteChannelData) Descriptor() ([]byte, []int) {
+	return file_discord_v1_model_proto_rawDescGZIP(), []int{13, 1}
+}
+
+func (x *InviteData_InviteChannelData) GetId() uint64 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+func (x *InviteData_InviteChannelData) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+func (x *InviteData_InviteChannelData) GetType() ChannelData_ChannelType {
+	if x != nil {
+		return x.Type
+	}
+	return ChannelData_UNKNOWN
 }
 
 var File_discord_v1_model_proto protoreflect.FileDescriptor
@@ -4553,52 +4625,95 @@ var file_discord_v1_model_proto_rawDesc = []byte{
 	0x6e, 0x22, 0x31, 0x0a, 0x0b, 0x57, 0x65, 0x62, 0x68, 0x6f, 0x6f, 0x6b, 0x54, 0x79, 0x70, 0x65,
 	0x12, 0x0c, 0x0a, 0x08, 0x49, 0x4e, 0x43, 0x4f, 0x4d, 0x49, 0x4e, 0x47, 0x10, 0x00, 0x12, 0x14,
 	0x0a, 0x10, 0x43, 0x48, 0x41, 0x4e, 0x4e, 0x45, 0x4c, 0x5f, 0x46, 0x4f, 0x4c, 0x4c, 0x4f, 0x57,
-	0x45, 0x52, 0x10, 0x01, 0x22, 0xbf, 0x02, 0x0a, 0x0a, 0x49, 0x6e, 0x76, 0x69, 0x74, 0x65, 0x44,
-	0x61, 0x74, 0x61, 0x12, 0x1d, 0x0a, 0x08, 0x67, 0x75, 0x69, 0x6c, 0x64, 0x5f, 0x69, 0x64, 0x18,
-	0x01, 0x20, 0x01, 0x28, 0x06, 0x42, 0x02, 0x30, 0x01, 0x52, 0x07, 0x67, 0x75, 0x69, 0x6c, 0x64,
-	0x49, 0x64, 0x12, 0x21, 0x0a, 0x0a, 0x63, 0x68, 0x61, 0x6e, 0x6e, 0x65, 0x6c, 0x5f, 0x69, 0x64,
-	0x18, 0x02, 0x20, 0x01, 0x28, 0x06, 0x42, 0x02, 0x30, 0x01, 0x52, 0x09, 0x63, 0x68, 0x61, 0x6e,
-	0x6e, 0x65, 0x6c, 0x49, 0x64, 0x12, 0x12, 0x0a, 0x04, 0x63, 0x6f, 0x64, 0x65, 0x18, 0x03, 0x20,
-	0x01, 0x28, 0x09, 0x52, 0x04, 0x63, 0x6f, 0x64, 0x65, 0x12, 0x39, 0x0a, 0x0a, 0x63, 0x72, 0x65,
-	0x61, 0x74, 0x65, 0x64, 0x5f, 0x61, 0x74, 0x18, 0x04, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1a, 0x2e,
+	0x45, 0x52, 0x10, 0x01, 0x22, 0xaf, 0x09, 0x0a, 0x0a, 0x49, 0x6e, 0x76, 0x69, 0x74, 0x65, 0x44,
+	0x61, 0x74, 0x61, 0x12, 0x12, 0x0a, 0x04, 0x63, 0x6f, 0x64, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28,
+	0x09, 0x52, 0x04, 0x63, 0x6f, 0x64, 0x65, 0x12, 0x48, 0x0a, 0x05, 0x67, 0x75, 0x69, 0x6c, 0x64,
+	0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x32, 0x2e, 0x70, 0x79, 0x6c, 0x6f, 0x6e, 0x2e, 0x64,
+	0x69, 0x73, 0x63, 0x6f, 0x72, 0x64, 0x2e, 0x76, 0x31, 0x2e, 0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x2e,
+	0x49, 0x6e, 0x76, 0x69, 0x74, 0x65, 0x44, 0x61, 0x74, 0x61, 0x2e, 0x49, 0x6e, 0x76, 0x69, 0x74,
+	0x65, 0x47, 0x75, 0x69, 0x6c, 0x64, 0x44, 0x61, 0x74, 0x61, 0x52, 0x05, 0x67, 0x75, 0x69, 0x6c,
+	0x64, 0x12, 0x4e, 0x0a, 0x07, 0x63, 0x68, 0x61, 0x6e, 0x6e, 0x65, 0x6c, 0x18, 0x03, 0x20, 0x01,
+	0x28, 0x0b, 0x32, 0x34, 0x2e, 0x70, 0x79, 0x6c, 0x6f, 0x6e, 0x2e, 0x64, 0x69, 0x73, 0x63, 0x6f,
+	0x72, 0x64, 0x2e, 0x76, 0x31, 0x2e, 0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x2e, 0x49, 0x6e, 0x76, 0x69,
+	0x74, 0x65, 0x44, 0x61, 0x74, 0x61, 0x2e, 0x49, 0x6e, 0x76, 0x69, 0x74, 0x65, 0x43, 0x68, 0x61,
+	0x6e, 0x6e, 0x65, 0x6c, 0x44, 0x61, 0x74, 0x61, 0x52, 0x07, 0x63, 0x68, 0x61, 0x6e, 0x6e, 0x65,
+	0x6c, 0x12, 0x3a, 0x0a, 0x07, 0x69, 0x6e, 0x76, 0x69, 0x74, 0x65, 0x72, 0x18, 0x04, 0x20, 0x01,
+	0x28, 0x0b, 0x32, 0x20, 0x2e, 0x70, 0x79, 0x6c, 0x6f, 0x6e, 0x2e, 0x64, 0x69, 0x73, 0x63, 0x6f,
+	0x72, 0x64, 0x2e, 0x76, 0x31, 0x2e, 0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x2e, 0x55, 0x73, 0x65, 0x72,
+	0x44, 0x61, 0x74, 0x61, 0x52, 0x07, 0x69, 0x6e, 0x76, 0x69, 0x74, 0x65, 0x72, 0x12, 0x41, 0x0a,
+	0x0b, 0x74, 0x61, 0x72, 0x67, 0x65, 0x74, 0x5f, 0x75, 0x73, 0x65, 0x72, 0x18, 0x05, 0x20, 0x01,
+	0x28, 0x0b, 0x32, 0x20, 0x2e, 0x70, 0x79, 0x6c, 0x6f, 0x6e, 0x2e, 0x64, 0x69, 0x73, 0x63, 0x6f,
+	0x72, 0x64, 0x2e, 0x76, 0x31, 0x2e, 0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x2e, 0x55, 0x73, 0x65, 0x72,
+	0x44, 0x61, 0x74, 0x61, 0x52, 0x0a, 0x74, 0x61, 0x72, 0x67, 0x65, 0x74, 0x55, 0x73, 0x65, 0x72,
+	0x12, 0x61, 0x0a, 0x10, 0x74, 0x61, 0x72, 0x67, 0x65, 0x74, 0x5f, 0x75, 0x73, 0x65, 0x72, 0x5f,
+	0x74, 0x79, 0x70, 0x65, 0x18, 0x06, 0x20, 0x01, 0x28, 0x0e, 0x32, 0x37, 0x2e, 0x70, 0x79, 0x6c,
+	0x6f, 0x6e, 0x2e, 0x64, 0x69, 0x73, 0x63, 0x6f, 0x72, 0x64, 0x2e, 0x76, 0x31, 0x2e, 0x6d, 0x6f,
+	0x64, 0x65, 0x6c, 0x2e, 0x49, 0x6e, 0x76, 0x69, 0x74, 0x65, 0x44, 0x61, 0x74, 0x61, 0x2e, 0x49,
+	0x6e, 0x76, 0x69, 0x74, 0x65, 0x54, 0x61, 0x72, 0x67, 0x65, 0x74, 0x55, 0x73, 0x65, 0x72, 0x54,
+	0x79, 0x70, 0x65, 0x52, 0x0e, 0x74, 0x61, 0x72, 0x67, 0x65, 0x74, 0x55, 0x73, 0x65, 0x72, 0x54,
+	0x79, 0x70, 0x65, 0x12, 0x5a, 0x0a, 0x1a, 0x61, 0x70, 0x70, 0x72, 0x6f, 0x78, 0x69, 0x6d, 0x61,
+	0x74, 0x65, 0x5f, 0x70, 0x72, 0x65, 0x73, 0x65, 0x6e, 0x63, 0x65, 0x5f, 0x63, 0x6f, 0x75, 0x6e,
+	0x74, 0x18, 0x07, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1c, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65,
+	0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x2e, 0x55, 0x49, 0x6e, 0x74, 0x33, 0x32,
+	0x56, 0x61, 0x6c, 0x75, 0x65, 0x52, 0x18, 0x61, 0x70, 0x70, 0x72, 0x6f, 0x78, 0x69, 0x6d, 0x61,
+	0x74, 0x65, 0x50, 0x72, 0x65, 0x73, 0x65, 0x6e, 0x63, 0x65, 0x43, 0x6f, 0x75, 0x6e, 0x74, 0x12,
+	0x56, 0x0a, 0x18, 0x61, 0x70, 0x70, 0x72, 0x6f, 0x78, 0x69, 0x6d, 0x61, 0x74, 0x65, 0x5f, 0x6d,
+	0x65, 0x6d, 0x62, 0x65, 0x72, 0x5f, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x18, 0x08, 0x20, 0x01, 0x28,
+	0x0b, 0x32, 0x1c, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f,
+	0x62, 0x75, 0x66, 0x2e, 0x55, 0x49, 0x6e, 0x74, 0x33, 0x32, 0x56, 0x61, 0x6c, 0x75, 0x65, 0x52,
+	0x16, 0x61, 0x70, 0x70, 0x72, 0x6f, 0x78, 0x69, 0x6d, 0x61, 0x74, 0x65, 0x4d, 0x65, 0x6d, 0x62,
+	0x65, 0x72, 0x43, 0x6f, 0x75, 0x6e, 0x74, 0x1a, 0xa8, 0x03, 0x0a, 0x0f, 0x49, 0x6e, 0x76, 0x69,
+	0x74, 0x65, 0x47, 0x75, 0x69, 0x6c, 0x64, 0x44, 0x61, 0x74, 0x61, 0x12, 0x12, 0x0a, 0x02, 0x69,
+	0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x06, 0x42, 0x02, 0x30, 0x01, 0x52, 0x02, 0x69, 0x64, 0x12,
+	0x12, 0x0a, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x6e,
+	0x61, 0x6d, 0x65, 0x12, 0x34, 0x0a, 0x06, 0x73, 0x70, 0x6c, 0x61, 0x73, 0x68, 0x18, 0x03, 0x20,
+	0x01, 0x28, 0x0b, 0x32, 0x1c, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x70, 0x72, 0x6f,
+	0x74, 0x6f, 0x62, 0x75, 0x66, 0x2e, 0x53, 0x74, 0x72, 0x69, 0x6e, 0x67, 0x56, 0x61, 0x6c, 0x75,
+	0x65, 0x52, 0x06, 0x73, 0x70, 0x6c, 0x61, 0x73, 0x68, 0x12, 0x34, 0x0a, 0x06, 0x62, 0x61, 0x6e,
+	0x6e, 0x65, 0x72, 0x18, 0x04, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1c, 0x2e, 0x67, 0x6f, 0x6f, 0x67,
+	0x6c, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x2e, 0x53, 0x74, 0x72, 0x69,
+	0x6e, 0x67, 0x56, 0x61, 0x6c, 0x75, 0x65, 0x52, 0x06, 0x62, 0x61, 0x6e, 0x6e, 0x65, 0x72, 0x12,
+	0x3e, 0x0a, 0x0b, 0x64, 0x65, 0x73, 0x63, 0x72, 0x69, 0x70, 0x74, 0x69, 0x6f, 0x6e, 0x18, 0x05,
+	0x20, 0x01, 0x28, 0x0b, 0x32, 0x1c, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x70, 0x72,
+	0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x2e, 0x53, 0x74, 0x72, 0x69, 0x6e, 0x67, 0x56, 0x61, 0x6c,
+	0x75, 0x65, 0x52, 0x0b, 0x64, 0x65, 0x73, 0x63, 0x72, 0x69, 0x70, 0x74, 0x69, 0x6f, 0x6e, 0x12,
+	0x30, 0x0a, 0x04, 0x69, 0x63, 0x6f, 0x6e, 0x18, 0x06, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1c, 0x2e,
 	0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x2e,
-	0x54, 0x69, 0x6d, 0x65, 0x73, 0x74, 0x61, 0x6d, 0x70, 0x52, 0x09, 0x63, 0x72, 0x65, 0x61, 0x74,
-	0x65, 0x64, 0x41, 0x74, 0x12, 0x3a, 0x0a, 0x07, 0x69, 0x6e, 0x76, 0x69, 0x74, 0x65, 0x72, 0x18,
-	0x05, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x20, 0x2e, 0x70, 0x79, 0x6c, 0x6f, 0x6e, 0x2e, 0x64, 0x69,
-	0x73, 0x63, 0x6f, 0x72, 0x64, 0x2e, 0x76, 0x31, 0x2e, 0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x2e, 0x55,
-	0x73, 0x65, 0x72, 0x44, 0x61, 0x74, 0x61, 0x52, 0x07, 0x69, 0x6e, 0x76, 0x69, 0x74, 0x65, 0x72,
-	0x12, 0x17, 0x0a, 0x07, 0x6d, 0x61, 0x78, 0x5f, 0x61, 0x67, 0x65, 0x18, 0x06, 0x20, 0x01, 0x28,
-	0x04, 0x52, 0x06, 0x6d, 0x61, 0x78, 0x41, 0x67, 0x65, 0x12, 0x19, 0x0a, 0x08, 0x6d, 0x61, 0x78,
-	0x5f, 0x75, 0x73, 0x65, 0x73, 0x18, 0x07, 0x20, 0x01, 0x28, 0x04, 0x52, 0x07, 0x6d, 0x61, 0x78,
-	0x55, 0x73, 0x65, 0x73, 0x12, 0x1c, 0x0a, 0x09, 0x74, 0x65, 0x6d, 0x70, 0x6f, 0x72, 0x61, 0x72,
-	0x79, 0x18, 0x08, 0x20, 0x01, 0x28, 0x08, 0x52, 0x09, 0x74, 0x65, 0x6d, 0x70, 0x6f, 0x72, 0x61,
-	0x72, 0x79, 0x12, 0x12, 0x0a, 0x04, 0x75, 0x73, 0x65, 0x73, 0x18, 0x09, 0x20, 0x01, 0x28, 0x04,
-	0x52, 0x04, 0x75, 0x73, 0x65, 0x73, 0x22, 0x5c, 0x0a, 0x0c, 0x47, 0x75, 0x69, 0x6c, 0x64, 0x42,
+	0x53, 0x74, 0x72, 0x69, 0x6e, 0x67, 0x56, 0x61, 0x6c, 0x75, 0x65, 0x52, 0x04, 0x69, 0x63, 0x6f,
+	0x6e, 0x12, 0x1a, 0x0a, 0x08, 0x66, 0x65, 0x61, 0x74, 0x75, 0x72, 0x65, 0x73, 0x18, 0x07, 0x20,
+	0x03, 0x28, 0x09, 0x52, 0x08, 0x66, 0x65, 0x61, 0x74, 0x75, 0x72, 0x65, 0x73, 0x12, 0x2d, 0x0a,
+	0x12, 0x76, 0x65, 0x72, 0x69, 0x66, 0x69, 0x63, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x5f, 0x6c, 0x65,
+	0x76, 0x65, 0x6c, 0x18, 0x08, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x11, 0x76, 0x65, 0x72, 0x69, 0x66,
+	0x69, 0x63, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x4c, 0x65, 0x76, 0x65, 0x6c, 0x12, 0x44, 0x0a, 0x0f,
+	0x76, 0x61, 0x6e, 0x69, 0x74, 0x79, 0x5f, 0x75, 0x72, 0x6c, 0x5f, 0x63, 0x6f, 0x64, 0x65, 0x18,
+	0x09, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1c, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x70,
+	0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x2e, 0x53, 0x74, 0x72, 0x69, 0x6e, 0x67, 0x56, 0x61,
+	0x6c, 0x75, 0x65, 0x52, 0x0d, 0x76, 0x61, 0x6e, 0x69, 0x74, 0x79, 0x55, 0x72, 0x6c, 0x43, 0x6f,
+	0x64, 0x65, 0x1a, 0x80, 0x01, 0x0a, 0x11, 0x49, 0x6e, 0x76, 0x69, 0x74, 0x65, 0x43, 0x68, 0x61,
+	0x6e, 0x6e, 0x65, 0x6c, 0x44, 0x61, 0x74, 0x61, 0x12, 0x12, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01,
+	0x20, 0x01, 0x28, 0x06, 0x42, 0x02, 0x30, 0x01, 0x52, 0x02, 0x69, 0x64, 0x12, 0x12, 0x0a, 0x04,
+	0x6e, 0x61, 0x6d, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x6e, 0x61, 0x6d, 0x65,
+	0x12, 0x43, 0x0a, 0x04, 0x74, 0x79, 0x70, 0x65, 0x18, 0x03, 0x20, 0x01, 0x28, 0x0e, 0x32, 0x2f,
+	0x2e, 0x70, 0x79, 0x6c, 0x6f, 0x6e, 0x2e, 0x64, 0x69, 0x73, 0x63, 0x6f, 0x72, 0x64, 0x2e, 0x76,
+	0x31, 0x2e, 0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x2e, 0x43, 0x68, 0x61, 0x6e, 0x6e, 0x65, 0x6c, 0x44,
+	0x61, 0x74, 0x61, 0x2e, 0x43, 0x68, 0x61, 0x6e, 0x6e, 0x65, 0x6c, 0x54, 0x79, 0x70, 0x65, 0x52,
+	0x04, 0x74, 0x79, 0x70, 0x65, 0x22, 0x2f, 0x0a, 0x14, 0x49, 0x6e, 0x76, 0x69, 0x74, 0x65, 0x54,
+	0x61, 0x72, 0x67, 0x65, 0x74, 0x55, 0x73, 0x65, 0x72, 0x54, 0x79, 0x70, 0x65, 0x12, 0x0b, 0x0a,
+	0x07, 0x55, 0x4e, 0x4b, 0x4e, 0x4f, 0x57, 0x4e, 0x10, 0x00, 0x12, 0x0a, 0x0a, 0x06, 0x53, 0x54,
+	0x52, 0x45, 0x41, 0x4d, 0x10, 0x01, 0x22, 0x5c, 0x0a, 0x0c, 0x47, 0x75, 0x69, 0x6c, 0x64, 0x42,
 	0x61, 0x6e, 0x44, 0x61, 0x74, 0x61, 0x12, 0x16, 0x0a, 0x06, 0x72, 0x65, 0x61, 0x73, 0x6f, 0x6e,
 	0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x72, 0x65, 0x61, 0x73, 0x6f, 0x6e, 0x12, 0x34,
 	0x0a, 0x04, 0x75, 0x73, 0x65, 0x72, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x20, 0x2e, 0x70,
 	0x79, 0x6c, 0x6f, 0x6e, 0x2e, 0x64, 0x69, 0x73, 0x63, 0x6f, 0x72, 0x64, 0x2e, 0x76, 0x31, 0x2e,
 	0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x2e, 0x55, 0x73, 0x65, 0x72, 0x44, 0x61, 0x74, 0x61, 0x52, 0x04,
-	0x75, 0x73, 0x65, 0x72, 0x22, 0xc4, 0x01, 0x0a, 0x09, 0x49, 0x6d, 0x61, 0x67, 0x65, 0x44, 0x61,
-	0x74, 0x61, 0x12, 0x43, 0x0a, 0x04, 0x74, 0x79, 0x70, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0e,
-	0x32, 0x2f, 0x2e, 0x70, 0x79, 0x6c, 0x6f, 0x6e, 0x2e, 0x64, 0x69, 0x73, 0x63, 0x6f, 0x72, 0x64,
-	0x2e, 0x76, 0x31, 0x2e, 0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x2e, 0x49, 0x6d, 0x61, 0x67, 0x65, 0x44,
-	0x61, 0x74, 0x61, 0x2e, 0x49, 0x6d, 0x61, 0x67, 0x65, 0x44, 0x61, 0x74, 0x61, 0x54, 0x79, 0x70,
-	0x65, 0x52, 0x04, 0x74, 0x79, 0x70, 0x65, 0x12, 0x18, 0x0a, 0x06, 0x62, 0x61, 0x73, 0x65, 0x36,
-	0x34, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x48, 0x00, 0x52, 0x06, 0x62, 0x61, 0x73, 0x65, 0x36,
-	0x34, 0x12, 0x16, 0x0a, 0x05, 0x62, 0x79, 0x74, 0x65, 0x73, 0x18, 0x03, 0x20, 0x01, 0x28, 0x0c,
-	0x48, 0x00, 0x52, 0x05, 0x62, 0x79, 0x74, 0x65, 0x73, 0x22, 0x38, 0x0a, 0x0d, 0x49, 0x6d, 0x61,
-	0x67, 0x65, 0x44, 0x61, 0x74, 0x61, 0x54, 0x79, 0x70, 0x65, 0x12, 0x0b, 0x0a, 0x07, 0x55, 0x4e,
-	0x4b, 0x4e, 0x4f, 0x57, 0x4e, 0x10, 0x00, 0x12, 0x08, 0x0a, 0x04, 0x4a, 0x50, 0x45, 0x47, 0x10,
-	0x01, 0x12, 0x07, 0x0a, 0x03, 0x50, 0x4e, 0x47, 0x10, 0x02, 0x12, 0x07, 0x0a, 0x03, 0x47, 0x49,
-	0x46, 0x10, 0x03, 0x42, 0x06, 0x0a, 0x04, 0x64, 0x61, 0x74, 0x61, 0x42, 0x64, 0x0a, 0x20, 0x62,
-	0x6f, 0x74, 0x2e, 0x70, 0x79, 0x6c, 0x6f, 0x6e, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x64,
-	0x69, 0x73, 0x63, 0x6f, 0x72, 0x64, 0x2e, 0x76, 0x31, 0x2e, 0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x50,
-	0x01, 0x5a, 0x3e, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x70, 0x79,
-	0x6c, 0x6f, 0x6e, 0x62, 0x6f, 0x74, 0x2f, 0x70, 0x79, 0x6c, 0x6f, 0x6e, 0x2d, 0x67, 0x61, 0x74,
-	0x65, 0x77, 0x61, 0x79, 0x2d, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x2d, 0x67, 0x6f,
-	0x2f, 0x64, 0x69, 0x73, 0x63, 0x6f, 0x72, 0x64, 0x2f, 0x76, 0x31, 0x2f, 0x6d, 0x6f, 0x64, 0x65,
-	0x6c, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x75, 0x73, 0x65, 0x72, 0x42, 0x64, 0x0a, 0x20, 0x62, 0x6f, 0x74, 0x2e, 0x70, 0x79, 0x6c, 0x6f,
+	0x6e, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x64, 0x69, 0x73, 0x63, 0x6f, 0x72, 0x64, 0x2e,
+	0x76, 0x31, 0x2e, 0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x50, 0x01, 0x5a, 0x3e, 0x67, 0x69, 0x74, 0x68,
+	0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x70, 0x79, 0x6c, 0x6f, 0x6e, 0x62, 0x6f, 0x74, 0x2f,
+	0x70, 0x79, 0x6c, 0x6f, 0x6e, 0x2d, 0x67, 0x61, 0x74, 0x65, 0x77, 0x61, 0x79, 0x2d, 0x70, 0x72,
+	0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x2d, 0x67, 0x6f, 0x2f, 0x64, 0x69, 0x73, 0x63, 0x6f, 0x72,
+	0x64, 0x2f, 0x76, 0x31, 0x2f, 0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74,
+	0x6f, 0x33,
 }
 
 var (
@@ -4614,14 +4729,14 @@ func file_discord_v1_model_proto_rawDescGZIP() []byte {
 }
 
 var file_discord_v1_model_proto_enumTypes = make([]protoimpl.EnumInfo, 6)
-var file_discord_v1_model_proto_msgTypes = make([]protoimpl.MessageInfo, 40)
+var file_discord_v1_model_proto_msgTypes = make([]protoimpl.MessageInfo, 41)
 var file_discord_v1_model_proto_goTypes = []interface{}{
 	(ChannelData_ChannelType)(0), // 0: pylon.discord.v1.model.ChannelData.ChannelType
 	(ChannelData_ChannelPermissionOverwriteData_ChannelPermissionOverwriteType)(0), // 1: pylon.discord.v1.model.ChannelData.ChannelPermissionOverwriteData.ChannelPermissionOverwriteType
 	(MessageData_MessageType)(0),                                             // 2: pylon.discord.v1.model.MessageData.MessageType
 	(MessageData_MessageEmbedData_MessageEmbedType)(0),                       // 3: pylon.discord.v1.model.MessageData.MessageEmbedData.MessageEmbedType
 	(WebhookData_WebhookType)(0),                                             // 4: pylon.discord.v1.model.WebhookData.WebhookType
-	(ImageData_ImageDataType)(0),                                             // 5: pylon.discord.v1.model.ImageData.ImageDataType
+	(InviteData_InviteTargetUserType)(0),                                     // 5: pylon.discord.v1.model.InviteData.InviteTargetUserType
 	(*SnowflakeValue)(nil),                                                   // 6: pylon.discord.v1.model.SnowflakeValue
 	(*SnowflakeListValue)(nil),                                               // 7: pylon.discord.v1.model.SnowflakeListValue
 	(*PermissionsValue)(nil),                                                 // 8: pylon.discord.v1.model.PermissionsValue
@@ -4637,105 +4752,117 @@ var file_discord_v1_model_proto_goTypes = []interface{}{
 	(*WebhookData)(nil),                                                      // 18: pylon.discord.v1.model.WebhookData
 	(*InviteData)(nil),                                                       // 19: pylon.discord.v1.model.InviteData
 	(*GuildBanData)(nil),                                                     // 20: pylon.discord.v1.model.GuildBanData
-	(*ImageData)(nil),                                                        // 21: pylon.discord.v1.model.ImageData
-	(*ChannelData_ChannelPermissionOverwriteData)(nil),                       // 22: pylon.discord.v1.model.ChannelData.ChannelPermissionOverwriteData
-	(*MessageData_MessageAttachmentData)(nil),                                // 23: pylon.discord.v1.model.MessageData.MessageAttachmentData
-	(*MessageData_MessageMentionData)(nil),                                   // 24: pylon.discord.v1.model.MessageData.MessageMentionData
-	(*MessageData_MessageReactionData)(nil),                                  // 25: pylon.discord.v1.model.MessageData.MessageReactionData
-	(*MessageData_MessageReactionEmojiData)(nil),                             // 26: pylon.discord.v1.model.MessageData.MessageReactionEmojiData
-	(*MessageData_MessageApplicationData)(nil),                               // 27: pylon.discord.v1.model.MessageData.MessageApplicationData
-	(*MessageData_MessageReferenceData)(nil),                                 // 28: pylon.discord.v1.model.MessageData.MessageReferenceData
-	(*MessageData_MessageActivityData)(nil),                                  // 29: pylon.discord.v1.model.MessageData.MessageActivityData
-	(*MessageData_MessageMentionChannelData)(nil),                            // 30: pylon.discord.v1.model.MessageData.MessageMentionChannelData
-	(*MessageData_MessageEmbedData)(nil),                                     // 31: pylon.discord.v1.model.MessageData.MessageEmbedData
-	(*MessageData_MessageEmbedData_MessageEmbedFooterData)(nil),              // 32: pylon.discord.v1.model.MessageData.MessageEmbedData.MessageEmbedFooterData
-	(*MessageData_MessageEmbedData_MessageEmbedImageData)(nil),               // 33: pylon.discord.v1.model.MessageData.MessageEmbedData.MessageEmbedImageData
-	(*MessageData_MessageEmbedData_MessageEmbedThumbnailData)(nil),           // 34: pylon.discord.v1.model.MessageData.MessageEmbedData.MessageEmbedThumbnailData
-	(*MessageData_MessageEmbedData_MessageEmbedVideoData)(nil),               // 35: pylon.discord.v1.model.MessageData.MessageEmbedData.MessageEmbedVideoData
-	(*MessageData_MessageEmbedData_MessageEmbedProviderData)(nil),            // 36: pylon.discord.v1.model.MessageData.MessageEmbedData.MessageEmbedProviderData
-	(*MessageData_MessageEmbedData_MessageEmbedAuthorData)(nil),              // 37: pylon.discord.v1.model.MessageData.MessageEmbedData.MessageEmbedAuthorData
-	(*MessageData_MessageEmbedData_MessageEmbedFieldData)(nil),               // 38: pylon.discord.v1.model.MessageData.MessageEmbedData.MessageEmbedFieldData
-	(*PresenceData_PresenceClientStatusData)(nil),                            // 39: pylon.discord.v1.model.PresenceData.PresenceClientStatusData
-	(*PresenceData_PresenceActivityData)(nil),                                // 40: pylon.discord.v1.model.PresenceData.PresenceActivityData
-	(*PresenceData_PresenceActivityData_PresenceActivityTimestampsData)(nil), // 41: pylon.discord.v1.model.PresenceData.PresenceActivityData.PresenceActivityTimestampsData
-	(*PresenceData_PresenceActivityData_PresenceActivityEmojiData)(nil),      // 42: pylon.discord.v1.model.PresenceData.PresenceActivityData.PresenceActivityEmojiData
-	(*PresenceData_PresenceActivityData_PresenceActivityPartyData)(nil),      // 43: pylon.discord.v1.model.PresenceData.PresenceActivityData.PresenceActivityPartyData
-	(*PresenceData_PresenceActivityData_PresenceActivityAssetsData)(nil),     // 44: pylon.discord.v1.model.PresenceData.PresenceActivityData.PresenceActivityAssetsData
-	(*PresenceData_PresenceActivityData_PresenceActivitySecretsData)(nil),    // 45: pylon.discord.v1.model.PresenceData.PresenceActivityData.PresenceActivitySecretsData
-	(*wrappers.StringValue)(nil),                                             // 46: google.protobuf.StringValue
-	(*timestamp.Timestamp)(nil),                                              // 47: google.protobuf.Timestamp
+	(*ChannelData_ChannelPermissionOverwriteData)(nil),                       // 21: pylon.discord.v1.model.ChannelData.ChannelPermissionOverwriteData
+	(*MessageData_MessageAttachmentData)(nil),                                // 22: pylon.discord.v1.model.MessageData.MessageAttachmentData
+	(*MessageData_MessageMentionData)(nil),                                   // 23: pylon.discord.v1.model.MessageData.MessageMentionData
+	(*MessageData_MessageReactionData)(nil),                                  // 24: pylon.discord.v1.model.MessageData.MessageReactionData
+	(*MessageData_MessageReactionEmojiData)(nil),                             // 25: pylon.discord.v1.model.MessageData.MessageReactionEmojiData
+	(*MessageData_MessageApplicationData)(nil),                               // 26: pylon.discord.v1.model.MessageData.MessageApplicationData
+	(*MessageData_MessageReferenceData)(nil),                                 // 27: pylon.discord.v1.model.MessageData.MessageReferenceData
+	(*MessageData_MessageActivityData)(nil),                                  // 28: pylon.discord.v1.model.MessageData.MessageActivityData
+	(*MessageData_MessageMentionChannelData)(nil),                            // 29: pylon.discord.v1.model.MessageData.MessageMentionChannelData
+	(*MessageData_MessageEmbedData)(nil),                                     // 30: pylon.discord.v1.model.MessageData.MessageEmbedData
+	(*MessageData_MessageEmbedData_MessageEmbedFooterData)(nil),              // 31: pylon.discord.v1.model.MessageData.MessageEmbedData.MessageEmbedFooterData
+	(*MessageData_MessageEmbedData_MessageEmbedImageData)(nil),               // 32: pylon.discord.v1.model.MessageData.MessageEmbedData.MessageEmbedImageData
+	(*MessageData_MessageEmbedData_MessageEmbedThumbnailData)(nil),           // 33: pylon.discord.v1.model.MessageData.MessageEmbedData.MessageEmbedThumbnailData
+	(*MessageData_MessageEmbedData_MessageEmbedVideoData)(nil),               // 34: pylon.discord.v1.model.MessageData.MessageEmbedData.MessageEmbedVideoData
+	(*MessageData_MessageEmbedData_MessageEmbedProviderData)(nil),            // 35: pylon.discord.v1.model.MessageData.MessageEmbedData.MessageEmbedProviderData
+	(*MessageData_MessageEmbedData_MessageEmbedAuthorData)(nil),              // 36: pylon.discord.v1.model.MessageData.MessageEmbedData.MessageEmbedAuthorData
+	(*MessageData_MessageEmbedData_MessageEmbedFieldData)(nil),               // 37: pylon.discord.v1.model.MessageData.MessageEmbedData.MessageEmbedFieldData
+	(*PresenceData_PresenceClientStatusData)(nil),                            // 38: pylon.discord.v1.model.PresenceData.PresenceClientStatusData
+	(*PresenceData_PresenceActivityData)(nil),                                // 39: pylon.discord.v1.model.PresenceData.PresenceActivityData
+	(*PresenceData_PresenceActivityData_PresenceActivityTimestampsData)(nil), // 40: pylon.discord.v1.model.PresenceData.PresenceActivityData.PresenceActivityTimestampsData
+	(*PresenceData_PresenceActivityData_PresenceActivityEmojiData)(nil),      // 41: pylon.discord.v1.model.PresenceData.PresenceActivityData.PresenceActivityEmojiData
+	(*PresenceData_PresenceActivityData_PresenceActivityPartyData)(nil),      // 42: pylon.discord.v1.model.PresenceData.PresenceActivityData.PresenceActivityPartyData
+	(*PresenceData_PresenceActivityData_PresenceActivityAssetsData)(nil),     // 43: pylon.discord.v1.model.PresenceData.PresenceActivityData.PresenceActivityAssetsData
+	(*PresenceData_PresenceActivityData_PresenceActivitySecretsData)(nil),    // 44: pylon.discord.v1.model.PresenceData.PresenceActivityData.PresenceActivitySecretsData
+	(*InviteData_InviteGuildData)(nil),                                       // 45: pylon.discord.v1.model.InviteData.InviteGuildData
+	(*InviteData_InviteChannelData)(nil),                                     // 46: pylon.discord.v1.model.InviteData.InviteChannelData
+	(*wrappers.StringValue)(nil),                                             // 47: google.protobuf.StringValue
+	(*timestamp.Timestamp)(nil),                                              // 48: google.protobuf.Timestamp
+	(*wrappers.UInt32Value)(nil),                                             // 49: google.protobuf.UInt32Value
 }
 var file_discord_v1_model_proto_depIdxs = []int32{
-	46, // 0: pylon.discord.v1.model.GuildData.icon:type_name -> google.protobuf.StringValue
+	47, // 0: pylon.discord.v1.model.GuildData.icon:type_name -> google.protobuf.StringValue
 	6,  // 1: pylon.discord.v1.model.GuildData.afk_channel_id:type_name -> pylon.discord.v1.model.SnowflakeValue
-	47, // 2: pylon.discord.v1.model.GuildData.joined_at:type_name -> google.protobuf.Timestamp
-	46, // 3: pylon.discord.v1.model.GuildData.splash:type_name -> google.protobuf.StringValue
-	46, // 4: pylon.discord.v1.model.GuildData.discovery_splash:type_name -> google.protobuf.StringValue
+	48, // 2: pylon.discord.v1.model.GuildData.joined_at:type_name -> google.protobuf.Timestamp
+	47, // 3: pylon.discord.v1.model.GuildData.splash:type_name -> google.protobuf.StringValue
+	47, // 4: pylon.discord.v1.model.GuildData.discovery_splash:type_name -> google.protobuf.StringValue
 	6,  // 5: pylon.discord.v1.model.GuildData.widget_channel_id:type_name -> pylon.discord.v1.model.SnowflakeValue
 	6,  // 6: pylon.discord.v1.model.GuildData.system_channel_id:type_name -> pylon.discord.v1.model.SnowflakeValue
-	46, // 7: pylon.discord.v1.model.GuildData.vanity_url_code:type_name -> google.protobuf.StringValue
-	46, // 8: pylon.discord.v1.model.GuildData.description:type_name -> google.protobuf.StringValue
-	46, // 9: pylon.discord.v1.model.GuildData.banner:type_name -> google.protobuf.StringValue
+	47, // 7: pylon.discord.v1.model.GuildData.vanity_url_code:type_name -> google.protobuf.StringValue
+	47, // 8: pylon.discord.v1.model.GuildData.description:type_name -> google.protobuf.StringValue
+	47, // 9: pylon.discord.v1.model.GuildData.banner:type_name -> google.protobuf.StringValue
 	6,  // 10: pylon.discord.v1.model.ChannelData.guild_id:type_name -> pylon.discord.v1.model.SnowflakeValue
-	46, // 11: pylon.discord.v1.model.ChannelData.topic:type_name -> google.protobuf.StringValue
+	47, // 11: pylon.discord.v1.model.ChannelData.topic:type_name -> google.protobuf.StringValue
 	0,  // 12: pylon.discord.v1.model.ChannelData.type:type_name -> pylon.discord.v1.model.ChannelData.ChannelType
 	6,  // 13: pylon.discord.v1.model.ChannelData.parent_id:type_name -> pylon.discord.v1.model.SnowflakeValue
-	22, // 14: pylon.discord.v1.model.ChannelData.permission_overwrites:type_name -> pylon.discord.v1.model.ChannelData.ChannelPermissionOverwriteData
-	46, // 15: pylon.discord.v1.model.UserData.avatar:type_name -> google.protobuf.StringValue
+	21, // 14: pylon.discord.v1.model.ChannelData.permission_overwrites:type_name -> pylon.discord.v1.model.ChannelData.ChannelPermissionOverwriteData
+	47, // 15: pylon.discord.v1.model.UserData.avatar:type_name -> google.protobuf.StringValue
 	11, // 16: pylon.discord.v1.model.MemberData.user:type_name -> pylon.discord.v1.model.UserData
-	46, // 17: pylon.discord.v1.model.MemberData.nick:type_name -> google.protobuf.StringValue
-	47, // 18: pylon.discord.v1.model.MemberData.joined_at:type_name -> google.protobuf.Timestamp
-	47, // 19: pylon.discord.v1.model.MemberData.premium_since:type_name -> google.protobuf.Timestamp
+	47, // 17: pylon.discord.v1.model.MemberData.nick:type_name -> google.protobuf.StringValue
+	48, // 18: pylon.discord.v1.model.MemberData.joined_at:type_name -> google.protobuf.Timestamp
+	48, // 19: pylon.discord.v1.model.MemberData.premium_since:type_name -> google.protobuf.Timestamp
 	12, // 20: pylon.discord.v1.model.VoiceStateData.member:type_name -> pylon.discord.v1.model.MemberData
 	6,  // 21: pylon.discord.v1.model.VoiceStateData.channel_id:type_name -> pylon.discord.v1.model.SnowflakeValue
-	46, // 22: pylon.discord.v1.model.VoiceStateData.session_id:type_name -> google.protobuf.StringValue
+	47, // 22: pylon.discord.v1.model.VoiceStateData.session_id:type_name -> google.protobuf.StringValue
 	6,  // 23: pylon.discord.v1.model.MessageData.guild_id:type_name -> pylon.discord.v1.model.SnowflakeValue
-	47, // 24: pylon.discord.v1.model.MessageData.timestamp:type_name -> google.protobuf.Timestamp
-	47, // 25: pylon.discord.v1.model.MessageData.edited_timestamp:type_name -> google.protobuf.Timestamp
+	48, // 24: pylon.discord.v1.model.MessageData.timestamp:type_name -> google.protobuf.Timestamp
+	48, // 25: pylon.discord.v1.model.MessageData.edited_timestamp:type_name -> google.protobuf.Timestamp
 	7,  // 26: pylon.discord.v1.model.MessageData.mention_roles:type_name -> pylon.discord.v1.model.SnowflakeListValue
-	23, // 27: pylon.discord.v1.model.MessageData.attachments:type_name -> pylon.discord.v1.model.MessageData.MessageAttachmentData
-	31, // 28: pylon.discord.v1.model.MessageData.embeds:type_name -> pylon.discord.v1.model.MessageData.MessageEmbedData
-	24, // 29: pylon.discord.v1.model.MessageData.mentions:type_name -> pylon.discord.v1.model.MessageData.MessageMentionData
-	25, // 30: pylon.discord.v1.model.MessageData.reactions:type_name -> pylon.discord.v1.model.MessageData.MessageReactionData
+	22, // 27: pylon.discord.v1.model.MessageData.attachments:type_name -> pylon.discord.v1.model.MessageData.MessageAttachmentData
+	30, // 28: pylon.discord.v1.model.MessageData.embeds:type_name -> pylon.discord.v1.model.MessageData.MessageEmbedData
+	23, // 29: pylon.discord.v1.model.MessageData.mentions:type_name -> pylon.discord.v1.model.MessageData.MessageMentionData
+	24, // 30: pylon.discord.v1.model.MessageData.reactions:type_name -> pylon.discord.v1.model.MessageData.MessageReactionData
 	2,  // 31: pylon.discord.v1.model.MessageData.type:type_name -> pylon.discord.v1.model.MessageData.MessageType
-	30, // 32: pylon.discord.v1.model.MessageData.mention_channels:type_name -> pylon.discord.v1.model.MessageData.MessageMentionChannelData
-	29, // 33: pylon.discord.v1.model.MessageData.activity:type_name -> pylon.discord.v1.model.MessageData.MessageActivityData
-	27, // 34: pylon.discord.v1.model.MessageData.application:type_name -> pylon.discord.v1.model.MessageData.MessageApplicationData
-	28, // 35: pylon.discord.v1.model.MessageData.message_reference:type_name -> pylon.discord.v1.model.MessageData.MessageReferenceData
+	29, // 32: pylon.discord.v1.model.MessageData.mention_channels:type_name -> pylon.discord.v1.model.MessageData.MessageMentionChannelData
+	28, // 33: pylon.discord.v1.model.MessageData.activity:type_name -> pylon.discord.v1.model.MessageData.MessageActivityData
+	26, // 34: pylon.discord.v1.model.MessageData.application:type_name -> pylon.discord.v1.model.MessageData.MessageApplicationData
+	27, // 35: pylon.discord.v1.model.MessageData.message_reference:type_name -> pylon.discord.v1.model.MessageData.MessageReferenceData
 	11, // 36: pylon.discord.v1.model.MessageData.author:type_name -> pylon.discord.v1.model.UserData
 	12, // 37: pylon.discord.v1.model.MessageData.member:type_name -> pylon.discord.v1.model.MemberData
 	6,  // 38: pylon.discord.v1.model.MessageData.webhook_id:type_name -> pylon.discord.v1.model.SnowflakeValue
 	11, // 39: pylon.discord.v1.model.PresenceData.user:type_name -> pylon.discord.v1.model.UserData
-	39, // 40: pylon.discord.v1.model.PresenceData.client_status:type_name -> pylon.discord.v1.model.PresenceData.PresenceClientStatusData
-	40, // 41: pylon.discord.v1.model.PresenceData.activities:type_name -> pylon.discord.v1.model.PresenceData.PresenceActivityData
+	38, // 40: pylon.discord.v1.model.PresenceData.client_status:type_name -> pylon.discord.v1.model.PresenceData.PresenceClientStatusData
+	39, // 41: pylon.discord.v1.model.PresenceData.activities:type_name -> pylon.discord.v1.model.PresenceData.PresenceActivityData
 	4,  // 42: pylon.discord.v1.model.WebhookData.type:type_name -> pylon.discord.v1.model.WebhookData.WebhookType
-	47, // 43: pylon.discord.v1.model.InviteData.created_at:type_name -> google.protobuf.Timestamp
-	11, // 44: pylon.discord.v1.model.InviteData.inviter:type_name -> pylon.discord.v1.model.UserData
-	11, // 45: pylon.discord.v1.model.GuildBanData.user:type_name -> pylon.discord.v1.model.UserData
-	5,  // 46: pylon.discord.v1.model.ImageData.type:type_name -> pylon.discord.v1.model.ImageData.ImageDataType
-	1,  // 47: pylon.discord.v1.model.ChannelData.ChannelPermissionOverwriteData.type:type_name -> pylon.discord.v1.model.ChannelData.ChannelPermissionOverwriteData.ChannelPermissionOverwriteType
-	26, // 48: pylon.discord.v1.model.MessageData.MessageReactionData.emoji:type_name -> pylon.discord.v1.model.MessageData.MessageReactionEmojiData
-	0,  // 49: pylon.discord.v1.model.MessageData.MessageMentionChannelData.type:type_name -> pylon.discord.v1.model.ChannelData.ChannelType
-	3,  // 50: pylon.discord.v1.model.MessageData.MessageEmbedData.type:type_name -> pylon.discord.v1.model.MessageData.MessageEmbedData.MessageEmbedType
-	47, // 51: pylon.discord.v1.model.MessageData.MessageEmbedData.timestamp:type_name -> google.protobuf.Timestamp
-	32, // 52: pylon.discord.v1.model.MessageData.MessageEmbedData.footer:type_name -> pylon.discord.v1.model.MessageData.MessageEmbedData.MessageEmbedFooterData
-	33, // 53: pylon.discord.v1.model.MessageData.MessageEmbedData.image:type_name -> pylon.discord.v1.model.MessageData.MessageEmbedData.MessageEmbedImageData
-	34, // 54: pylon.discord.v1.model.MessageData.MessageEmbedData.thumbnail:type_name -> pylon.discord.v1.model.MessageData.MessageEmbedData.MessageEmbedThumbnailData
-	35, // 55: pylon.discord.v1.model.MessageData.MessageEmbedData.video:type_name -> pylon.discord.v1.model.MessageData.MessageEmbedData.MessageEmbedVideoData
-	36, // 56: pylon.discord.v1.model.MessageData.MessageEmbedData.provider:type_name -> pylon.discord.v1.model.MessageData.MessageEmbedData.MessageEmbedProviderData
-	37, // 57: pylon.discord.v1.model.MessageData.MessageEmbedData.author:type_name -> pylon.discord.v1.model.MessageData.MessageEmbedData.MessageEmbedAuthorData
-	38, // 58: pylon.discord.v1.model.MessageData.MessageEmbedData.fields:type_name -> pylon.discord.v1.model.MessageData.MessageEmbedData.MessageEmbedFieldData
-	47, // 59: pylon.discord.v1.model.PresenceData.PresenceActivityData.created_at:type_name -> google.protobuf.Timestamp
-	41, // 60: pylon.discord.v1.model.PresenceData.PresenceActivityData.timestamps:type_name -> pylon.discord.v1.model.PresenceData.PresenceActivityData.PresenceActivityTimestampsData
-	42, // 61: pylon.discord.v1.model.PresenceData.PresenceActivityData.emoji:type_name -> pylon.discord.v1.model.PresenceData.PresenceActivityData.PresenceActivityEmojiData
-	43, // 62: pylon.discord.v1.model.PresenceData.PresenceActivityData.party:type_name -> pylon.discord.v1.model.PresenceData.PresenceActivityData.PresenceActivityPartyData
-	44, // 63: pylon.discord.v1.model.PresenceData.PresenceActivityData.assets:type_name -> pylon.discord.v1.model.PresenceData.PresenceActivityData.PresenceActivityAssetsData
-	45, // 64: pylon.discord.v1.model.PresenceData.PresenceActivityData.secrets:type_name -> pylon.discord.v1.model.PresenceData.PresenceActivityData.PresenceActivitySecretsData
-	65, // [65:65] is the sub-list for method output_type
-	65, // [65:65] is the sub-list for method input_type
-	65, // [65:65] is the sub-list for extension type_name
-	65, // [65:65] is the sub-list for extension extendee
-	0,  // [0:65] is the sub-list for field type_name
+	45, // 43: pylon.discord.v1.model.InviteData.guild:type_name -> pylon.discord.v1.model.InviteData.InviteGuildData
+	46, // 44: pylon.discord.v1.model.InviteData.channel:type_name -> pylon.discord.v1.model.InviteData.InviteChannelData
+	11, // 45: pylon.discord.v1.model.InviteData.inviter:type_name -> pylon.discord.v1.model.UserData
+	11, // 46: pylon.discord.v1.model.InviteData.target_user:type_name -> pylon.discord.v1.model.UserData
+	5,  // 47: pylon.discord.v1.model.InviteData.target_user_type:type_name -> pylon.discord.v1.model.InviteData.InviteTargetUserType
+	49, // 48: pylon.discord.v1.model.InviteData.approximate_presence_count:type_name -> google.protobuf.UInt32Value
+	49, // 49: pylon.discord.v1.model.InviteData.approximate_member_count:type_name -> google.protobuf.UInt32Value
+	11, // 50: pylon.discord.v1.model.GuildBanData.user:type_name -> pylon.discord.v1.model.UserData
+	1,  // 51: pylon.discord.v1.model.ChannelData.ChannelPermissionOverwriteData.type:type_name -> pylon.discord.v1.model.ChannelData.ChannelPermissionOverwriteData.ChannelPermissionOverwriteType
+	25, // 52: pylon.discord.v1.model.MessageData.MessageReactionData.emoji:type_name -> pylon.discord.v1.model.MessageData.MessageReactionEmojiData
+	0,  // 53: pylon.discord.v1.model.MessageData.MessageMentionChannelData.type:type_name -> pylon.discord.v1.model.ChannelData.ChannelType
+	3,  // 54: pylon.discord.v1.model.MessageData.MessageEmbedData.type:type_name -> pylon.discord.v1.model.MessageData.MessageEmbedData.MessageEmbedType
+	48, // 55: pylon.discord.v1.model.MessageData.MessageEmbedData.timestamp:type_name -> google.protobuf.Timestamp
+	31, // 56: pylon.discord.v1.model.MessageData.MessageEmbedData.footer:type_name -> pylon.discord.v1.model.MessageData.MessageEmbedData.MessageEmbedFooterData
+	32, // 57: pylon.discord.v1.model.MessageData.MessageEmbedData.image:type_name -> pylon.discord.v1.model.MessageData.MessageEmbedData.MessageEmbedImageData
+	33, // 58: pylon.discord.v1.model.MessageData.MessageEmbedData.thumbnail:type_name -> pylon.discord.v1.model.MessageData.MessageEmbedData.MessageEmbedThumbnailData
+	34, // 59: pylon.discord.v1.model.MessageData.MessageEmbedData.video:type_name -> pylon.discord.v1.model.MessageData.MessageEmbedData.MessageEmbedVideoData
+	35, // 60: pylon.discord.v1.model.MessageData.MessageEmbedData.provider:type_name -> pylon.discord.v1.model.MessageData.MessageEmbedData.MessageEmbedProviderData
+	36, // 61: pylon.discord.v1.model.MessageData.MessageEmbedData.author:type_name -> pylon.discord.v1.model.MessageData.MessageEmbedData.MessageEmbedAuthorData
+	37, // 62: pylon.discord.v1.model.MessageData.MessageEmbedData.fields:type_name -> pylon.discord.v1.model.MessageData.MessageEmbedData.MessageEmbedFieldData
+	48, // 63: pylon.discord.v1.model.PresenceData.PresenceActivityData.created_at:type_name -> google.protobuf.Timestamp
+	40, // 64: pylon.discord.v1.model.PresenceData.PresenceActivityData.timestamps:type_name -> pylon.discord.v1.model.PresenceData.PresenceActivityData.PresenceActivityTimestampsData
+	41, // 65: pylon.discord.v1.model.PresenceData.PresenceActivityData.emoji:type_name -> pylon.discord.v1.model.PresenceData.PresenceActivityData.PresenceActivityEmojiData
+	42, // 66: pylon.discord.v1.model.PresenceData.PresenceActivityData.party:type_name -> pylon.discord.v1.model.PresenceData.PresenceActivityData.PresenceActivityPartyData
+	43, // 67: pylon.discord.v1.model.PresenceData.PresenceActivityData.assets:type_name -> pylon.discord.v1.model.PresenceData.PresenceActivityData.PresenceActivityAssetsData
+	44, // 68: pylon.discord.v1.model.PresenceData.PresenceActivityData.secrets:type_name -> pylon.discord.v1.model.PresenceData.PresenceActivityData.PresenceActivitySecretsData
+	47, // 69: pylon.discord.v1.model.InviteData.InviteGuildData.splash:type_name -> google.protobuf.StringValue
+	47, // 70: pylon.discord.v1.model.InviteData.InviteGuildData.banner:type_name -> google.protobuf.StringValue
+	47, // 71: pylon.discord.v1.model.InviteData.InviteGuildData.description:type_name -> google.protobuf.StringValue
+	47, // 72: pylon.discord.v1.model.InviteData.InviteGuildData.icon:type_name -> google.protobuf.StringValue
+	47, // 73: pylon.discord.v1.model.InviteData.InviteGuildData.vanity_url_code:type_name -> google.protobuf.StringValue
+	0,  // 74: pylon.discord.v1.model.InviteData.InviteChannelData.type:type_name -> pylon.discord.v1.model.ChannelData.ChannelType
+	75, // [75:75] is the sub-list for method output_type
+	75, // [75:75] is the sub-list for method input_type
+	75, // [75:75] is the sub-list for extension type_name
+	75, // [75:75] is the sub-list for extension extendee
+	0,  // [0:75] is the sub-list for field type_name
 }
 
 func init() { file_discord_v1_model_proto_init() }
@@ -4925,18 +5052,6 @@ func file_discord_v1_model_proto_init() {
 			}
 		}
 		file_discord_v1_model_proto_msgTypes[15].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*ImageData); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_discord_v1_model_proto_msgTypes[16].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ChannelData_ChannelPermissionOverwriteData); i {
 			case 0:
 				return &v.state
@@ -4948,7 +5063,7 @@ func file_discord_v1_model_proto_init() {
 				return nil
 			}
 		}
-		file_discord_v1_model_proto_msgTypes[17].Exporter = func(v interface{}, i int) interface{} {
+		file_discord_v1_model_proto_msgTypes[16].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*MessageData_MessageAttachmentData); i {
 			case 0:
 				return &v.state
@@ -4960,7 +5075,7 @@ func file_discord_v1_model_proto_init() {
 				return nil
 			}
 		}
-		file_discord_v1_model_proto_msgTypes[18].Exporter = func(v interface{}, i int) interface{} {
+		file_discord_v1_model_proto_msgTypes[17].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*MessageData_MessageMentionData); i {
 			case 0:
 				return &v.state
@@ -4972,7 +5087,7 @@ func file_discord_v1_model_proto_init() {
 				return nil
 			}
 		}
-		file_discord_v1_model_proto_msgTypes[19].Exporter = func(v interface{}, i int) interface{} {
+		file_discord_v1_model_proto_msgTypes[18].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*MessageData_MessageReactionData); i {
 			case 0:
 				return &v.state
@@ -4984,7 +5099,7 @@ func file_discord_v1_model_proto_init() {
 				return nil
 			}
 		}
-		file_discord_v1_model_proto_msgTypes[20].Exporter = func(v interface{}, i int) interface{} {
+		file_discord_v1_model_proto_msgTypes[19].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*MessageData_MessageReactionEmojiData); i {
 			case 0:
 				return &v.state
@@ -4996,7 +5111,7 @@ func file_discord_v1_model_proto_init() {
 				return nil
 			}
 		}
-		file_discord_v1_model_proto_msgTypes[21].Exporter = func(v interface{}, i int) interface{} {
+		file_discord_v1_model_proto_msgTypes[20].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*MessageData_MessageApplicationData); i {
 			case 0:
 				return &v.state
@@ -5008,7 +5123,7 @@ func file_discord_v1_model_proto_init() {
 				return nil
 			}
 		}
-		file_discord_v1_model_proto_msgTypes[22].Exporter = func(v interface{}, i int) interface{} {
+		file_discord_v1_model_proto_msgTypes[21].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*MessageData_MessageReferenceData); i {
 			case 0:
 				return &v.state
@@ -5020,7 +5135,7 @@ func file_discord_v1_model_proto_init() {
 				return nil
 			}
 		}
-		file_discord_v1_model_proto_msgTypes[23].Exporter = func(v interface{}, i int) interface{} {
+		file_discord_v1_model_proto_msgTypes[22].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*MessageData_MessageActivityData); i {
 			case 0:
 				return &v.state
@@ -5032,7 +5147,7 @@ func file_discord_v1_model_proto_init() {
 				return nil
 			}
 		}
-		file_discord_v1_model_proto_msgTypes[24].Exporter = func(v interface{}, i int) interface{} {
+		file_discord_v1_model_proto_msgTypes[23].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*MessageData_MessageMentionChannelData); i {
 			case 0:
 				return &v.state
@@ -5044,7 +5159,7 @@ func file_discord_v1_model_proto_init() {
 				return nil
 			}
 		}
-		file_discord_v1_model_proto_msgTypes[25].Exporter = func(v interface{}, i int) interface{} {
+		file_discord_v1_model_proto_msgTypes[24].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*MessageData_MessageEmbedData); i {
 			case 0:
 				return &v.state
@@ -5056,7 +5171,7 @@ func file_discord_v1_model_proto_init() {
 				return nil
 			}
 		}
-		file_discord_v1_model_proto_msgTypes[26].Exporter = func(v interface{}, i int) interface{} {
+		file_discord_v1_model_proto_msgTypes[25].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*MessageData_MessageEmbedData_MessageEmbedFooterData); i {
 			case 0:
 				return &v.state
@@ -5068,7 +5183,7 @@ func file_discord_v1_model_proto_init() {
 				return nil
 			}
 		}
-		file_discord_v1_model_proto_msgTypes[27].Exporter = func(v interface{}, i int) interface{} {
+		file_discord_v1_model_proto_msgTypes[26].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*MessageData_MessageEmbedData_MessageEmbedImageData); i {
 			case 0:
 				return &v.state
@@ -5080,7 +5195,7 @@ func file_discord_v1_model_proto_init() {
 				return nil
 			}
 		}
-		file_discord_v1_model_proto_msgTypes[28].Exporter = func(v interface{}, i int) interface{} {
+		file_discord_v1_model_proto_msgTypes[27].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*MessageData_MessageEmbedData_MessageEmbedThumbnailData); i {
 			case 0:
 				return &v.state
@@ -5092,7 +5207,7 @@ func file_discord_v1_model_proto_init() {
 				return nil
 			}
 		}
-		file_discord_v1_model_proto_msgTypes[29].Exporter = func(v interface{}, i int) interface{} {
+		file_discord_v1_model_proto_msgTypes[28].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*MessageData_MessageEmbedData_MessageEmbedVideoData); i {
 			case 0:
 				return &v.state
@@ -5104,7 +5219,7 @@ func file_discord_v1_model_proto_init() {
 				return nil
 			}
 		}
-		file_discord_v1_model_proto_msgTypes[30].Exporter = func(v interface{}, i int) interface{} {
+		file_discord_v1_model_proto_msgTypes[29].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*MessageData_MessageEmbedData_MessageEmbedProviderData); i {
 			case 0:
 				return &v.state
@@ -5116,7 +5231,7 @@ func file_discord_v1_model_proto_init() {
 				return nil
 			}
 		}
-		file_discord_v1_model_proto_msgTypes[31].Exporter = func(v interface{}, i int) interface{} {
+		file_discord_v1_model_proto_msgTypes[30].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*MessageData_MessageEmbedData_MessageEmbedAuthorData); i {
 			case 0:
 				return &v.state
@@ -5128,7 +5243,7 @@ func file_discord_v1_model_proto_init() {
 				return nil
 			}
 		}
-		file_discord_v1_model_proto_msgTypes[32].Exporter = func(v interface{}, i int) interface{} {
+		file_discord_v1_model_proto_msgTypes[31].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*MessageData_MessageEmbedData_MessageEmbedFieldData); i {
 			case 0:
 				return &v.state
@@ -5140,7 +5255,7 @@ func file_discord_v1_model_proto_init() {
 				return nil
 			}
 		}
-		file_discord_v1_model_proto_msgTypes[33].Exporter = func(v interface{}, i int) interface{} {
+		file_discord_v1_model_proto_msgTypes[32].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*PresenceData_PresenceClientStatusData); i {
 			case 0:
 				return &v.state
@@ -5152,7 +5267,7 @@ func file_discord_v1_model_proto_init() {
 				return nil
 			}
 		}
-		file_discord_v1_model_proto_msgTypes[34].Exporter = func(v interface{}, i int) interface{} {
+		file_discord_v1_model_proto_msgTypes[33].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*PresenceData_PresenceActivityData); i {
 			case 0:
 				return &v.state
@@ -5164,7 +5279,7 @@ func file_discord_v1_model_proto_init() {
 				return nil
 			}
 		}
-		file_discord_v1_model_proto_msgTypes[35].Exporter = func(v interface{}, i int) interface{} {
+		file_discord_v1_model_proto_msgTypes[34].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*PresenceData_PresenceActivityData_PresenceActivityTimestampsData); i {
 			case 0:
 				return &v.state
@@ -5176,7 +5291,7 @@ func file_discord_v1_model_proto_init() {
 				return nil
 			}
 		}
-		file_discord_v1_model_proto_msgTypes[36].Exporter = func(v interface{}, i int) interface{} {
+		file_discord_v1_model_proto_msgTypes[35].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*PresenceData_PresenceActivityData_PresenceActivityEmojiData); i {
 			case 0:
 				return &v.state
@@ -5188,7 +5303,7 @@ func file_discord_v1_model_proto_init() {
 				return nil
 			}
 		}
-		file_discord_v1_model_proto_msgTypes[37].Exporter = func(v interface{}, i int) interface{} {
+		file_discord_v1_model_proto_msgTypes[36].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*PresenceData_PresenceActivityData_PresenceActivityPartyData); i {
 			case 0:
 				return &v.state
@@ -5200,7 +5315,7 @@ func file_discord_v1_model_proto_init() {
 				return nil
 			}
 		}
-		file_discord_v1_model_proto_msgTypes[38].Exporter = func(v interface{}, i int) interface{} {
+		file_discord_v1_model_proto_msgTypes[37].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*PresenceData_PresenceActivityData_PresenceActivityAssetsData); i {
 			case 0:
 				return &v.state
@@ -5212,8 +5327,32 @@ func file_discord_v1_model_proto_init() {
 				return nil
 			}
 		}
-		file_discord_v1_model_proto_msgTypes[39].Exporter = func(v interface{}, i int) interface{} {
+		file_discord_v1_model_proto_msgTypes[38].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*PresenceData_PresenceActivityData_PresenceActivitySecretsData); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_discord_v1_model_proto_msgTypes[39].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*InviteData_InviteGuildData); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_discord_v1_model_proto_msgTypes[40].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*InviteData_InviteChannelData); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -5229,17 +5368,13 @@ func file_discord_v1_model_proto_init() {
 		(*PresenceData_User)(nil),
 		(*PresenceData_UserId)(nil),
 	}
-	file_discord_v1_model_proto_msgTypes[15].OneofWrappers = []interface{}{
-		(*ImageData_Base64)(nil),
-		(*ImageData_Bytes)(nil),
-	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_discord_v1_model_proto_rawDesc,
 			NumEnums:      6,
-			NumMessages:   40,
+			NumMessages:   41,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
